@@ -10,6 +10,7 @@
 #define QXDIALOGHEADERBOX_H
 
 #include <QIcon>
+#include <QLabel>
 #include <QWidget>
 
 
@@ -40,11 +41,18 @@ public slots:
 signals:
     void changed();
 
+private slots:
+    void updateLayout();
+
 private:
     QIcon m_icon;
     QString m_title;
     QString m_subTitle;
     QString m_description;
+
+    QLabel* m_labelIcon;
+    QLabel* m_labelTitle;
+    QLabel* m_labelDescription;
 };
 
 #endif // QXDIALOGHEADERBOX_H

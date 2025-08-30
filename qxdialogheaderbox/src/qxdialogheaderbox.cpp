@@ -8,11 +8,34 @@
 
 #include "qxdialogheaderbox.h"
 
+#include <QGridLayout>
+
 
 QxDialogHeaderBox::QxDialogHeaderBox(QWidget* parent)
     : QWidget{parent}
 {
+    m_labelIcon = new QLabel;
+    m_labelIcon->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
+    m_labelTitle = new QLabel;
+    m_labelTitle->setAlignment(Qt::AlignmentFlag::AlignLeading | Qt::AlignmentFlag::AlignBottom);
+    m_labelTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+    m_labelDescription = new QLabel;
+    m_labelDescription->setAlignment(Qt::AlignmentFlag::AlignLeading | Qt::AlignmentFlag::AlignTop);
+    m_labelDescription->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+    connect(this, &QxDialogHeaderBox::changed, this, &QxDialogHeaderBox::updateLayout);
+
+    //
+
+    QGridLayout* layout = new QGridLayout(this);
+    layout->addWidget(m_labelIcon, 0, 0, 2, 1);
+    layout->addWidget(m_labelTitle, 0, 1);
+    layout->addWidget(m_labelDescription, 1, 1);
+    layout->setColumnStretch(1, 1);
+    layout->setHorizontalSpacing(layout->horizontalSpacing() * 2);
+    setLayout(layout);
 }
 
 
@@ -73,4 +96,45 @@ void QxDialogHeaderBox::setDescription(const QString& description)
 
     m_description = description;
     emit changed();
+}
+
+
+void QxDialogHeaderBox::updateLayout()
+{
+    QString title;
+
+    if (!m_title.isEmpty())
+        title.append(tr("<strong style=\"font-size: large;\">%1</strong>").arg(m_title));
+    if (!m_title.isEmpty() && !m_subTitle.isEmpty())
+        title.append(tr(" &nbsp; "));
+    if (!m_subTitle.isEmpty())
+        title.append(m_subTitle);
+
+    if (!title.isEmpty()) {
+        m_labelTitle->setText(title);
+        m_labelTitle->setVisible(true);
+    }
+    else {
+        m_labelTitle->clear();
+        m_labelTitle->setVisible(false);
+    }
+
+    if (!m_description.isEmpty()) {
+        m_labelDescription->setText(m_description);
+        m_labelDescription->setVisible(true);
+    }
+    else {
+        m_labelDescription->clear();
+        m_labelDescription->setVisible(false);
+    }
+
+    if (!m_icon.isNull()) {
+        const int height = layout()->sizeHint().height();
+        m_labelIcon->setPixmap(m_icon.pixmap(height, height));
+        m_labelIcon->setVisible(true);
+    }
+    else {
+        m_labelIcon->clear();
+        m_labelIcon->setVisible(false);
+    }
 }
