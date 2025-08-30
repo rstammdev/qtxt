@@ -14,3 +14,18 @@ QxDialogHeaderBox::QxDialogHeaderBox(QWidget* parent)
 {
 
 }
+
+
+QIcon QxDialogHeaderBox::icon() const
+{
+    return m_icon;
+}
+
+void QxDialogHeaderBox::setIcon(const QIcon& icon)
+{
+    if (icon.cacheKey() == m_icon.cacheKey())
+        return;
+
+    m_icon = icon;
+    emit changed();
+}
