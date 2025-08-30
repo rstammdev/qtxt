@@ -29,3 +29,18 @@ void QxDialogHeaderBox::setIcon(const QIcon& icon)
     m_icon = icon;
     emit changed();
 }
+
+
+QString QxDialogHeaderBox::title() const
+{
+    return m_title;
+}
+
+void QxDialogHeaderBox::setTitle(const QString& title)
+{
+    if (title == m_title)
+        return;
+
+    m_title = title;
+    emit changed();
+}
