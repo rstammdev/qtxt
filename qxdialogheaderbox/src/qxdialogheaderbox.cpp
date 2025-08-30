@@ -59,3 +59,18 @@ void QxDialogHeaderBox::setSubTitle(const QString& subTitle)
     m_subTitle = subTitle;
     emit changed();
 }
+
+
+QString QxDialogHeaderBox::description() const
+{
+    return m_description;
+}
+
+void QxDialogHeaderBox::setDescription(const QString& description)
+{
+    if (description == m_description)
+        return;
+
+    m_description = description;
+    emit changed();
+}
