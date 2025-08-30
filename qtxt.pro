@@ -12,3 +12,5 @@ TARGET = libqtxt
 !versionAtLeast(QT_VERSION, 6.5): error("Requires at least Qt 6.5")
 
 QT += widgets
+
+include(qxdialogheaderbox/qxdialogheaderbox.pri)
