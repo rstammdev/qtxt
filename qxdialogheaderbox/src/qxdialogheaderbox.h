@@ -11,6 +11,7 @@
 
 #include <QIcon>
 #include <QLabel>
+#include <QResizeEvent>
 #include <QWidget>
 
 
@@ -40,6 +41,9 @@ public slots:
 
 signals:
     void changed();
+
+protected:
+    void resizeEvent(QResizeEvent* event) override;
 
 private slots:
     void updateLayout();

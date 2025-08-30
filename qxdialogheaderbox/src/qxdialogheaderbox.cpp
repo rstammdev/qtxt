@@ -8,6 +8,7 @@
 
 #include "qxdialogheaderbox.h"
 
+#include <QFontMetrics>
 #include <QGridLayout>
 
 
@@ -96,6 +97,15 @@ void QxDialogHeaderBox::setDescription(const QString& description)
 
     m_description = description;
     emit changed();
+}
+
+
+void QxDialogHeaderBox::resizeEvent(QResizeEvent* event)
+{
+    QWidget::resizeEvent(event);
+
+    QFontMetrics fm(m_labelDescription->font());
+    m_labelDescription->setText(fm.elidedText(m_description, Qt::ElideMiddle, m_labelDescription->width()));
 }
 
 
