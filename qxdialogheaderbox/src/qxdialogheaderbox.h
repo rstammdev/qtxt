@@ -19,6 +19,7 @@ class QxDialogHeaderBox : public QWidget
 
     Q_PROPERTY(QIcon icon READ icon WRITE setIcon NOTIFY changed)
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY changed)
+    Q_PROPERTY(QString subTitle READ subTitle WRITE setSubTitle NOTIFY changed)
 
 public:
     explicit QxDialogHeaderBox(QWidget* parent = nullptr);
@@ -26,10 +27,12 @@ public:
 
     [[nodiscard]] QIcon icon() const;
     [[nodiscard]] QString title() const;
+    [[nodiscard]] QString subTitle() const;
 
 public slots:
     void setIcon(const QIcon& icon);
     void setTitle(const QString& title);
+    void setSubTitle(const QString& subTitle);
 
 signals:
     void changed();
@@ -37,6 +40,7 @@ signals:
 private:
     QIcon m_icon;
     QString m_title;
+    QString m_subTitle;
 };
 
 #endif // QXDIALOGHEADERBOX_H
