@@ -6,4 +6,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-include(qxdialogheaderbox/qxdialogheaderbox.pri)
+INCLUDEPATH += \
+    $$PWD/src
+
+HEADERS += \
+    $$PWD/src/qxdialogheaderbox.h
+
+SOURCES += \
+    $$PWD/src/qxdialogheaderbox.cpp
