@@ -6,6 +6,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
+QT += widgets
+
 INCLUDEPATH += \
     $$PWD/src
 
