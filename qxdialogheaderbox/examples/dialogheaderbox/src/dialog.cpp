@@ -8,6 +8,7 @@
 
 #include "dialog.h"
 
+#include <QDialogButtonBox>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -16,9 +17,17 @@ using namespace Qt::Literals::StringLiterals;
 Dialog::Dialog(QWidget* parent)
     : QDialog{parent}
 {
+    // Button
+
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &Dialog::close);
+
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
+    layout->addStretch();
+    layout->addWidget(buttonBox);
     setLayout(layout);
 
     setWindowTitle("Example of QxDialogHeaderBox"_L1);
