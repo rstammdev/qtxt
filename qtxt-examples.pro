@@ -9,3 +9,6 @@
 TEMPLATE = subdirs
 
 CONFIG += ordered
+
+SUBDIRS += \
+    qxdialogheaderbox/examples/dialogheaderbox
