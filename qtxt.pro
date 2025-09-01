@@ -13,4 +13,5 @@ TARGET = libqtxt
 
 QT += widgets
 
+include(qxconfirmationbox/qxconfirmationbox.pri)
 include(qxdialogheaderbox/qxdialogheaderbox.pri)

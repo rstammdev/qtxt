@@ -6,5 +6,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-include(qxconfirmationbox/qxconfirmationbox.pri)
-include(qxdialogheaderbox/qxdialogheaderbox.pri)
+QT += widgets
+
+INCLUDEPATH += \
+    $$PWD/src
+
+HEADERS += \
+    $$PWD/src/qxconfirmationbox.h
+
+SOURCES += \
+    $$PWD/src/qxconfirmationbox.cpp
