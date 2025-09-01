@@ -15,6 +15,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 
+QMessageBox::StandardButton QxConfirmationBox::continueCancelInformation(QWidget* parent, const QString& title, const QString& text, const QString& informativeText, const QString& key)
+{
+    return continueCancel(parent, QMessageBox::Information, title, text, informativeText, key);
+}
+
 QMessageBox::StandardButton QxConfirmationBox::continueCancel(QWidget* parent, const Icon icon, const QString& title, const QString& text, const QString& informativeText, const QString& key)
 {
     QxConfirmationBox messageBox(key, parent);
