@@ -12,6 +12,8 @@
 #include <QPushButton>
 #include <QSettings>
 
+using namespace Qt::Literals::StringLiterals;
+
 
 QMessageBox::StandardButton QxConfirmationBox::continueCancel(QWidget* parent, const Icon icon, const QString& title, const QString& text, const QString& informativeText, const QString& key)
 {
@@ -38,6 +40,7 @@ QxConfirmationBox::QxConfirmationBox(const QString& key, QWidget* parent)
     if (!m_confirmationKey.isEmpty())
         setCheckBox(new QCheckBox(tr("Do not show this message again")));
 
+    setStyleSheet("QDialogButtonBox{min-width: 500px;}"_L1);
 }
 
 
