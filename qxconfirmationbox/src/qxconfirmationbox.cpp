@@ -25,6 +25,11 @@ QMessageBox::StandardButton QxConfirmationBox::continueCancelWarning(QWidget* pa
     return continueCancel(parent, QMessageBox::Warning, title, text, informativeText, key);
 }
 
+QMessageBox::StandardButton QxConfirmationBox::continueCancelCritical(QWidget* parent, const QString& title, const QString& text, const QString& informativeText, const QString& key)
+{
+    return continueCancel(parent, QMessageBox::Critical, title, text, informativeText, key);
+}
+
 QMessageBox::StandardButton QxConfirmationBox::continueCancel(QWidget* parent, const Icon icon, const QString& title, const QString& text, const QString& informativeText, const QString& key)
 {
     QxConfirmationBox messageBox(key, parent);
