@@ -8,7 +8,9 @@
 
 #include "qxconfirmationbox.h"
 
+#include <QCheckBox>
 #include <QPushButton>
+#include <QSettings>
 
 
 QMessageBox::StandardButton QxConfirmationBox::continueCancel(QWidget* parent, const Icon icon, const QString& title, const QString& text, const QString& informativeText, const QString& key)
@@ -33,13 +35,23 @@ QxConfirmationBox::QxConfirmationBox(const QString& key, QWidget* parent)
     : QMessageBox{parent}
     , m_confirmationKey{key}
 {
+    if (!m_confirmationKey.isEmpty())
+        setCheckBox(new QCheckBox(tr("Do not show this message again")));
 
 }
 
 
 QMessageBox::StandardButton QxConfirmationBox::execute()
 {
+    QSettings settings;
+
+    if (!m_confirmationKey.isEmpty() && !settings.value(m_confirmationKey, true).toBool())
+        return standardButton(defaultButton());
+
     exec();
+
+    if (!m_confirmationKey.isEmpty())
+        settings.setValue(m_confirmationKey, !checkBox()->isChecked());
 
     return standardButton(clickedButton());
 }
