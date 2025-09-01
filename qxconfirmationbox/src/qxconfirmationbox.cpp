@@ -9,6 +9,13 @@
 #include "qxconfirmationbox.h"
 
 
+QMessageBox::StandardButton QxConfirmationBox::continueCancel(QWidget* parent, const Icon icon, const QString& title, const QString& text, const QString& informativeText, const QString& key)
+{
+
+    return QMessageBox::NoButton;
+}
+
+
 QxConfirmationBox::QxConfirmationBox(const QString& key, QWidget* parent)
     : QMessageBox{parent}
     , m_confirmationKey{key}

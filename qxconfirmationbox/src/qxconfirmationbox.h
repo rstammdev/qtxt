@@ -17,6 +17,8 @@ class QxConfirmationBox : public QMessageBox
     Q_OBJECT
 
 public:
+    static StandardButton continueCancel(QWidget* parent, const Icon icon, const QString& title, const QString& text, const QString& informativeText = QString(), const QString& key = QString());
+
     explicit QxConfirmationBox(const QString& key, QWidget* parent = nullptr);
     ~QxConfirmationBox() = default;
 
