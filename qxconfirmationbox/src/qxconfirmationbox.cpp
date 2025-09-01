@@ -8,6 +8,8 @@
 
 #include "qxconfirmationbox.h"
 
+#include <QPushButton>
+
 
 QMessageBox::StandardButton QxConfirmationBox::continueCancel(QWidget* parent, const Icon icon, const QString& title, const QString& text, const QString& informativeText, const QString& key)
 {
@@ -17,6 +19,11 @@ QMessageBox::StandardButton QxConfirmationBox::continueCancel(QWidget* parent, c
     messageBox.setText(text);
     messageBox.setInformativeText(informativeText);
     messageBox.addButton(QMessageBox::Cancel);
+
+    QPushButton* buttonContinue = messageBox.addButton(QMessageBox::Ok);
+    buttonContinue->setText(tr("C&ontinue"));
+    buttonContinue->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::GoNext));
+    messageBox.setDefaultButton(buttonContinue);
 
     return QMessageBox::NoButton;
 }
