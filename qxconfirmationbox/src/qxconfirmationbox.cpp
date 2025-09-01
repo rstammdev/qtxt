@@ -11,6 +11,12 @@
 
 QMessageBox::StandardButton QxConfirmationBox::continueCancel(QWidget* parent, const Icon icon, const QString& title, const QString& text, const QString& informativeText, const QString& key)
 {
+    QxConfirmationBox messageBox(key, parent);
+    messageBox.setIcon(icon);
+    messageBox.setWindowTitle(title);
+    messageBox.setText(text);
+    messageBox.setInformativeText(informativeText);
+    messageBox.addButton(QMessageBox::Cancel);
 
     return QMessageBox::NoButton;
 }
