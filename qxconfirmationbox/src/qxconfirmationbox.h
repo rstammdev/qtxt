@@ -18,6 +18,7 @@ class QxConfirmationBox : public QMessageBox
 
 public:
     static StandardButton continueCancelInformation(QWidget* parent, const QString& title, const QString& text, const QString& informativeText = QString(), const QString& key = QString());
+    static StandardButton continueCancelWarning(QWidget* parent, const QString& title, const QString& text, const QString& informativeText = QString(), const QString& key = QString());
     static StandardButton continueCancel(QWidget* parent, const Icon icon, const QString& title, const QString& text, const QString& informativeText = QString(), const QString& key = QString());
 
 private:
