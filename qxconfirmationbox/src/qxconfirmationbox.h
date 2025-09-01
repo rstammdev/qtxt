@@ -17,8 +17,11 @@ class QxConfirmationBox : public QMessageBox
     Q_OBJECT
 
 public:
-    explicit QxConfirmationBox(QWidget* parent = nullptr);
+    explicit QxConfirmationBox(const QString& key, QWidget* parent = nullptr);
     ~QxConfirmationBox() = default;
+
+private:
+    QString m_confirmationKey;
 };
 
 #endif // QXCONFIRMATIONBOX_H

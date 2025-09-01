@@ -9,8 +9,9 @@
 #include "qxconfirmationbox.h"
 
 
-QxConfirmationBox::QxConfirmationBox(QWidget* parent)
+QxConfirmationBox::QxConfirmationBox(const QString& key, QWidget* parent)
     : QMessageBox{parent}
+    , m_confirmationKey{key}
 {
 
 }
