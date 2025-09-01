@@ -25,7 +25,7 @@ QMessageBox::StandardButton QxConfirmationBox::continueCancel(QWidget* parent, c
     buttonContinue->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::GoNext));
     messageBox.setDefaultButton(buttonContinue);
 
-    return QMessageBox::NoButton;
+    return messageBox.execute();
 }
 
 
@@ -34,4 +34,12 @@ QxConfirmationBox::QxConfirmationBox(const QString& key, QWidget* parent)
     , m_confirmationKey{key}
 {
 
+}
+
+
+QMessageBox::StandardButton QxConfirmationBox::execute()
+{
+    exec();
+
+    return standardButton(clickedButton());
 }

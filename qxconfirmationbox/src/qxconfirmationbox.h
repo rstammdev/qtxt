@@ -24,6 +24,8 @@ public:
 
 private:
     QString m_confirmationKey;
+
+    StandardButton execute();
 };
 
 #endif // QXCONFIRMATIONBOX_H
