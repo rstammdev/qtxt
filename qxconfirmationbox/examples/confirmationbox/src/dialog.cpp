@@ -59,3 +59,25 @@ void Dialog::showConfirmationBoxCritical()
 {
 
 }
+
+
+void Dialog::showResultBox(QMessageBox::StandardButton clicked)
+{
+    QString text;
+
+    if (clicked == QMessageBox::Ok)
+        text = "QMessageBox::Ok"_L1;
+    else if (clicked == QMessageBox::Cancel)
+        text = "QMessageBox::Cancel"_L1;
+    else if (clicked == QMessageBox::NoButton)
+        text = "QMessageBox::NoButton"_L1;
+    else
+        text = "Unknown"_L1;
+
+    QMessageBox messageBox;
+    messageBox.setWindowTitle("Result"_L1);
+    messageBox.setText(QString("Standard button <strong>%1</strong> returned").arg(text));
+    messageBox.setStandardButtons(QMessageBox::Ok);
+    messageBox.setDefaultButton(QMessageBox::Ok);
+    messageBox.exec();
+}

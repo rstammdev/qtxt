@@ -10,6 +10,7 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include <QMessageBox>
 
 
 class Dialog : public QDialog
@@ -23,6 +24,9 @@ public:
 private slots:
     void showConfirmationBoxWarning();
     void showConfirmationBoxCritical();
+
+private:
+    void showResultBox(QMessageBox::StandardButton clicked);
 };
 
 #endif // DIALOG_H
