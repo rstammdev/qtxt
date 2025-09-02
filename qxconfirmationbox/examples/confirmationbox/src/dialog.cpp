@@ -68,7 +68,11 @@ void Dialog::showConfirmationBoxWarning()
 
 void Dialog::showConfirmationBoxCritical()
 {
+    QMessageBox::StandardButton clicked = QxConfirmationBox::continueCancelCritical(this,
+        "Example of QxConfirmationBox"_L1,
+        "QxConfirmationBox::continueCancelCritical <strong>without</strong> informative text and key.<br>Are you sure you want to continue?"_L1);
 
+    showResultBox(clicked);
 }
 
 
