@@ -32,19 +32,20 @@ QMessageBox::StandardButton QxConfirmationBox::continueCancelCritical(QWidget* p
 
 QMessageBox::StandardButton QxConfirmationBox::continueCancel(QWidget* parent, const Icon icon, const QString& title, const QString& text, const QString& informativeText, const QString& key)
 {
-    QxConfirmationBox messageBox(key, parent);
-    messageBox.setIcon(icon);
-    messageBox.setWindowTitle(title);
-    messageBox.setText(text);
-    messageBox.setInformativeText(informativeText);
-    messageBox.addButton(QMessageBox::Cancel);
+    QxConfirmationBox confirmationBox(key, parent);
+    confirmationBox.setIcon(icon);
+    confirmationBox.setWindowTitle(title);
+    confirmationBox.setText(text);
+    confirmationBox.setInformativeText(informativeText);
+    confirmationBox.addButton(QMessageBox::Cancel);
 
-    QPushButton* buttonContinue = messageBox.addButton(QMessageBox::Ok);
+    QPushButton* buttonContinue = confirmationBox.addButton(QMessageBox::Ok);
     buttonContinue->setText(tr("C&ontinue"));
     buttonContinue->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::GoNext));
-    messageBox.setDefaultButton(buttonContinue);
 
-    return messageBox.execute();
+    confirmationBox.setDefaultButton(buttonContinue);
+
+    return confirmationBox.execute();
 }
 
 
