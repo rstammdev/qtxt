@@ -14,6 +14,8 @@
 #include <QSettings>
 #include <QVBoxLayout>
 
+#include <qxconfirmationbox.h>
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -54,7 +56,13 @@ Dialog::Dialog(QWidget* parent)
 
 void Dialog::showConfirmationBoxWarning()
 {
+    QMessageBox::StandardButton clicked = QxConfirmationBox::continueCancelWarning(this,
+        "Example of QxConfirmationBox"_L1,
+        "QxConfirmationBox::continueCancelWarning <strong>with</strong> informative text and key."_L1,
+        "Are you sure you want to continue?"_L1,
+        "Confirmations/Warning"_L1);
 
+    showResultBox(clicked);
 }
 
 
