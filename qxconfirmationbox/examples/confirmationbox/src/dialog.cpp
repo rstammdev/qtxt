@@ -11,6 +11,7 @@
 #include <QDialogButtonBox>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QSettings>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -29,10 +30,12 @@ Dialog::Dialog(QWidget* parent)
     connect(buttonWarning, &QPushButton::clicked, this, &Dialog::showConfirmationBoxWarning);
     connect(buttonCritical, &QPushButton::clicked, this, &Dialog::showConfirmationBoxCritical);
 
-    // Button
+    // Buttons
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    QPushButton* buttonReset = buttonBox->addButton(QDialogButtonBox::Reset);
 
+    connect(buttonReset, &QPushButton::clicked, this, &Dialog::resetSettings);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &Dialog::close);
 
     //
@@ -80,4 +83,12 @@ void Dialog::showResultBox(QMessageBox::StandardButton clicked)
     messageBox.setStandardButtons(QMessageBox::Ok);
     messageBox.setDefaultButton(QMessageBox::Ok);
     messageBox.exec();
+}
+
+
+void Dialog::resetSettings()
+{
+    QSettings settings;
+
+    settings.clear();
 }

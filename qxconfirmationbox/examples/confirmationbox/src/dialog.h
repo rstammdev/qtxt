@@ -25,6 +25,8 @@ private slots:
     void showConfirmationBoxWarning();
     void showConfirmationBoxCritical();
 
+    void resetSettings();
+
 private:
     void showResultBox(QMessageBox::StandardButton clicked);
 };
