@@ -11,4 +11,5 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 SUBDIRS += \
+    qxconfirmationbox/examples/confirmationbox \
     qxdialogheaderbox/examples/dialogheaderbox
