@@ -22,6 +22,7 @@ public:
 
 private slots:
     void showConfirmationBoxWarning();
+    void showConfirmationBoxCritical();
 };
 
 #endif // DIALOG_H

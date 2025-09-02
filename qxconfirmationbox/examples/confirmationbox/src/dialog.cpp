@@ -20,11 +20,14 @@ Dialog::Dialog(QWidget* parent)
     : QDialog{parent}
 {
     QPushButton* buttonWarning = new QPushButton("Warning"_L1);
+    QPushButton* buttonCritical = new QPushButton("Critical"_L1);
 
     QHBoxLayout* layoutButtons = new QHBoxLayout;
     layoutButtons->addWidget(buttonWarning);
+    layoutButtons->addWidget(buttonCritical);
 
     connect(buttonWarning, &QPushButton::clicked, this, &Dialog::showConfirmationBoxWarning);
+    connect(buttonCritical, &QPushButton::clicked, this, &Dialog::showConfirmationBoxCritical);
 
     // Button
 
@@ -47,6 +50,12 @@ Dialog::Dialog(QWidget* parent)
 
 
 void Dialog::showConfirmationBoxWarning()
+{
+
+}
+
+
+void Dialog::showConfirmationBoxCritical()
 {
 
 }
