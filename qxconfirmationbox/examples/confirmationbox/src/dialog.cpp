@@ -8,9 +8,13 @@
 
 #include "dialog.h"
 
+using namespace Qt::Literals::StringLiterals;
+
 
 Dialog::Dialog(QWidget* parent)
     : QDialog{parent}
 {
 
+    setWindowTitle("Example of QxConfirmationBox"_L1);
+    setMinimumSize(320, 240);
 }
