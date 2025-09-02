@@ -19,7 +19,7 @@ QtXt is a modular Qt 6 framework providing reusable widgets and built-in example
   A modal dialog for asking the user a question and receiving an answer.
 
 - [**QxDialogHeaderBox**](qxdialogheaderbox/README.md)  
-  A dialog header with an icon, title, subtitle, and description.
+  A widget that presents an icon, title, subtitle, and description.
 
 Copyright &copy; 2025 [Ralf Stamm](https://rstammdev.github.io "Visit organization's homepage").
 

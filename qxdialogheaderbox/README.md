@@ -6,4 +6,4 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 # QxDialogHeaderBox
 
-A reusable Qt6 widget for creating **dialog headers** with an icon, title, subtitle, and description.
+A widget that presents an icon, title, subtitle, and description in a layout that is appropriate to the current widget style.
