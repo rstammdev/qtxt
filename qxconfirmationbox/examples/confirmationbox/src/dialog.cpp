@@ -9,6 +9,8 @@
 #include "dialog.h"
 
 #include <QDialogButtonBox>
+#include <QHBoxLayout>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -17,6 +19,12 @@ using namespace Qt::Literals::StringLiterals;
 Dialog::Dialog(QWidget* parent)
     : QDialog{parent}
 {
+    QPushButton* buttonWarning = new QPushButton("Warning"_L1);
+
+    QHBoxLayout* layoutButtons = new QHBoxLayout;
+    layoutButtons->addWidget(buttonWarning);
+
+    connect(buttonWarning, &QPushButton::clicked, this, &Dialog::showConfirmationBoxWarning);
 
     // Button
 
@@ -28,9 +36,17 @@ Dialog::Dialog(QWidget* parent)
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->addStretch();
+    layout->addLayout(layoutButtons);
+    layout->addStretch();
     layout->addWidget(buttonBox);
     setLayout(layout);
 
     setWindowTitle("Example of QxConfirmationBox"_L1);
     setMinimumSize(320, 240);
+}
+
+
+void Dialog::showConfirmationBoxWarning()
+{
+
 }

@@ -19,6 +19,9 @@ class Dialog : public QDialog
 public:
     explicit Dialog(QWidget* parent = nullptr);
     ~Dialog() = default;
+
+private slots:
+    void showConfirmationBoxWarning();
 };
 
 #endif // DIALOG_H
