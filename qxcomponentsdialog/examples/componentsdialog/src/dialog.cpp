@@ -10,6 +10,7 @@
 
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QScrollArea>
 #include <QTabWidget>
 #include <QVBoxLayout>
 
@@ -25,8 +26,11 @@ Dialog::Dialog(QWidget* parent)
 
     m_textEdit = new QPlainTextEdit;
 
+    QScrollArea* placeholders = new QScrollArea;
+
     QTabWidget* tabBox = new QTabWidget;
     tabBox->addTab(m_textEdit, "Editor"_L1);
+    tabBox->addTab(placeholders, "Placeholders"_L1);
 
     // Button
 
