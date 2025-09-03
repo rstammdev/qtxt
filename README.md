@@ -15,6 +15,9 @@ QtXt is a modular Qt 6 framework providing reusable widgets and built-in example
 
 ### Widgets
 
+- [**QxComponentsDialog**](qxcomponentsdialog/README.md)  
+  A dialog that displays application and system information.
+
 - [**QxConfirmationBox**](qxconfirmationbox/README.md)  
   A modal dialog for asking the user a question and receiving an answer.
 
