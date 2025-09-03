@@ -10,6 +10,7 @@
 #define QXCOMPONENTSDIALOG_H
 
 #include <QDialog>
+#include <QPlainTextEdit>
 
 
 class QxComponentsDialog : public QDialog
@@ -19,6 +20,9 @@ class QxComponentsDialog : public QDialog
 public:
     explicit QxComponentsDialog(QWidget* parent = nullptr);
     ~QxComponentsDialog() = default;
+
+private:
+    QPlainTextEdit* m_textBox;
 };
 
 #endif // QXCOMPONENTSDIALOG_H

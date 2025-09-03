@@ -15,6 +15,11 @@
 QxComponentsDialog::QxComponentsDialog(QWidget* parent)
     : QDialog{parent}
 {
+    // Text
+
+    m_textBox = new QPlainTextEdit;
+    m_textBox->setFocusPolicy(Qt::NoFocus);
+    m_textBox->setReadOnly(true);
 
     // Button
 
@@ -26,7 +31,7 @@ QxComponentsDialog::QxComponentsDialog(QWidget* parent)
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
-    layout->addStretch();
+    layout->addWidget(m_textBox);
     layout->addWidget(buttonBox);
     setLayout(layout);
 
