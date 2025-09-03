@@ -10,6 +10,7 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include <QPlainTextEdit>
 
 
 class Dialog : public QDialog
@@ -22,6 +23,9 @@ public:
 
 private slots:
     void showComponentsDialog();
+
+private:
+    QPlainTextEdit* m_textEdit;
 };
 
 #endif // DIALOG_H

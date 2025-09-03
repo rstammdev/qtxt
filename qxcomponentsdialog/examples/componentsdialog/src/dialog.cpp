@@ -10,6 +10,7 @@
 
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QTabWidget>
 #include <QVBoxLayout>
 
 #include <qxcomponentsdialog.h>
@@ -20,6 +21,12 @@ using namespace Qt::Literals::StringLiterals;
 Dialog::Dialog(QWidget* parent)
     : QDialog{parent}
 {
+    // Editor
+
+    m_textEdit = new QPlainTextEdit;
+
+    QTabWidget* tabBox = new QTabWidget;
+    tabBox->addTab(m_textEdit, "Editor"_L1);
 
     // Button
 
@@ -35,7 +42,7 @@ Dialog::Dialog(QWidget* parent)
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
-    layout->addStretch();
+    layout->addWidget(tabBox);
     layout->addWidget(buttonBox);
     setLayout(layout);
 
