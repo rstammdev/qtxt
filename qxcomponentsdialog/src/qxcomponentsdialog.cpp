@@ -14,6 +14,8 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
+
 
 QxComponentsDialog::QxComponentsDialog(QWidget* parent)
     : QDialog{parent}
@@ -45,6 +47,30 @@ QxComponentsDialog::QxComponentsDialog(QWidget* parent)
 
     setWindowTitle(tr("Components"));
     setMinimumSize(640, 240);
+}
+
+
+QMap<QString, QString> QxComponentsDialog::placeholders()
+{
+    return {
+        { "%APPLICATION_NAME%"_L1, tr("The name of this application.") },
+        { "%APPLICATION_VERSION%"_L1, tr("The version number of this application.") },
+        { "%QT_VERSION%"_L1, tr("The version number of Qt at run-time.") },
+        { "%QT_BUILD_VERSION%"_L1, tr("The version number of Qt against which the application is compiled.") },
+        { "%OS_PRODUCT_NAME%"_L1, tr("A prettier form of the product name and version number of the operating system this application is running in.") },
+        { "%OS_PRODUCT_TYPE%"_L1, tr("The product name of the operating system this application is running in.") },
+        { "%OS_PRODUCT_VERSION%"_L1, tr("The product version of the operating system this application is running in.") },
+        { "%OS_PLATFORM%"_L1, tr("The name of the underlying platform plugin.") },
+        { "%OS_PLATFORM_NAME%"_L1, tr("A prettier form of the name of the underlying platform plugin.") },
+        { "%OS_ARCHITECTURE%"_L1, tr("The architecture of the CPU that the application is running on.") },
+        { "%OS_BUILD_ARCHITECTURE%"_L1, tr("The architecture of the CPU that Qt was compiled for.") },
+        { "%OS_BUILD_ARCHITECTURE_FULL%"_L1, tr("The full architecture string that Qt was compiled for.") },
+        { "%OS_KERNEL_TYPE%"_L1, tr("The type of the operating system kernel Qt was compiled for. It's also the kernel the application is running on.") },
+        { "%OS_KERNEL_VERSION%"_L1, tr("The release version of the operating system kernel.") },
+        { "%SYSTEM_DATE%"_L1, tr("The system clock's current date.") },
+        { "%SYSTEM_TIME%"_L1, tr("The current time as reported by the system clock.") },
+        { "%SYSTEM_DATE_TIME_UTC%"_L1, tr("The system clock's current datetime, expressed in terms of UTC.") }
+    };
 }
 
 

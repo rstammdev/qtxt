@@ -21,6 +21,8 @@ public:
     explicit QxComponentsDialog(QWidget* parent = nullptr);
     ~QxComponentsDialog() = default;
 
+    static QMap<QString, QString> placeholders();
+
 private slots:
     void copyToClipboard();
 
