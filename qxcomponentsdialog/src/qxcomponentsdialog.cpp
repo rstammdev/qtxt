@@ -8,10 +8,27 @@
 
 #include "qxcomponentsdialog.h"
 
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
 
 QxComponentsDialog::QxComponentsDialog(QWidget* parent)
     : QDialog{parent}
 {
+
+    // Button
+
+    QDialogButtonBox* buttonBox = new QDialogButtonBox;
+    buttonBox->addButton(QDialogButtonBox::Close);
+
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QxComponentsDialog::close);
+
+    //
+
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->addStretch();
+    layout->addWidget(buttonBox);
+    setLayout(layout);
 
     setWindowTitle(tr("Components"));
     setMinimumSize(640, 240);
