@@ -11,6 +11,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 
@@ -20,9 +21,13 @@ Dialog::Dialog(QWidget* parent)
 
     // Button
 
+    QPushButton* buttonComponentsDialog = new QPushButton("Components Dialog"_L1);
+
     QDialogButtonBox* buttonBox = new QDialogButtonBox;
+    buttonBox->addButton(buttonComponentsDialog, QDialogButtonBox::ActionRole);
     buttonBox->addButton(QDialogButtonBox::Close);
 
+    connect(buttonComponentsDialog, &QPushButton::clicked, this, &Dialog::showComponentsDialog);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &Dialog::close);
 
     //
@@ -34,4 +39,10 @@ Dialog::Dialog(QWidget* parent)
 
     setWindowTitle("Example of QxComponentsDialog"_L1);
     setMinimumSize(320, 240);
+}
+
+
+void Dialog::showComponentsDialog()
+{
+
 }

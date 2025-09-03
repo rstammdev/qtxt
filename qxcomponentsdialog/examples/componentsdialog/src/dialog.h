@@ -19,6 +19,9 @@ class Dialog : public QDialog
 public:
     explicit Dialog(QWidget* parent = nullptr);
     ~Dialog() = default;
+
+private slots:
+    void showComponentsDialog();
 };
 
 #endif // DIALOG_H
