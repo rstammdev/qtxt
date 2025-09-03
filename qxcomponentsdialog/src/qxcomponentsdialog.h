@@ -21,6 +21,9 @@ public:
     explicit QxComponentsDialog(QWidget* parent = nullptr);
     ~QxComponentsDialog() = default;
 
+private slots:
+    void copyToClipboard();
+
 private:
     QPlainTextEdit* m_textBox;
 };

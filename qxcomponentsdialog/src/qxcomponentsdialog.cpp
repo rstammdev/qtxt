@@ -8,7 +8,10 @@
 
 #include "qxcomponentsdialog.h"
 
+#include <QApplication>
+#include <QClipboard>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 
@@ -21,11 +24,16 @@ QxComponentsDialog::QxComponentsDialog(QWidget* parent)
     m_textBox->setFocusPolicy(Qt::NoFocus);
     m_textBox->setReadOnly(true);
 
-    // Button
+    // Buttons
+
+    QPushButton* buttonCopyToClipboard = new QPushButton(tr("Copy to Clipboard"));
+    buttonCopyToClipboard->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::EditCopy));
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox;
+    buttonBox->addButton(buttonCopyToClipboard, QDialogButtonBox::ActionRole);
     buttonBox->addButton(QDialogButtonBox::Close);
 
+    connect(buttonCopyToClipboard, &QPushButton::clicked, this, &QxComponentsDialog::copyToClipboard);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QxComponentsDialog::close);
 
     //
@@ -37,4 +45,11 @@ QxComponentsDialog::QxComponentsDialog(QWidget* parent)
 
     setWindowTitle(tr("Components"));
     setMinimumSize(640, 240);
+}
+
+
+void QxComponentsDialog::copyToClipboard()
+{
+    if (!m_textBox->toPlainText().isEmpty())
+        QApplication::clipboard()->setText(m_textBox->toPlainText());
 }
