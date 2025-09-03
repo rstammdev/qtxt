@@ -8,11 +8,13 @@
 
 #include "dialog.h"
 
-using namespace Qt::Literals::StringLiterals;
-
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+#include <qxcomponentsdialog.h>
+
+using namespace Qt::Literals::StringLiterals;
 
 
 Dialog::Dialog(QWidget* parent)
@@ -44,5 +46,6 @@ Dialog::Dialog(QWidget* parent)
 
 void Dialog::showComponentsDialog()
 {
-
+    QxComponentsDialog dialog(this);
+    dialog.exec();
 }
