@@ -13,4 +13,6 @@ QxComponentsDialog::QxComponentsDialog(QWidget* parent)
     : QDialog{parent}
 {
 
+    setWindowTitle(tr("Components"));
+    setMinimumSize(640, 240);
 }
