@@ -26,6 +26,7 @@ Dialog::Dialog(QWidget* parent)
     // Editor
 
     m_textEditor = new QPlainTextEdit;
+    m_textEditor->setPlainText(QxComponentsDialog::defaultTemplate());
 
     QString textPlaceholders = "<dl>\n"_L1;
     for (const QStringList& placeholder : QxComponentsDialog::placeholders())
@@ -81,5 +82,6 @@ Dialog::Dialog(QWidget* parent)
 void Dialog::showComponentsDialog()
 {
     QxComponentsDialog dialog(this);
+    dialog.setText(m_textEditor->toPlainText());
     dialog.exec();
 }
