@@ -9,6 +9,7 @@
 #include "dialog.h"
 
 #include <QDialogButtonBox>
+#include <QLabel>
 #include <QPushButton>
 #include <QScrollArea>
 #include <QTabWidget>
@@ -26,7 +27,29 @@ Dialog::Dialog(QWidget* parent)
 
     m_textEditor = new QPlainTextEdit;
 
-    QScrollArea* areaPlaceholders = new QScrollArea;
+    QString textPlaceholders = "<dl>\n"_L1;
+    for (const QStringList& placeholder : QxComponentsDialog::placeholders())
+        textPlaceholders += "<dt><strong>%1</strong></dt><dd>%2</dd>\n"_L1.arg(placeholder[0], placeholder[1]);
+    textPlaceholders += "</dl>"_L1;
+
+    QLabel* labelPlaceholders = new QLabel;
+    labelPlaceholders->setText(textPlaceholders);
+    labelPlaceholders->setTextFormat(Qt::RichText);
+    labelPlaceholders->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    labelPlaceholders->setWordWrap(true);
+    labelPlaceholders->setFrameShape(QFrame::StyledPanel);
+
+    QVBoxLayout* layoutPlaceholders = new QVBoxLayout;
+    layoutPlaceholders->addWidget(labelPlaceholders);
+    layoutPlaceholders->addStretch();
+
+    QWidget* widgetPlaceholders = new QWidget(parent);
+    widgetPlaceholders->setLayout(layoutPlaceholders);
+
+    QScrollArea* areaPlaceholders = new QScrollArea(this);
+    areaPlaceholders->setWidget(widgetPlaceholders);
+    areaPlaceholders->setWidgetResizable(true);
+    areaPlaceholders->setFrameShape(QFrame::NoFrame);
 
     QTabWidget* tabBox = new QTabWidget;
     tabBox->addTab(m_textEditor, "Editor"_L1);
