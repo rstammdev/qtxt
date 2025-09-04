@@ -28,6 +28,9 @@ public:
 
     static const QString defaultTemplate();
 
+public slots:
+    void setText(const QString& text);
+
 private slots:
     void copyToClipboard();
 

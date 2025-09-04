@@ -51,6 +51,8 @@ QxComponentsDialog::QxComponentsDialog(QWidget* parent)
 
     setWindowTitle(tr("Components"));
     setMinimumSize(640, 240);
+
+    setText(defaultTemplate());
 }
 
 
@@ -118,6 +120,12 @@ const QString QxComponentsDialog::defaultTemplate()
         "Kernel: %OS_KERNEL_TYPE% %OS_KERNEL_VERSION%\n"
         "Created on %SYSTEM_DATE% at %SYSTEM_TIME%"
     );
+}
+
+
+void QxComponentsDialog::setText(const QString& text)
+{
+    m_textViewer->setPlainText(replacePlaceholders(text));
 }
 
 
