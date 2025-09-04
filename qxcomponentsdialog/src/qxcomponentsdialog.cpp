@@ -50,7 +50,7 @@ QxComponentsDialog::QxComponentsDialog(QWidget* parent)
 }
 
 
-QMap<QString, QString> QxComponentsDialog::placeholders()
+const QList<QStringList> QxComponentsDialog::placeholders()
 {
     return {
         { "%APPLICATION_NAME%"_L1, tr("The name of this application.") },

@@ -10,6 +10,7 @@
 #define QXCOMPONENTSDIALOG_H
 
 #include <QDialog>
+#include <QList>
 #include <QPlainTextEdit>
 
 
@@ -21,7 +22,7 @@ public:
     explicit QxComponentsDialog(QWidget* parent = nullptr);
     ~QxComponentsDialog() = default;
 
-    static QMap<QString, QString> placeholders();
+    static const QList<QStringList> placeholders();
 
 private slots:
     void copyToClipboard();
