@@ -25,7 +25,7 @@ private slots:
     void showComponentsDialog();
 
 private:
-    QPlainTextEdit* m_textEdit;
+    QPlainTextEdit* m_textEditor;
 };
 
 #endif // DIALOG_H

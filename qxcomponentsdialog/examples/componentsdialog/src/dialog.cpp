@@ -24,15 +24,15 @@ Dialog::Dialog(QWidget* parent)
 {
     // Editor
 
-    m_textEdit = new QPlainTextEdit;
+    m_textEditor = new QPlainTextEdit;
 
-    QScrollArea* placeholders = new QScrollArea;
+    QScrollArea* areaPlaceholders = new QScrollArea;
 
     QTabWidget* tabBox = new QTabWidget;
-    tabBox->addTab(m_textEdit, "Editor"_L1);
-    tabBox->addTab(placeholders, "Placeholders"_L1);
+    tabBox->addTab(m_textEditor, "Editor"_L1);
+    tabBox->addTab(areaPlaceholders, "Placeholders"_L1);
 
-    // Button
+    // Buttons
 
     QPushButton* buttonComponentsDialog = new QPushButton("Components Dialog"_L1);
 

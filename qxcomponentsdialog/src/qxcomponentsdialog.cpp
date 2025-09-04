@@ -22,9 +22,9 @@ QxComponentsDialog::QxComponentsDialog(QWidget* parent)
 {
     // Text
 
-    m_textBox = new QPlainTextEdit;
-    m_textBox->setFocusPolicy(Qt::NoFocus);
-    m_textBox->setReadOnly(true);
+    m_textViewer = new QPlainTextEdit;
+    m_textViewer->setFocusPolicy(Qt::NoFocus);
+    m_textViewer->setReadOnly(true);
 
     // Buttons
 
@@ -41,7 +41,7 @@ QxComponentsDialog::QxComponentsDialog(QWidget* parent)
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
-    layout->addWidget(m_textBox);
+    layout->addWidget(m_textViewer);
     layout->addWidget(buttonBox);
     setLayout(layout);
 
@@ -76,6 +76,6 @@ const QList<QStringList> QxComponentsDialog::placeholders()
 
 void QxComponentsDialog::copyToClipboard()
 {
-    if (!m_textBox->toPlainText().isEmpty())
-        QApplication::clipboard()->setText(m_textBox->toPlainText());
+    if (!m_textViewer->toPlainText().isEmpty())
+        QApplication::clipboard()->setText(m_textViewer->toPlainText());
 }

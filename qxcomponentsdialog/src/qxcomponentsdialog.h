@@ -28,7 +28,7 @@ private slots:
     void copyToClipboard();
 
 private:
-    QPlainTextEdit* m_textBox;
+    QPlainTextEdit* m_textViewer;
 };
 
 #endif // QXCOMPONENTSDIALOG_H
