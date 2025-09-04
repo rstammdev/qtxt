@@ -26,6 +26,8 @@ public:
 
     static const QString replacePlaceholders(const QString& text);
 
+    static const QString defaultTemplate();
+
 private slots:
     void copyToClipboard();
 

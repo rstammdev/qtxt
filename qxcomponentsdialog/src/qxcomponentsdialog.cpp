@@ -108,6 +108,19 @@ const QString QxComponentsDialog::replacePlaceholders(const QString& text)
 }
 
 
+const QString QxComponentsDialog::defaultTemplate()
+{
+    return tr(
+        "%APPLICATION_NAME% %APPLICATION_VERSION%\n"
+        "Qt: Using %QT_VERSION% and built against %QT_BUILD_VERSION%\n"
+        "OS: %OS_PRODUCT_NAME% (%OS_PLATFORM_NAME%)\n"
+        "Build ABI: %OS_BUILD_ARCHITECTURE_FULL%\n"
+        "Kernel: %OS_KERNEL_TYPE% %OS_KERNEL_VERSION%\n"
+        "Created on %SYSTEM_DATE% at %SYSTEM_TIME%"
+    );
+}
+
+
 void QxComponentsDialog::copyToClipboard()
 {
     if (!m_textViewer->toPlainText().isEmpty())
