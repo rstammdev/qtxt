@@ -24,11 +24,17 @@ public:
 
     static const QList<QStringList> placeholders();
 
+    static const QString replacePlaceholders(const QString& text);
+
 private slots:
     void copyToClipboard();
 
 private:
     QPlainTextEdit* m_textViewer;
+
+    static const QString buildQtVersion();
+    static const QString currentQtVersion();
+    static const QString prettyPlatformName();
 };
 
 #endif // QXCOMPONENTSDIALOG_H

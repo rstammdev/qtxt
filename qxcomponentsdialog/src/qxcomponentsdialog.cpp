@@ -10,8 +10,12 @@
 
 #include <QApplication>
 #include <QClipboard>
+#include <QDate>
+#include <QDateTime>
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QSysInfo>
+#include <QTime>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -74,8 +78,63 @@ const QList<QStringList> QxComponentsDialog::placeholders()
 }
 
 
+const QString QxComponentsDialog::replacePlaceholders(const QString& text)
+{
+    const QHash<QString, QString> values {
+        { "%APPLICATION_NAME%"_L1, QApplication::applicationName() },
+        { "%APPLICATION_VERSION%"_L1, QApplication::applicationVersion() },
+        { "%QT_VERSION%"_L1, currentQtVersion() },
+        { "%QT_BUILD_VERSION%"_L1, buildQtVersion() },
+        { "%OS_PRODUCT_NAME%"_L1, QSysInfo::prettyProductName() },
+        { "%OS_PRODUCT_TYPE%"_L1, QSysInfo::productType() },
+        { "%OS_PRODUCT_VERSION%"_L1, QSysInfo::productVersion() },
+        { "%OS_PLATFORM%"_L1, QApplication::platformName() },
+        { "%OS_PLATFORM_NAME%"_L1, prettyPlatformName() },
+        { "%OS_ARCHITECTURE%"_L1, QSysInfo::currentCpuArchitecture() },
+        { "%OS_BUILD_ARCHITECTURE%"_L1, QSysInfo::buildCpuArchitecture() },
+        { "%OS_BUILD_ARCHITECTURE_FULL%"_L1, QSysInfo::buildAbi() },
+        { "%OS_KERNEL_TYPE%"_L1, QSysInfo::kernelType() },
+        { "%OS_KERNEL_VERSION%"_L1, QSysInfo::kernelVersion() },
+        { "%SYSTEM_DATE%"_L1, QDate::currentDate().toString() },
+        { "%SYSTEM_TIME%"_L1, QTime::currentTime().toString() },
+        { "%SYSTEM_DATE_TIME_UTC%"_L1, QDateTime::currentDateTimeUtc().toString() }
+    };
+
+    QString result = text;
+    for (auto it = values.cbegin(), end = values.cend(); it != end; ++it)
+        result.replace(it.key(), it.value());
+
+    return result;
+}
+
+
 void QxComponentsDialog::copyToClipboard()
 {
     if (!m_textViewer->toPlainText().isEmpty())
         QApplication::clipboard()->setText(m_textViewer->toPlainText());
+}
+
+
+const QString QxComponentsDialog::buildQtVersion()
+{
+    return QT_VERSION_STR;
+}
+
+
+const QString QxComponentsDialog::currentQtVersion()
+{
+    return qVersion();
+}
+
+
+const QString QxComponentsDialog::prettyPlatformName()
+{
+    const QString& platformName = QApplication::platformName();
+
+    if (platformName == "wayland"_L1)
+        return tr("Wayland");
+    else if (platformName == "xcb"_L1)
+        return tr("X11");
+
+    return tr("Unknown (%1)").arg(platformName);
 }
