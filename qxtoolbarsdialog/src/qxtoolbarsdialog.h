@@ -25,6 +25,7 @@ public:
 
 signals:
     void restoreDefaultsRequested(bool current);
+    void saveRequested();
 
 private slots:
     void enableButtonApply();

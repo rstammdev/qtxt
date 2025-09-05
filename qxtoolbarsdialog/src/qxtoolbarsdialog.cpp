@@ -42,6 +42,7 @@ QxToolbarsDialog::QxToolbarsDialog(QWidget* parent)
 
         connect(toolbarsToolbar, &QxToolbarsToolbar::stateChanged, this, &QxToolbarsDialog::enableButtonApply);
         connect(this, &QxToolbarsDialog::restoreDefaultsRequested, toolbarsToolbar, &QxToolbarsToolbar::restoreDefaults);
+        connect(this, &QxToolbarsDialog::saveRequested, toolbarsToolbar, &QxToolbarsToolbar::saveRequested);
     }
 
     QHBoxLayout* layoutPageBox = new QHBoxLayout;
@@ -121,6 +122,7 @@ void QxToolbarsDialog::restoreDefaults()
 
 void QxToolbarsDialog::saveAndClose()
 {
+    emit saveRequested();
 
     accept();
 }
@@ -128,6 +130,7 @@ void QxToolbarsDialog::saveAndClose()
 
 void QxToolbarsDialog::saveAndContinue()
 {
+    emit saveRequested();
 
     m_buttonApply->setEnabled(false);
 }

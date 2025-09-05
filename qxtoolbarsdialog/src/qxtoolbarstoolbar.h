@@ -26,6 +26,8 @@ public slots:
 
 signals:
     void stateChanged();
+
+    void saveRequested();
 };
 
 #endif // QXTOOLBARSTOOLBAR_H
