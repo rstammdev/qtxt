@@ -10,6 +10,7 @@
 #define QXTOOLBARSDIALOG_H
 
 #include <QDialog>
+#include <QPushButton>
 
 
 class QxToolbarsDialog : public QDialog
@@ -19,6 +20,12 @@ class QxToolbarsDialog : public QDialog
 public:
     explicit QxToolbarsDialog(QWidget* parent = nullptr);
     ~QxToolbarsDialog() = default;
+
+private slots:
+    void saveAndContinue();
+
+private:
+    QPushButton* m_buttonApply;
 };
 
 #endif // QXTOOLBARSDIALOG_H

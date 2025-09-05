@@ -19,8 +19,10 @@ QxToolbarsDialog::QxToolbarsDialog(QWidget* parent)
     // Buttons
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox;
+    m_buttonApply = buttonBox->addButton(QDialogButtonBox::Apply);
     buttonBox->addButton(QDialogButtonBox::Cancel);
 
+    connect(m_buttonApply, &QPushButton::clicked, this, &QxToolbarsDialog::saveAndContinue);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QxToolbarsDialog::close);
 
     //
@@ -32,4 +34,13 @@ QxToolbarsDialog::QxToolbarsDialog(QWidget* parent)
 
     setWindowTitle(tr("Configure Toolbars"));
     setMinimumSize(1024, 576);
+
+    m_buttonApply->setEnabled(false);
+}
+
+
+void QxToolbarsDialog::saveAndContinue()
+{
+
+    m_buttonApply->setEnabled(false);
 }
