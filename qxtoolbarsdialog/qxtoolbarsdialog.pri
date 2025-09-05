@@ -12,7 +12,9 @@ INCLUDEPATH += \
     $$PWD/src
 
 HEADERS += \
-    $$PWD/src/qxtoolbarsdialog.h
+    $$PWD/src/qxtoolbarsdialog.h \
+    $$PWD/src/qxtoolbarstoolbar.h
 
 SOURCES += \
-    $$PWD/src/qxtoolbarsdialog.cpp
+    $$PWD/src/qxtoolbarsdialog.cpp \
+    $$PWD/src/qxtoolbarstoolbar.cpp
