@@ -13,4 +13,6 @@ QxToolbarsDialog::QxToolbarsDialog(QWidget* parent)
     : QDialog{parent}
 {
 
+    setWindowTitle(tr("Configure Toolbars"));
+    setMinimumSize(1024, 576);
 }
