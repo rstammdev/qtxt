@@ -22,6 +22,7 @@ public:
     ~QxToolbarsDialog() = default;
 
 private slots:
+    void saveAndClose();
     void saveAndContinue();
 
 private:
