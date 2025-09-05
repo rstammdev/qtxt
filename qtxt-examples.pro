@@ -13,4 +13,5 @@ CONFIG += ordered
 SUBDIRS += \
     qxcomponentsdialog/examples/componentsdialog \
     qxconfirmationbox/examples/confirmationbox \
-    qxdialogheaderbox/examples/dialogheaderbox
+    qxdialogheaderbox/examples/dialogheaderbox \
+    qxtoolbarsdialog/examples/toolbarsdialog
