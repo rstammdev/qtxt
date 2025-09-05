@@ -12,6 +12,7 @@
 #include <QAction>
 #include <QDialog>
 #include <QPushButton>
+#include <QStackedWidget>
 
 
 class QxToolbarsDialog : public QDialog
@@ -28,6 +29,8 @@ private slots:
     void saveAndContinue();
 
 private:
+    QStackedWidget* m_stackedPages;
+
     QAction* m_actionRestoreDefaultsCurrent;
     QAction* m_actionRestoreDefaultsAll;
 

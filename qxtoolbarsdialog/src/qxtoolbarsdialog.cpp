@@ -10,9 +10,15 @@
 
 #include <QActionGroup>
 #include <QDialogButtonBox>
+#include <QHBoxLayout>
+#include <QList>
+#include <QListWidget>
 #include <QMenu>
+#include <QToolBar>
 #include <QToolButton>
 #include <QVBoxLayout>
+
+#include "qxtoolbarstoolbar.h"
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -20,6 +26,26 @@ using namespace Qt::Literals::StringLiterals;
 QxToolbarsDialog::QxToolbarsDialog(QWidget* parent)
     : QDialog{parent}
 {
+    // Pages
+
+    QListWidget* listPages = new QListWidget;
+
+    m_stackedPages = new QStackedWidget;
+
+    const QList<QToolBar*> toolbars = parent->findChildren<QToolBar*>();
+    for (const auto toolbar : toolbars) {
+
+        listPages->addItem(toolbar->windowTitle());
+
+        QxToolbarsToolbar* toolbarsToolbar = new QxToolbarsToolbar(toolbar, this);
+        m_stackedPages->addWidget(toolbarsToolbar);
+    }
+
+    QHBoxLayout* layoutPageBox = new QHBoxLayout;
+    layoutPageBox->addWidget(listPages, 1);
+    layoutPageBox->addWidget(m_stackedPages, 3);
+
+    connect(listPages, &QListWidget::currentRowChanged, m_stackedPages, &QStackedWidget::setCurrentIndex);
 
     // Buttons
 
@@ -58,12 +84,14 @@ QxToolbarsDialog::QxToolbarsDialog(QWidget* parent)
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
-    layout->addStretch();
+    layout->addLayout(layoutPageBox);
     layout->addWidget(buttonBox);
     setLayout(layout);
 
     setWindowTitle(tr("Configure Toolbars"));
     setMinimumSize(1024, 576);
+
+    listPages->setCurrentRow(0);
 
     m_actionRestoreDefaultsCurrent->setChecked(true);
 
