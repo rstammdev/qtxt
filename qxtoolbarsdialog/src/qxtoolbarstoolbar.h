@@ -9,7 +9,9 @@
 #ifndef QXTOOLBARSTOOLBAR_H
 #define QXTOOLBARSTOOLBAR_H
 
+#include <QStackedWidget>
 #include <QToolBar>
+#include <QTreeWidgetItem>
 #include <QWidget>
 
 
@@ -28,6 +30,12 @@ signals:
     void stateChanged();
 
     void saveRequested();
+
+private slots:
+    void setCurrentPage(QTreeWidgetItem* current);
+
+private:
+    QStackedWidget* m_stackedPages;
 };
 
 #endif // QXTOOLBARSTOOLBAR_H
