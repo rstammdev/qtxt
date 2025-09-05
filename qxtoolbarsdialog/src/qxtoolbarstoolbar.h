@@ -20,6 +20,9 @@ class QxToolbarsToolbar : public QWidget
 public:
     explicit QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent = nullptr);
     ~QxToolbarsToolbar() = default;
+
+signals:
+    void stateChanged();
 };
 
 #endif // QXTOOLBARSTOOLBAR_H

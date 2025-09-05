@@ -24,6 +24,8 @@ public:
     ~QxToolbarsDialog() = default;
 
 private slots:
+    void enableButtonApply();
+
     void restoreDefaults();
     void saveAndClose();
     void saveAndContinue();
