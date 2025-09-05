@@ -36,5 +36,8 @@ MainWindow::MainWindow(QWidget* parent)
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
 
+    QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
+    toolbarSettings->setObjectName("toolbarSettings"_L1);
+
     setMinimumSize(600, 480);
 }
