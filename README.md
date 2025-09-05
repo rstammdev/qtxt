@@ -24,6 +24,9 @@ QtXt is a modular Qt 6 framework providing reusable widgets and built-in example
 - [**QxDialogHeaderBox**](qxdialogheaderbox/README.md)  
   A widget that presents an icon, title, subtitle, and description.
 
+- [**QxToolbarsDialog**](qxtoolbarsdialog/README.md)  
+  A dialog for customizing toolbars and tool buttons.
+
 Copyright &copy; 2025 [Ralf Stamm](https://rstammdev.github.io "Visit organization's homepage").
 
 This program is distributed under the terms of the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html "Visit license's homepage"), either version 3 of the License, or any later version.
