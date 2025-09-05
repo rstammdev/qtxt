@@ -12,6 +12,8 @@
 #include <QMenuBar>
 #include <QToolBar>
 
+#include <qxtoolbarsdialog.h>
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -54,5 +56,6 @@ MainWindow::MainWindow(QWidget* parent)
 
 void MainWindow::showToolbarsDialog()
 {
-
+    QxToolbarsDialog dialog(this);
+    dialog.exec();
 }
