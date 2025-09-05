@@ -41,6 +41,7 @@ QxToolbarsDialog::QxToolbarsDialog(QWidget* parent)
         m_stackedPages->addWidget(toolbarsToolbar);
 
         connect(toolbarsToolbar, &QxToolbarsToolbar::stateChanged, this, &QxToolbarsDialog::enableButtonApply);
+        connect(this, &QxToolbarsDialog::restoreDefaultsRequested, toolbarsToolbar, &QxToolbarsToolbar::restoreDefaults);
     }
 
     QHBoxLayout* layoutPageBox = new QHBoxLayout;
@@ -109,6 +110,10 @@ void QxToolbarsDialog::enableButtonApply()
 
 void QxToolbarsDialog::restoreDefaults()
 {
+    if (m_actionRestoreDefaultsCurrent->isChecked() && m_stackedPages->currentWidget())
+        qobject_cast<QxToolbarsToolbar*>(m_stackedPages->currentWidget())->restoreDefaults(true);
+    else
+        emit restoreDefaultsRequested(false);
 
     m_actionRestoreDefaultsCurrent->setChecked(true);
 }

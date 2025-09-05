@@ -23,6 +23,9 @@ public:
     explicit QxToolbarsDialog(QWidget* parent = nullptr);
     ~QxToolbarsDialog() = default;
 
+signals:
+    void restoreDefaultsRequested(bool current);
+
 private slots:
     void enableButtonApply();
 

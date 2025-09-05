@@ -21,6 +21,9 @@ public:
     explicit QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent = nullptr);
     ~QxToolbarsToolbar() = default;
 
+public slots:
+    void restoreDefaults(bool current);
+
 signals:
     void stateChanged();
 };

@@ -12,3 +12,9 @@
 QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
     : QWidget{parent}
 {}
+
+
+void QxToolbarsToolbar::restoreDefaults(bool current)
+{
+
+}
