@@ -33,11 +33,26 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    QAction* actionConfigureToolbars = addAction(tr("Configure &Toolbars..."));
+    actionConfigureToolbars->setObjectName("actionConfigureToolbars"_L1);
+    actionConfigureToolbars->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::HelpAbout));
+    actionConfigureToolbars->setIconText(tr("Toolbars"));
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
+    menuSettings->addAction(actionConfigureToolbars);
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
+    toolbarSettings->addAction(actionConfigureToolbars);
+
+    connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::showToolbarsDialog);
 
     setMinimumSize(600, 480);
+}
+
+
+void MainWindow::showToolbarsDialog()
+{
+
 }
