@@ -9,6 +9,8 @@
 #include "qxtoolbarstoolbarpagebar.h"
 
 #include <QFont>
+#include <QGridLayout>
+#include <QGroupBox>
 #include <QLabel>
 #include <QVBoxLayout>
 
@@ -23,11 +25,24 @@ QxToolbarsToolbarPageBar::QxToolbarsToolbarPageBar(QToolBar* bar, QWidget* paren
 
 
 
+    // Visibility
+
+    m_checkboxVisible = new QCheckBox(tr("Is shown"));
+
+    QGridLayout* layoutVisibility = new QGridLayout;
+    layoutVisibility->addWidget(m_checkboxVisible);
+
+    QGroupBox* groupVisibility = new QGroupBox(tr("Visibility"));
+    groupVisibility->setLayout(layoutVisibility);
+
+    connect(m_checkboxVisible, &QCheckBox::checkStateChanged, this, &QxToolbarsToolbarPageBar::stateChanged);
+
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setContentsMargins(-1, -1, 0, 0);
     layout->addWidget(pageTitle);
+    layout->addWidget(groupVisibility);
     layout->addStretch();
     setLayout(layout);
 
@@ -35,16 +50,20 @@ QxToolbarsToolbarPageBar::QxToolbarsToolbarPageBar(QToolBar* bar, QWidget* paren
     fontTitle.setPointSize(int(fontTitle.pointSizeF() * 1.2));
     fontTitle.setBold(true);
     pageTitle->setFont(fontTitle);
+
+    m_checkboxVisible->setChecked(m_bar->isVisible());
 }
 
 
 void QxToolbarsToolbarPageBar::restoreDefaults(bool current)
 {
 
+    m_checkboxVisible->setChecked(true);
 }
 
 
 void QxToolbarsToolbarPageBar::save()
 {
 
+    m_bar->setVisible(m_checkboxVisible->isChecked());
 }
