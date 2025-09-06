@@ -11,6 +11,8 @@
 #include <QHBoxLayout>
 #include <QTreeWidget>
 
+#include "qxtoolbarstoolbarpage.h"
+
 
 QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
     : QWidget{parent}
