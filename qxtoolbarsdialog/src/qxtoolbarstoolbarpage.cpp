@@ -12,3 +12,19 @@
 QxToolbarsToolbarPage::QxToolbarsToolbarPage(QWidget* parent)
     : QWidget{parent}
 {}
+
+
+QString QxToolbarsToolbarPage::pageTitle() const
+{
+    return m_pageTitle;
+}
+
+void QxToolbarsToolbarPage::setPageTitle(const QString& title)
+{
+    if (title == m_pageTitle)
+        return;
+
+    m_pageTitle = title;
+
+    emit pageTitleChanged(m_pageTitle);
+}
