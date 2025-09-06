@@ -9,8 +9,9 @@
 #include "qxtoolbarstoolbarpagebar.h"
 
 
-QxToolbarsToolbarPageBar::QxToolbarsToolbarPageBar(QWidget* parent)
+QxToolbarsToolbarPageBar::QxToolbarsToolbarPageBar(QToolBar* bar, QWidget* parent)
     : QxToolbarsToolbarPage{parent}
+    , m_bar{bar}
 {
 
 }

@@ -11,6 +11,7 @@
 
 #include "qxtoolbarstoolbarpage.h"
 
+#include <QToolBar>
 #include <QWidget>
 
 
@@ -19,8 +20,11 @@ class QxToolbarsToolbarPageBar : public QxToolbarsToolbarPage
     Q_OBJECT
 
 public:
-    explicit QxToolbarsToolbarPageBar(QWidget* parent = nullptr);
+    explicit QxToolbarsToolbarPageBar(QToolBar* bar, QWidget* parent = nullptr);
     ~QxToolbarsToolbarPageBar() = default;
+
+private:
+    QToolBar* m_bar;
 };
 
 #endif // QXTOOLBARSTOOLBARPAGEBAR_H
