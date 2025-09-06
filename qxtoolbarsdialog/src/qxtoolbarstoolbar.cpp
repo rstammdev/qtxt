@@ -12,6 +12,7 @@
 #include <QTreeWidget>
 
 #include "qxtoolbarstoolbarpage.h"
+#include "qxtoolbarstoolbarpagebar.h"
 
 
 QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
