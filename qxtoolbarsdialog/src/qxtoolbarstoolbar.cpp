@@ -36,6 +36,7 @@ QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
 
     connect(pageBar, &QxToolbarsToolbarPage::stateChanged, this, &QxToolbarsToolbar::stateChanged);
     connect(this, &QxToolbarsToolbar::restoreDefaultsRequested, pageBar, &QxToolbarsToolbarPage::restoreDefaults);
+    connect(this, &QxToolbarsToolbar::saveRequested, pageBar, &QxToolbarsToolbarPage::save);
 
 
 

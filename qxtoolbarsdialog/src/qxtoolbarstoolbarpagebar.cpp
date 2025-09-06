@@ -42,3 +42,9 @@ void QxToolbarsToolbarPageBar::restoreDefaults(bool current)
 {
 
 }
+
+
+void QxToolbarsToolbarPageBar::save()
+{
+
+}

@@ -25,6 +25,7 @@ public:
 
 public slots:
     void restoreDefaults(bool current) override;
+    void save() override;
 
 private:
     QToolBar* m_bar;
