@@ -34,6 +34,8 @@ QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
     treeItemRoot->setData(0, Qt::UserRole, m_stackedPages->addWidget(pageBar));
     treePages->expandItem(treeItemRoot);
 
+    connect(pageBar, &QxToolbarsToolbarPage::stateChanged, this, &QxToolbarsToolbar::stateChanged);
+
 
 
     connect(treePages, &QTreeWidget::currentItemChanged, this, &QxToolbarsToolbar::setCurrentPage);

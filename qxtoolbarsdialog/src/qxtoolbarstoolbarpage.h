@@ -30,6 +30,8 @@ public slots:
 signals:
     void pageTitleChanged(const QString& title);
 
+    void stateChanged();
+
 private:
     QString m_pageTitle;
 };
