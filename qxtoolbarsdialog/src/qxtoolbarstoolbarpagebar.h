@@ -23,6 +23,9 @@ public:
     explicit QxToolbarsToolbarPageBar(QToolBar* bar, QWidget* parent = nullptr);
     ~QxToolbarsToolbarPageBar() = default;
 
+public slots:
+    void restoreDefaults(bool current) override;
+
 private:
     QToolBar* m_bar;
 };

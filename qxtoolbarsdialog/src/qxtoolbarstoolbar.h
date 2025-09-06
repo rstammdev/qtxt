@@ -29,6 +29,7 @@ public slots:
 signals:
     void stateChanged();
 
+    void restoreDefaultsRequested(bool current);
     void saveRequested();
 
 private slots:

@@ -35,6 +35,7 @@ QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
     treePages->expandItem(treeItemRoot);
 
     connect(pageBar, &QxToolbarsToolbarPage::stateChanged, this, &QxToolbarsToolbar::stateChanged);
+    connect(this, &QxToolbarsToolbar::restoreDefaultsRequested, pageBar, &QxToolbarsToolbarPage::restoreDefaults);
 
 
 
@@ -61,5 +62,8 @@ void QxToolbarsToolbar::setCurrentPage(QTreeWidgetItem* current)
 
 void QxToolbarsToolbar::restoreDefaults(bool current)
 {
-
+    if (current && m_stackedPages->currentWidget())
+        qobject_cast<QxToolbarsToolbarPage*>(m_stackedPages->currentWidget())->restoreDefaults(true);
+    else
+        emit restoreDefaultsRequested(false);
 }

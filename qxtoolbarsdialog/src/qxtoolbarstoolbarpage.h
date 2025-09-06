@@ -27,10 +27,14 @@ public:
 public slots:
     void setPageTitle(const QString& title);
 
+    virtual void restoreDefaults(bool current) { Q_UNUSED(current) };
+
 signals:
     void pageTitleChanged(const QString& title);
 
     void stateChanged();
+
+    void restoreDefaultsRequested(bool current);
 
 private:
     QString m_pageTitle;

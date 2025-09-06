@@ -36,3 +36,9 @@ QxToolbarsToolbarPageBar::QxToolbarsToolbarPageBar(QToolBar* bar, QWidget* paren
     fontTitle.setBold(true);
     pageTitle->setFont(fontTitle);
 }
+
+
+void QxToolbarsToolbarPageBar::restoreDefaults(bool current)
+{
+
+}
