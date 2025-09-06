@@ -26,9 +26,12 @@ QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
 
     m_stackedPages = new QStackedWidget;
 
+    QxToolbarsToolbarPageBar* pageBar = new QxToolbarsToolbarPageBar(toolbar, this);
+    pageBar->setPageTitle(toolbar->windowTitle());
+
     QTreeWidgetItem* treeItemRoot = new QTreeWidgetItem(treePages);
-    treeItemRoot->setText(0, toolbar->windowTitle());
-    treeItemRoot->setData(0, Qt::UserRole, m_stackedPages->addWidget(new QWidget));
+    treeItemRoot->setText(0, pageBar->pageTitle());
+    treeItemRoot->setData(0, Qt::UserRole, m_stackedPages->addWidget(pageBar));
     treePages->expandItem(treeItemRoot);
 
 
