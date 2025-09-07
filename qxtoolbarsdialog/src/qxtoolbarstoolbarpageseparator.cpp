@@ -9,8 +9,9 @@
 #include "qxtoolbarstoolbarpageseparator.h"
 
 
-QxToolbarsToolbarPageSeparator::QxToolbarsToolbarPageSeparator(QWidget* parent)
+QxToolbarsToolbarPageSeparator::QxToolbarsToolbarPageSeparator(QAction* separator, QWidget* parent)
     : QxToolbarsToolbarPage{parent}
+    , m_separator{separator}
 {
 
 }

@@ -11,6 +11,7 @@
 
 #include "qxtoolbarstoolbarpage.h"
 
+#include <QAction>
 #include <QWidget>
 
 
@@ -19,8 +20,11 @@ class QxToolbarsToolbarPageSeparator : public QxToolbarsToolbarPage
     Q_OBJECT
 
 public:
-    explicit QxToolbarsToolbarPageSeparator(QWidget* parent = nullptr);
+    explicit QxToolbarsToolbarPageSeparator(QAction* separator, QWidget* parent = nullptr);
     ~QxToolbarsToolbarPageSeparator() = default;
+
+private:
+    QAction* m_separator;
 };
 
 #endif // QXTOOLBARSTOOLBARPAGESEPARATOR_H
