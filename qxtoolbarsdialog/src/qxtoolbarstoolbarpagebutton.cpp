@@ -15,3 +15,9 @@ QxToolbarsToolbarPageButton::QxToolbarsToolbarPageButton(QToolButton* button, QW
 {
 
 }
+
+
+void QxToolbarsToolbarPageButton::restoreDefaults(bool current)
+{
+
+}

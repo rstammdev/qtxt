@@ -23,6 +23,9 @@ public:
     explicit QxToolbarsToolbarPageButton(QToolButton* button, QWidget* parent = nullptr);
     ~QxToolbarsToolbarPageButton() = default;
 
+public slots:
+    void restoreDefaults(bool current) override;
+
 private:
     QToolButton* m_button;
 };
