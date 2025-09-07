@@ -21,3 +21,9 @@ void QxToolbarsToolbarPageButton::restoreDefaults(bool current)
 {
 
 }
+
+
+void QxToolbarsToolbarPageButton::save()
+{
+
+}
