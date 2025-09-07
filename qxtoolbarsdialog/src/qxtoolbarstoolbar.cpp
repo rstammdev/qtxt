@@ -15,6 +15,8 @@
 #include "qxtoolbarstoolbarpagebar.h"
 #include "qxtoolbarstoolbarpagebutton.h"
 
+using namespace Qt::Literals::StringLiterals;
+
 
 QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
     : QWidget{parent}
@@ -39,7 +41,29 @@ QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
     connect(this, &QxToolbarsToolbar::restoreDefaultsRequested, pageBar, &QxToolbarsToolbarPage::restoreDefaults);
     connect(this, &QxToolbarsToolbar::saveRequested, pageBar, &QxToolbarsToolbarPage::save);
 
+    for (QAction* action : toolbar->actions()) {
 
+        if (QWidget* widget = toolbar->widgetForAction(action)) {
+
+            QTreeWidgetItem* treeItemBranch = new QTreeWidgetItem(treeItemRoot);
+            treePages->expandItem(treeItemBranch);
+
+            if (!action->isSeparator()) {
+
+                QToolButton* button = qobject_cast<QToolButton*>(widget);
+
+                QxToolbarsToolbarPageButton* pageButton = new QxToolbarsToolbarPageButton(button, this);
+                pageButton->setPageTitle(button->text().replace("&&"_L1, "&"_L1));
+
+                treeItemBranch->setText(0, pageButton->pageTitle());
+                treeItemBranch->setData(0, Qt::UserRole, m_stackedPages->addWidget(pageButton));
+
+                connect(pageButton, &QxToolbarsToolbarPage::stateChanged, this, &QxToolbarsToolbar::stateChanged);
+                connect(this, &QxToolbarsToolbar::restoreDefaultsRequested, pageButton, &QxToolbarsToolbarPage::restoreDefaults);
+                connect(this, &QxToolbarsToolbar::saveRequested, pageButton, &QxToolbarsToolbarPage::save);
+            }
+        }
+    }
 
     connect(treePages, &QTreeWidget::currentItemChanged, this, &QxToolbarsToolbar::setCurrentPage);
 
