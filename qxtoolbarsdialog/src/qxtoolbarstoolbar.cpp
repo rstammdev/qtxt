@@ -14,6 +14,7 @@
 #include "qxtoolbarstoolbarpage.h"
 #include "qxtoolbarstoolbarpagebar.h"
 #include "qxtoolbarstoolbarpagebutton.h"
+#include "qxtoolbarstoolbarpageseparator.h"
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -61,6 +62,18 @@ QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
                 connect(pageButton, &QxToolbarsToolbarPage::stateChanged, this, &QxToolbarsToolbar::stateChanged);
                 connect(this, &QxToolbarsToolbar::restoreDefaultsRequested, pageButton, &QxToolbarsToolbarPage::restoreDefaults);
                 connect(this, &QxToolbarsToolbar::saveRequested, pageButton, &QxToolbarsToolbarPage::save);
+            }
+            else {
+
+                QxToolbarsToolbarPageSeparator* pageSeparator = new QxToolbarsToolbarPageSeparator(action, this);
+                pageSeparator->setPageTitle(tr("--- separator ---"));
+
+                treeItemBranch->setText(0, pageSeparator->pageTitle());
+                treeItemBranch->setData(0, Qt::UserRole, m_stackedPages->addWidget(pageSeparator));
+
+                connect(pageSeparator, &QxToolbarsToolbarPage::stateChanged, this, &QxToolbarsToolbar::stateChanged);
+                connect(this, &QxToolbarsToolbar::restoreDefaultsRequested, pageSeparator, &QxToolbarsToolbarPage::restoreDefaults);
+                connect(this, &QxToolbarsToolbar::saveRequested, pageSeparator, &QxToolbarsToolbarPage::save);
             }
         }
     }

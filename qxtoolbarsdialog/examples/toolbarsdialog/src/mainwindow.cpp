@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget* parent)
     QToolBar* toolbarFile = addToolBar(tr("File Toolbar"));
     toolbarFile->setObjectName("toolbarFile"_L1);
     toolbarFile->addAction(actionQuit);
+    toolbarFile->addSeparator();
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
