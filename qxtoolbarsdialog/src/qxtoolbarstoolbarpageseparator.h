@@ -12,6 +12,7 @@
 #include "qxtoolbarstoolbarpage.h"
 
 #include <QAction>
+#include <QCheckBox>
 #include <QWidget>
 
 
@@ -29,6 +30,8 @@ public slots:
 
 private:
     QAction* m_separator;
+
+    QCheckBox* m_checkboxVisible;
 };
 
 #endif // QXTOOLBARSTOOLBARPAGESEPARATOR_H

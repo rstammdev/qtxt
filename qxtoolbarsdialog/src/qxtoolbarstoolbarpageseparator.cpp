@@ -9,6 +9,8 @@
 #include "qxtoolbarstoolbarpageseparator.h"
 
 #include <QFont>
+#include <QGridLayout>
+#include <QGroupBox>
 #include <QLabel>
 #include <QVBoxLayout>
 
@@ -21,13 +23,24 @@ QxToolbarsToolbarPageSeparator::QxToolbarsToolbarPageSeparator(QAction* separato
 
     connect(this, &QxToolbarsToolbarPage::pageTitleChanged, pageTitle, &QLabel::setText);
 
+    // Visibility
 
+    m_checkboxVisible = new QCheckBox(tr("Is shown"));
+
+    QGridLayout* layoutVisibility = new QGridLayout;
+    layoutVisibility->addWidget(m_checkboxVisible);
+
+    QGroupBox* groupVisibility = new QGroupBox(tr("Visibility"));
+    groupVisibility->setLayout(layoutVisibility);
+
+    connect(m_checkboxVisible, &QCheckBox::checkStateChanged, this, &QxToolbarsToolbarPageSeparator::stateChanged);
 
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setContentsMargins(-1, -1, 0, 0);
     layout->addWidget(pageTitle);
+    layout->addWidget(groupVisibility);
     layout->addStretch();
     setLayout(layout);
 
@@ -35,6 +48,8 @@ QxToolbarsToolbarPageSeparator::QxToolbarsToolbarPageSeparator(QAction* separato
     fontTitle.setPointSize(int(fontTitle.pointSizeF() * 1.2));
     fontTitle.setBold(true);
     pageTitle->setFont(fontTitle);
+
+    m_checkboxVisible->setChecked(m_separator->isVisible());
 }
 
 
@@ -42,10 +57,11 @@ void QxToolbarsToolbarPageSeparator::restoreDefaults(bool current)
 {
     Q_UNUSED(current)
 
+    m_checkboxVisible->setChecked(true);
 }
 
 
 void QxToolbarsToolbarPageSeparator::save()
 {
-
+    m_separator->setVisible(m_checkboxVisible->isChecked());
 }
