@@ -13,6 +13,7 @@
 
 #include "qxtoolbarstoolbarpage.h"
 #include "qxtoolbarstoolbarpagebar.h"
+#include "qxtoolbarstoolbarpagebutton.h"
 
 
 QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)

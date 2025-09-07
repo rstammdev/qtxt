@@ -15,10 +15,12 @@ HEADERS += \
     $$PWD/src/qxtoolbarsdialog.h \
     $$PWD/src/qxtoolbarstoolbar.h \
     $$PWD/src/qxtoolbarstoolbarpage.h \
-    $$PWD/src/qxtoolbarstoolbarpagebar.h
+    $$PWD/src/qxtoolbarstoolbarpagebar.h \
+    $$PWD/src/qxtoolbarstoolbarpagebutton.h
 
 SOURCES += \
     $$PWD/src/qxtoolbarsdialog.cpp \
     $$PWD/src/qxtoolbarstoolbar.cpp \
     $$PWD/src/qxtoolbarstoolbarpage.cpp \
-    $$PWD/src/qxtoolbarstoolbarpagebar.cpp
+    $$PWD/src/qxtoolbarstoolbarpagebar.cpp \
+    $$PWD/src/qxtoolbarstoolbarpagebutton.cpp
