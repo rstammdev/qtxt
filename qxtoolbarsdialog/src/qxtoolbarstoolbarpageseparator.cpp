@@ -15,3 +15,10 @@ QxToolbarsToolbarPageSeparator::QxToolbarsToolbarPageSeparator(QAction* separato
 {
 
 }
+
+
+void QxToolbarsToolbarPageSeparator::restoreDefaults(bool current)
+{
+    Q_UNUSED(current)
+
+}

@@ -23,6 +23,9 @@ public:
     explicit QxToolbarsToolbarPageSeparator(QAction* separator, QWidget* parent = nullptr);
     ~QxToolbarsToolbarPageSeparator() = default;
 
+public slots:
+    void restoreDefaults(bool current) override;
+
 private:
     QAction* m_separator;
 };
