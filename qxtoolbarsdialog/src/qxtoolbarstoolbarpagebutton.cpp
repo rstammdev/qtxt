@@ -9,8 +9,9 @@
 #include "qxtoolbarstoolbarpagebutton.h"
 
 
-QxToolbarsToolbarPageButton::QxToolbarsToolbarPageButton(QWidget* parent)
+QxToolbarsToolbarPageButton::QxToolbarsToolbarPageButton(QToolButton* button, QWidget* parent)
     : QxToolbarsToolbarPage{parent}
+    , m_button{button}
 {
 
 }
