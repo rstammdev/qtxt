@@ -22,3 +22,9 @@ void QxToolbarsToolbarPageSeparator::restoreDefaults(bool current)
     Q_UNUSED(current)
 
 }
+
+
+void QxToolbarsToolbarPageSeparator::save()
+{
+
+}
