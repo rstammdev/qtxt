@@ -57,6 +57,7 @@ QxToolbarsToolbarPageBar::QxToolbarsToolbarPageBar(QToolBar* bar, QWidget* paren
 
 void QxToolbarsToolbarPageBar::restoreDefaults(bool current)
 {
+    Q_UNUSED(current)
 
     m_checkboxVisible->setChecked(true);
 }
