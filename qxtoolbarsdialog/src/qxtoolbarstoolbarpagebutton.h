@@ -11,6 +11,7 @@
 
 #include "qxtoolbarstoolbarpage.h"
 
+#include <QButtonGroup>
 #include <QCheckBox>
 #include <QToolButton>
 #include <QWidget>
@@ -30,6 +31,8 @@ public slots:
 
 private:
     QToolButton* m_button;
+
+    QButtonGroup* m_buttonsStyle;
 
     QCheckBox* m_checkboxVisible;
 };
