@@ -32,6 +32,9 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    QMenu* menuView = menuBar()->addMenu(tr("&View"));
+    menuView->setObjectName("menuView"_L1);
+
 
     setMinimumSize(600, 480);
 }
