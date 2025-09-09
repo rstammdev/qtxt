@@ -32,11 +32,18 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    QAction* actionZoomIn = addAction(tr("Zoom &In"));
+    actionZoomIn->setObjectName("actionZoomIn"_L1);
+    actionZoomIn->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::ZoomIn));
+    actionZoomIn->setShortcut(QKeySequence::ZoomIn);
+
     QMenu* menuView = menuBar()->addMenu(tr("&View"));
     menuView->setObjectName("menuView"_L1);
+    menuView->addAction(actionZoomIn);
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
+    toolbarView->addAction(actionZoomIn);
 
 
     setMinimumSize(600, 480);
