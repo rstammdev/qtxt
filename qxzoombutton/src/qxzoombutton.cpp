@@ -68,3 +68,9 @@ void QxZoomButton::zoomIn()
 {
 
 }
+
+
+void QxZoomButton::zoomOut()
+{
+
+}

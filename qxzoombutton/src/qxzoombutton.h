@@ -34,6 +34,7 @@ public slots:
     void setMaximumZoom(int maximum);
 
     void zoomIn();
+    void zoomOut();
 
 signals:
     void zoomChanged(int zoom);
