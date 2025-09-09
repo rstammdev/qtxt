@@ -68,6 +68,9 @@ MainWindow::MainWindow(QWidget* parent)
     connect(actionZoomIn, &QAction::triggered, buttonResetZoom, &QxZoomButton::zoomIn);
     connect(actionZoomOut, &QAction::triggered, buttonResetZoom, &QxZoomButton::zoomOut);
 
+    m_textEditor = new QPlainTextEdit;
+    m_textEditor->setPlainText("Lorem ipsum dolor sit amet, consectetur adipiscing elit ..."_L1);
+    setCentralWidget(m_textEditor);
 
     setMinimumSize(600, 480);
 }

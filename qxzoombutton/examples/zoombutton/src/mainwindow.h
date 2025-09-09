@@ -10,6 +10,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPlainTextEdit>
 
 
 class MainWindow : public QMainWindow
@@ -19,6 +20,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
+
+private:
+    QPlainTextEdit* m_textEditor;
 };
 
 #endif // MAINWINDOW_H
