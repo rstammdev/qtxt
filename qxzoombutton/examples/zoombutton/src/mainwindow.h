@@ -19,7 +19,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget* parent = nullptr);
-    ~MainWindow();
+    ~MainWindow() = default;
 
 private slots:
     void applyZoom(int zoom);
