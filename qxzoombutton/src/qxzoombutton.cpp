@@ -13,6 +13,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
     , m_zoom{100}
     , m_minimumZoom{50}
+    , m_maximumZoom{300}
 {
 
 }
@@ -45,4 +46,19 @@ void QxZoomButton::setMinimumZoom(int minimum)
 
     m_minimumZoom = minimum;
     emit minimumZoomChanged(m_minimumZoom);
+}
+
+
+int QxZoomButton::maximumZoom() const
+{
+    return m_maximumZoom;
+}
+
+void QxZoomButton::setMaximumZoom(int maximum)
+{
+    if (maximum == m_maximumZoom)
+        return;
+
+    m_maximumZoom = maximum;
+    emit maximumZoomChanged(m_maximumZoom);
 }
