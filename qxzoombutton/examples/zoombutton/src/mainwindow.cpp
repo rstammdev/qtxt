@@ -9,6 +9,7 @@
 #include "mainwindow.h"
 
 #include <QAction>
+#include <QKeySequence>
 #include <QMenuBar>
 #include <QToolBar>
 
@@ -42,10 +43,15 @@ MainWindow::MainWindow(QWidget* parent)
     actionZoomOut->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::ZoomOut));
     actionZoomOut->setShortcut(QKeySequence::ZoomOut);
 
+    QAction* actionResetZoom = addAction(tr("&Reset Zoom"));
+    actionResetZoom->setObjectName("actionResetZoom"_L1);
+    actionResetZoom->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_0));
+
     QMenu* menuView = menuBar()->addMenu(tr("&View"));
     menuView->setObjectName("menuView"_L1);
     menuView->addAction(actionZoomIn);
     menuView->addAction(actionZoomOut);
+    menuView->addAction(actionResetZoom);
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
