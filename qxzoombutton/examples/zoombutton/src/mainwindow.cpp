@@ -13,6 +13,8 @@
 #include <QMenuBar>
 #include <QToolBar>
 
+#include <qxzoombutton.h>
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -53,10 +55,18 @@ MainWindow::MainWindow(QWidget* parent)
     menuView->addAction(actionZoomOut);
     menuView->addAction(actionResetZoom);
 
+    QxZoomButton* buttonResetZoom = new QxZoomButton;
+    buttonResetZoom->setObjectName("buttonResetZoom"_L1);
+    buttonResetZoom->setDefaultAction(actionResetZoom);
+
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
     toolbarView->addAction(actionZoomOut);
+    toolbarView->addWidget(buttonResetZoom);
     toolbarView->addAction(actionZoomIn);
+
+    connect(actionZoomIn, &QAction::triggered, buttonResetZoom, &QxZoomButton::zoomIn);
+    connect(actionZoomOut, &QAction::triggered, buttonResetZoom, &QxZoomButton::zoomOut);
 
 
     setMinimumSize(600, 480);
