@@ -62,3 +62,9 @@ void QxZoomButton::setMaximumZoom(int maximum)
     m_maximumZoom = maximum;
     emit maximumZoomChanged(m_maximumZoom);
 }
+
+
+void QxZoomButton::zoomIn()
+{
+
+}

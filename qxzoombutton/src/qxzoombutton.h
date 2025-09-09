@@ -33,6 +33,8 @@ public slots:
     void setMinimumZoom(int minimum);
     void setMaximumZoom(int maximum);
 
+    void zoomIn();
+
 signals:
     void zoomChanged(int zoom);
     void minimumZoomChanged(int minimum);
