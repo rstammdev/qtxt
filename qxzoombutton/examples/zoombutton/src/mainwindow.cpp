@@ -37,12 +37,19 @@ MainWindow::MainWindow(QWidget* parent)
     actionZoomIn->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::ZoomIn));
     actionZoomIn->setShortcut(QKeySequence::ZoomIn);
 
+    QAction* actionZoomOut = addAction(tr("Zoom &Out"));
+    actionZoomOut->setObjectName("actionZoomOut"_L1);
+    actionZoomOut->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::ZoomOut));
+    actionZoomOut->setShortcut(QKeySequence::ZoomOut);
+
     QMenu* menuView = menuBar()->addMenu(tr("&View"));
     menuView->setObjectName("menuView"_L1);
     menuView->addAction(actionZoomIn);
+    menuView->addAction(actionZoomOut);
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
+    toolbarView->addAction(actionZoomOut);
     toolbarView->addAction(actionZoomIn);
 
 
