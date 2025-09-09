@@ -16,7 +16,7 @@ class QxZoomButton : public QToolButton
 {
     Q_OBJECT
 
-    Q_PROPERTY(int zoom READ zoom WRITE setZoom NOTIFY zoomChanged)
+    Q_PROPERTY(int zoom READ zoom WRITE setZoom RESET resetZoom NOTIFY zoomChanged)
     Q_PROPERTY(int minimumZoom READ minimumZoom WRITE setMinimumZoom NOTIFY minimumZoomChanged)
     Q_PROPERTY(int maximumZoom READ maximumZoom WRITE setMaximumZoom NOTIFY maximumZoomChanged)
 
@@ -35,6 +35,7 @@ public slots:
 
     void zoomIn();
     void zoomOut();
+    void resetZoom();
 
 signals:
     void zoomChanged(int zoom);

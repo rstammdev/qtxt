@@ -67,6 +67,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionZoomIn, &QAction::triggered, buttonResetZoom, &QxZoomButton::zoomIn);
     connect(actionZoomOut, &QAction::triggered, buttonResetZoom, &QxZoomButton::zoomOut);
+    connect(actionResetZoom, &QAction::triggered, buttonResetZoom, &QxZoomButton::resetZoom);
     connect(buttonResetZoom, &QxZoomButton::zoomChanged, this, &MainWindow::applyZoom);
 
     m_textEditor = new QPlainTextEdit;

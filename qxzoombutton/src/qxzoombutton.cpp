@@ -74,3 +74,9 @@ void QxZoomButton::zoomOut()
 {
 
 }
+
+
+void QxZoomButton::resetZoom()
+{
+    setZoom(100);
+}
