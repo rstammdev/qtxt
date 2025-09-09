@@ -11,6 +11,22 @@
 
 QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
+    , m_zoom{100}
 {
 
+}
+
+
+int QxZoomButton::zoom() const
+{
+    return m_zoom;
+}
+
+void QxZoomButton::setZoom(int zoom)
+{
+    if (zoom == m_zoom)
+        return;
+
+    m_zoom = zoom;
+    emit zoomChanged(m_zoom);
 }

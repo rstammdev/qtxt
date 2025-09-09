@@ -16,9 +16,23 @@ class QxZoomButton : public QToolButton
 {
     Q_OBJECT
 
+    Q_PROPERTY(int zoom READ zoom WRITE setZoom NOTIFY zoomChanged)
+
+
 public:
     explicit QxZoomButton(QWidget* parent = nullptr);
     ~QxZoomButton() = default;
+
+    [[nodiscard]] int zoom() const;
+
+public slots:
+    void setZoom(int zoom);
+
+signals:
+    void zoomChanged(int zoom);
+
+private:
+    int m_zoom;
 };
 
 #endif // QXZOOMBUTTON_H
