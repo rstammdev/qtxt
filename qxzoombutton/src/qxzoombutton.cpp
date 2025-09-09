@@ -12,6 +12,7 @@
 QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
     , m_zoom{100}
+    , m_minimumZoom{50}
 {
 
 }
@@ -29,4 +30,19 @@ void QxZoomButton::setZoom(int zoom)
 
     m_zoom = zoom;
     emit zoomChanged(m_zoom);
+}
+
+
+int QxZoomButton::minimumZoom() const
+{
+    return m_minimumZoom;
+}
+
+void QxZoomButton::setMinimumZoom(int minimum)
+{
+    if (minimum == m_minimumZoom)
+        return;
+
+    m_minimumZoom = minimum;
+    emit minimumZoomChanged(m_minimumZoom);
 }
