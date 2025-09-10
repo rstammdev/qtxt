@@ -56,6 +56,9 @@ signals:
 
     void displayModeChanged(QxZoomButton::DisplayMode mode);
 
+private slots:
+    void updateText();
+
 private:
     int m_zoom;
     int m_minimumZoom;

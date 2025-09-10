@@ -16,6 +16,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_maximumZoom{300}
 {
 
+    connect(this , &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
 }
 
 
@@ -94,4 +95,21 @@ void QxZoomButton::setDisplayMode(DisplayMode mode)
 
     m_displayMode = mode;
     emit displayModeChanged(m_displayMode);
+}
+
+
+void QxZoomButton::updateText()
+{
+    QString text = QString();
+    QIcon icon = QIcon();
+
+    if (m_displayMode == DisplayMode::Percentage)
+        text = tr("%1%").arg(m_zoom);
+    else if (m_displayMode == DisplayMode::DefaultActionText && defaultAction())
+        text = defaultAction()->text();
+    else if (m_displayMode == DisplayMode::DefaultActionIcon && defaultAction())
+        icon = defaultAction()->icon();
+
+    setText(text);
+    setIcon(icon);
 }
