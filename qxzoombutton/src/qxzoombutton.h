@@ -19,14 +19,24 @@ class QxZoomButton : public QToolButton
     Q_PROPERTY(int zoom READ zoom WRITE setZoom RESET resetZoom NOTIFY zoomChanged)
     Q_PROPERTY(int minimumZoom READ minimumZoom WRITE setMinimumZoom NOTIFY minimumZoomChanged)
     Q_PROPERTY(int maximumZoom READ maximumZoom WRITE setMaximumZoom NOTIFY maximumZoomChanged)
+    Q_PROPERTY(DisplayMode displayMode READ displayMode WRITE setDisplayMode NOTIFY displayModeChanged)
 
 public:
+    enum DisplayMode {
+        Percentage,
+        DefaultActionIcon,
+        DefaultActionText
+    };
+    Q_ENUM(DisplayMode)
+
     explicit QxZoomButton(QWidget* parent = nullptr);
     ~QxZoomButton() = default;
 
     [[nodiscard]] int zoom() const;
     [[nodiscard]] int minimumZoom() const;
     [[nodiscard]] int maximumZoom() const;
+
+    [[nodiscard]] DisplayMode displayMode() const;
 
 public slots:
     void setZoom(int zoom);
@@ -37,15 +47,21 @@ public slots:
     void zoomOut();
     void resetZoom();
 
+    void setDisplayMode(QxZoomButton::DisplayMode mode);
+
 signals:
     void zoomChanged(int zoom);
     void minimumZoomChanged(int minimum);
     void maximumZoomChanged(int maximum);
 
+    void displayModeChanged(QxZoomButton::DisplayMode mode);
+
 private:
     int m_zoom;
     int m_minimumZoom;
     int m_maximumZoom;
+
+    DisplayMode m_displayMode;
 };
 
 #endif // QXZOOMBUTTON_H

@@ -80,3 +80,18 @@ void QxZoomButton::resetZoom()
 {
     setZoom(100);
 }
+
+
+QxZoomButton::DisplayMode QxZoomButton::displayMode() const
+{
+    return m_displayMode;
+}
+
+void QxZoomButton::setDisplayMode(DisplayMode mode)
+{
+    if (mode == m_displayMode)
+        return;
+
+    m_displayMode = mode;
+    emit displayModeChanged(m_displayMode);
+}
