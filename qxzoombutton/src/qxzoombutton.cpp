@@ -17,6 +17,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
 {
 
     connect(this , &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
+    connect(this , &QxZoomButton::defaultActionChanged, this, &QxZoomButton::updateText);
 }
 
 
@@ -95,6 +96,16 @@ void QxZoomButton::setDisplayMode(DisplayMode mode)
 
     m_displayMode = mode;
     emit displayModeChanged(m_displayMode);
+}
+
+
+void QxZoomButton::setDefaultAction(QAction* action)
+{
+    if (action == defaultAction())
+        return;
+
+    QToolButton::setDefaultAction(action);
+    emit defaultActionChanged();
 }
 
 

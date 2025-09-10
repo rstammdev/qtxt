@@ -49,12 +49,16 @@ public slots:
 
     void setDisplayMode(QxZoomButton::DisplayMode mode);
 
+    void setDefaultAction(QAction* action);
+
 signals:
     void zoomChanged(int zoom);
     void minimumZoomChanged(int minimum);
     void maximumZoomChanged(int maximum);
 
     void displayModeChanged(QxZoomButton::DisplayMode mode);
+
+    void defaultActionChanged();
 
 private slots:
     void updateText();
