@@ -87,5 +87,7 @@ MainWindow::MainWindow(QWidget* parent)
 
 void MainWindow::applyZoom(int zoom)
 {
-
+    QFont font = m_textEditor->font();
+    font.setPointSizeF(m_fontBasePointSize * (zoom / 100.0));
+    m_textEditor->setFont(font);
 }
