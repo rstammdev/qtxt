@@ -12,6 +12,7 @@
 QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
     , m_zoom{100}
+    , m_defaultZoom{100}
     , m_minimumZoom{50}
     , m_maximumZoom{300}
 {
@@ -33,6 +34,21 @@ void QxZoomButton::setZoom(int zoom)
 
     m_zoom = zoom;
     emit zoomChanged(m_zoom);
+}
+
+
+int QxZoomButton::defaultZoom() const
+{
+    return m_defaultZoom;
+}
+
+void QxZoomButton::setDefaultZoom(int defaultZoom)
+{
+    if (defaultZoom == m_defaultZoom)
+        return;
+
+    m_defaultZoom = defaultZoom;
+    emit defaultZoomChanged(m_defaultZoom);
 }
 
 
