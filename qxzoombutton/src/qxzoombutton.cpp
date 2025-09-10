@@ -15,6 +15,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_defaultZoom{100}
     , m_minimumZoom{50}
     , m_maximumZoom{300}
+    , m_displayMode{DisplayMode::Percentage}
 {
 
     connect(this , &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
