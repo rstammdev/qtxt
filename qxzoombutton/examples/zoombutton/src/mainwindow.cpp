@@ -9,6 +9,7 @@
 #include "mainwindow.h"
 
 #include <QAction>
+#include <QFont>
 #include <QKeySequence>
 #include <QMenuBar>
 #include <QToolBar>
@@ -73,6 +74,12 @@ MainWindow::MainWindow(QWidget* parent)
     m_textEditor = new QPlainTextEdit;
     m_textEditor->setPlainText("Lorem ipsum dolor sit amet, consectetur adipiscing elit ..."_L1);
     setCentralWidget(m_textEditor);
+
+    m_fontBasePointSize = m_textEditor->font().pointSizeF();
+    if (m_fontBasePointSize <= 0)
+        m_fontBasePointSize = 10.0;
+
+    //
 
     setMinimumSize(600, 480);
 }

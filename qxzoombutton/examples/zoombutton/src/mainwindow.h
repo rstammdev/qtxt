@@ -26,6 +26,8 @@ private slots:
 
 private:
     QPlainTextEdit* m_textEditor;
+
+    qreal m_fontBasePointSize;
 };
 
 #endif // MAINWINDOW_H
