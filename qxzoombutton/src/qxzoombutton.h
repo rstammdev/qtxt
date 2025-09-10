@@ -21,6 +21,7 @@ class QxZoomButton : public QToolButton
     Q_PROPERTY(int minimumZoom READ minimumZoom WRITE setMinimumZoom NOTIFY minimumZoomChanged)
     Q_PROPERTY(int maximumZoom READ maximumZoom WRITE setMaximumZoom NOTIFY maximumZoomChanged)
     Q_PROPERTY(DisplayMode displayMode READ displayMode WRITE setDisplayMode NOTIFY displayModeChanged)
+    Q_PROPERTY(bool menuVisible READ isMenuVisible WRITE setMenuVisible NOTIFY menuVisibleChanged)
 
 public:
     enum DisplayMode {
@@ -39,6 +40,7 @@ public:
     [[nodiscard]] int maximumZoom() const;
 
     [[nodiscard]] DisplayMode displayMode() const;
+    [[nodiscard]] bool isMenuVisible() const;
 
 public slots:
     void setZoom(int zoom);
@@ -51,6 +53,7 @@ public slots:
     void resetZoom();
 
     void setDisplayMode(QxZoomButton::DisplayMode mode);
+    void setMenuVisible(bool visible);
 
     void setDefaultAction(QAction* action);
 
@@ -61,6 +64,7 @@ signals:
     void maximumZoomChanged(int maximum);
 
     void displayModeChanged(QxZoomButton::DisplayMode mode);
+    void menuVisibleChanged(bool visible);
 
     void defaultActionChanged();
 
@@ -74,6 +78,7 @@ private:
     int m_maximumZoom;
 
     DisplayMode m_displayMode;
+    bool m_menuVisible;
 };
 
 #endif // QXZOOMBUTTON_H

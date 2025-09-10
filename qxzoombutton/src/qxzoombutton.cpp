@@ -16,6 +16,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_minimumZoom{50}
     , m_maximumZoom{300}
     , m_displayMode{DisplayMode::Percentage}
+    , m_menuVisible{true}
 {
 
     connect(this , &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
@@ -113,6 +114,21 @@ void QxZoomButton::setDisplayMode(DisplayMode mode)
 
     m_displayMode = mode;
     emit displayModeChanged(m_displayMode);
+}
+
+
+bool QxZoomButton::isMenuVisible() const
+{
+    return m_menuVisible;
+}
+
+void QxZoomButton::setMenuVisible(bool visible)
+{
+    if (visible == m_menuVisible)
+        return;
+
+    m_menuVisible = visible;
+    emit menuVisibleChanged(m_menuVisible);
 }
 
 
