@@ -19,8 +19,11 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_menuVisible{true}
 {
 
+    updateText();
+
     connect(this , &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
     connect(this , &QxZoomButton::defaultActionChanged, this, &QxZoomButton::updateText);
+
 }
 
 
