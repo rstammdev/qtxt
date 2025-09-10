@@ -21,6 +21,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
 
     updateText();
 
+    connect(this , &QxZoomButton::zoomChanged, this, &QxZoomButton::updateText);
     connect(this , &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
     connect(this , &QxZoomButton::defaultActionChanged, this, &QxZoomButton::updateText);
 
