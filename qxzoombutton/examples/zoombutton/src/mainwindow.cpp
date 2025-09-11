@@ -9,6 +9,7 @@
 #include "mainwindow.h"
 
 #include <QAction>
+#include <QActionGroup>
 #include <QFont>
 #include <QKeySequence>
 #include <QMenuBar>
@@ -71,8 +72,22 @@ MainWindow::MainWindow(QWidget* parent)
     connect(actionResetZoom, &QAction::triggered, buttonResetZoom, &QxZoomButton::resetZoom);
     connect(buttonResetZoom, &QxZoomButton::zoomChanged, this, &MainWindow::applyZoom);
 
+    QAction* actionStepModeCurved = addAction(tr("Curved Steps"));
+    actionStepModeCurved->setObjectName("actionStepModeCurved"_L1);
+    actionStepModeCurved->setCheckable(true);
+    actionStepModeCurved->setData(QxZoomButton::StepMode::CurvedSteps);
+
+    QActionGroup* actionsStepMode = new QActionGroup(this);
+    actionsStepMode->addAction(actionStepModeCurved);
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
+    menuSettings->addSection("Step Mode"_L1);
+    menuSettings->addActions(actionsStepMode->actions());
+
+    connect(actionsStepMode, &QActionGroup::triggered, buttonResetZoom, [=](QAction* action) {
+        buttonResetZoom->setStepMode(action->data().value<QxZoomButton::StepMode>());
+    });
 
     m_textEditor = new QPlainTextEdit;
     m_textEditor->setPlainText("Lorem ipsum dolor sit amet, consectetur adipiscing elit ..."_L1);
@@ -85,6 +100,10 @@ MainWindow::MainWindow(QWidget* parent)
     //
 
     setMinimumSize(600, 480);
+
+    for (QAction* action : actionsStepMode->actions())
+        if (action->data().value<QxZoomButton::StepMode>() == buttonResetZoom->stepMode())
+            action->setChecked(true);
 }
 
 
