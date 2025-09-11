@@ -154,13 +154,25 @@ void QxZoomButton::setMenuVisible(bool visible)
 
 void QxZoomButton::zoomIn()
 {
+    int zoom = m_zoom;
 
+    if (m_stepMode == StepMode::LinearSteps)
+        if (zoom + m_zoomStep <= m_maximumZoom)
+            zoom += m_zoomStep;
+
+    setZoom(zoom);
 }
 
 
 void QxZoomButton::zoomOut()
 {
+    int zoom = m_zoom;
 
+    if (m_stepMode == StepMode::LinearSteps)
+        if (zoom - m_zoomStep >= m_minimumZoom)
+            zoom -= m_zoomStep;
+
+    setZoom(zoom);
 }
 
 
