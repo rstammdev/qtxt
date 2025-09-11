@@ -23,9 +23,9 @@ QxZoomButton::QxZoomButton(QWidget* parent)
 
     updateText();
 
-    connect(this , &QxZoomButton::zoomChanged, this, &QxZoomButton::updateText);
-    connect(this , &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
-    connect(this , &QxZoomButton::defaultActionChanged, this, &QxZoomButton::updateText);
+    connect(this, &QxZoomButton::zoomChanged, this, &QxZoomButton::updateText);
+    connect(this, &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
+    connect(this, &QxZoomButton::defaultActionChanged, this, &QxZoomButton::updateText);
 
     connect(this, &QxZoomButton::clicked, this, &QxZoomButton::resetZoom);
 
@@ -107,24 +107,6 @@ void QxZoomButton::setZoomStep(int step)
 }
 
 
-void QxZoomButton::zoomIn()
-{
-
-}
-
-
-void QxZoomButton::zoomOut()
-{
-
-}
-
-
-void QxZoomButton::resetZoom()
-{
-    setZoom(m_defaultZoom);
-}
-
-
 QxZoomButton::StepMode QxZoomButton::stepMode() const
 {
     return m_stepMode;
@@ -170,6 +152,24 @@ void QxZoomButton::setMenuVisible(bool visible)
 }
 
 
+void QxZoomButton::zoomIn()
+{
+
+}
+
+
+void QxZoomButton::zoomOut()
+{
+
+}
+
+
+void QxZoomButton::resetZoom()
+{
+    setZoom(m_defaultZoom);
+}
+
+
 void QxZoomButton::setDefaultAction(QAction* action)
 {
     if (action == defaultAction())
@@ -182,8 +182,8 @@ void QxZoomButton::setDefaultAction(QAction* action)
 
 void QxZoomButton::updateText()
 {
-    QString text = QString();
-    QIcon icon = QIcon();
+    QString text;
+    QIcon icon;
 
     if (m_displayMode == DisplayMode::Percentage)
         text = tr("%1%").arg(m_zoom);

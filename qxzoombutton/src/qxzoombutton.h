@@ -35,8 +35,8 @@ public:
 
     enum DisplayMode {
         Percentage,
-        DefaultActionIcon,
-        DefaultActionText
+        DefaultActionText,
+        DefaultActionIcon
     };
     Q_ENUM(DisplayMode)
 
@@ -48,7 +48,6 @@ public:
     [[nodiscard]] int minimumZoom() const;
     [[nodiscard]] int maximumZoom() const;
     [[nodiscard]] int zoomStep() const;
-
     [[nodiscard]] StepMode stepMode() const;
     [[nodiscard]] DisplayMode displayMode() const;
     [[nodiscard]] bool isMenuVisible() const;
@@ -59,14 +58,13 @@ public slots:
     void setMinimumZoom(int minimum);
     void setMaximumZoom(int maximum);
     void setZoomStep(int step);
+    void setStepMode(QxZoomButton::StepMode mode);
+    void setDisplayMode(QxZoomButton::DisplayMode mode);
+    void setMenuVisible(bool visible);
 
     void zoomIn();
     void zoomOut();
     void resetZoom();
-
-    void setStepMode(QxZoomButton::StepMode mode);
-    void setDisplayMode(QxZoomButton::DisplayMode mode);
-    void setMenuVisible(bool visible);
 
     void setDefaultAction(QAction* action);
 
@@ -76,7 +74,6 @@ signals:
     void minimumZoomChanged(int minimum);
     void maximumZoomChanged(int maximum);
     void zoomStepChanged(int step);
-
     void stepModeChanged(QxZoomButton::StepMode mode);
     void displayModeChanged(QxZoomButton::DisplayMode mode);
     void menuVisibleChanged(bool visible);
@@ -92,7 +89,6 @@ private:
     int m_minimumZoom;
     int m_maximumZoom;
     int m_zoomStep;
-
     StepMode m_stepMode;
     DisplayMode m_displayMode;
     bool m_menuVisible;
