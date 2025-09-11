@@ -71,6 +71,9 @@ MainWindow::MainWindow(QWidget* parent)
     connect(actionResetZoom, &QAction::triggered, buttonResetZoom, &QxZoomButton::resetZoom);
     connect(buttonResetZoom, &QxZoomButton::zoomChanged, this, &MainWindow::applyZoom);
 
+    QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
+    menuSettings->setObjectName("menuSettings"_L1);
+
     m_textEditor = new QPlainTextEdit;
     m_textEditor->setPlainText("Lorem ipsum dolor sit amet, consectetur adipiscing elit ..."_L1);
     setCentralWidget(m_textEditor);
