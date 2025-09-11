@@ -82,9 +82,15 @@ MainWindow::MainWindow(QWidget* parent)
     actionStepModeLinear->setCheckable(true);
     actionStepModeLinear->setData(QxZoomButton::StepMode::LinearSteps);
 
+    QAction* actionStepModeCustom = addAction(tr("Custom Steps"));
+    actionStepModeCustom->setObjectName("actionStepModeCustom"_L1);
+    actionStepModeCustom->setCheckable(true);
+    actionStepModeCustom->setData(QxZoomButton::StepMode::CustomSteps);
+
     QActionGroup* actionsStepMode = new QActionGroup(this);
     actionsStepMode->addAction(actionStepModeCurved);
     actionsStepMode->addAction(actionStepModeLinear);
+    actionsStepMode->addAction(actionStepModeCustom);
 
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
