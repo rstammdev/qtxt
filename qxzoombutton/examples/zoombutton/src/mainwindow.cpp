@@ -92,13 +92,27 @@ MainWindow::MainWindow(QWidget* parent)
     actionsStepMode->addAction(actionStepModeLinear);
     actionsStepMode->addAction(actionStepModeCustom);
 
+    QAction* actionDisplayModePercentage = addAction(tr("Percentage"));
+    actionDisplayModePercentage->setObjectName("actionDisplayModePercentage"_L1);
+    actionDisplayModePercentage->setCheckable(true);
+    actionDisplayModePercentage->setData(QxZoomButton::DisplayMode::Percentage);
+
+    QActionGroup* actionsDisplayMode = new QActionGroup(this);
+    actionsDisplayMode->addAction(actionDisplayModePercentage);
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
     menuSettings->addSection("Step Mode"_L1);
     menuSettings->addActions(actionsStepMode->actions());
+    menuSettings->addSection("Display Mode"_L1);
+    menuSettings->addActions(actionsDisplayMode->actions());
 
     connect(actionsStepMode, &QActionGroup::triggered, buttonResetZoom, [=](QAction* action) {
         buttonResetZoom->setStepMode(action->data().value<QxZoomButton::StepMode>());
+    });
+
+    connect(actionsDisplayMode, &QActionGroup::triggered, buttonResetZoom, [=](QAction* action) {
+        buttonResetZoom->setDisplayMode(action->data().value<QxZoomButton::DisplayMode>());
     });
 
     m_textEditor = new QPlainTextEdit;
@@ -115,6 +129,10 @@ MainWindow::MainWindow(QWidget* parent)
 
     for (QAction* action : actionsStepMode->actions())
         if (action->data().value<QxZoomButton::StepMode>() == buttonResetZoom->stepMode())
+            action->setChecked(true);
+
+    for (QAction* action : actionsDisplayMode->actions())
+        if (action->data().value<QxZoomButton::DisplayMode>() == buttonResetZoom->displayMode())
             action->setChecked(true);
 }
 
