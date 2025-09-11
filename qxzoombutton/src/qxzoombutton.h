@@ -10,6 +10,7 @@
 #define QXZOOMBUTTON_H
 
 #include <QToolButton>
+#include <QWheelEvent>
 
 
 class QxZoomButton : public QToolButton
@@ -79,6 +80,9 @@ signals:
     void menuVisibleChanged(bool visible);
 
     void defaultActionChanged();
+
+protected:
+    void wheelEvent(QWheelEvent* event) override;
 
 private slots:
     void updateText();

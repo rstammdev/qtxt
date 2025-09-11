@@ -180,6 +180,17 @@ void QxZoomButton::setDefaultAction(QAction* action)
 }
 
 
+void QxZoomButton::wheelEvent(QWheelEvent* event)
+{
+    if (event->angleDelta().y() > 0)
+        zoomIn();
+    else if (event->angleDelta().y() < 0)
+        zoomOut();
+
+    event->accept();
+}
+
+
 void QxZoomButton::updateText()
 {
     QString text;
