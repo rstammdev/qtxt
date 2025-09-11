@@ -21,10 +21,18 @@ class QxZoomButton : public QToolButton
     Q_PROPERTY(int minimumZoom READ minimumZoom WRITE setMinimumZoom NOTIFY minimumZoomChanged)
     Q_PROPERTY(int maximumZoom READ maximumZoom WRITE setMaximumZoom NOTIFY maximumZoomChanged)
     Q_PROPERTY(int zoomStep READ zoomStep WRITE setZoomStep NOTIFY zoomStepChanged)
+    Q_PROPERTY(StepMode stepMode READ stepMode WRITE setStepMode NOTIFY stepModeChanged)
     Q_PROPERTY(DisplayMode displayMode READ displayMode WRITE setDisplayMode NOTIFY displayModeChanged)
     Q_PROPERTY(bool menuVisible READ isMenuVisible WRITE setMenuVisible NOTIFY menuVisibleChanged)
 
 public:
+    enum StepMode {
+        CurvedSteps,
+        LinearSteps,
+        CustomSteps
+    };
+    Q_ENUM(StepMode)
+
     enum DisplayMode {
         Percentage,
         DefaultActionIcon,
@@ -41,6 +49,7 @@ public:
     [[nodiscard]] int maximumZoom() const;
     [[nodiscard]] int zoomStep() const;
 
+    [[nodiscard]] StepMode stepMode() const;
     [[nodiscard]] DisplayMode displayMode() const;
     [[nodiscard]] bool isMenuVisible() const;
 
@@ -55,6 +64,7 @@ public slots:
     void zoomOut();
     void resetZoom();
 
+    void setStepMode(QxZoomButton::StepMode mode);
     void setDisplayMode(QxZoomButton::DisplayMode mode);
     void setMenuVisible(bool visible);
 
@@ -67,6 +77,7 @@ signals:
     void maximumZoomChanged(int maximum);
     void zoomStepChanged(int step);
 
+    void stepModeChanged(QxZoomButton::StepMode mode);
     void displayModeChanged(QxZoomButton::DisplayMode mode);
     void menuVisibleChanged(bool visible);
 
@@ -82,6 +93,7 @@ private:
     int m_maximumZoom;
     int m_zoomStep;
 
+    StepMode m_stepMode;
     DisplayMode m_displayMode;
     bool m_menuVisible;
 };
