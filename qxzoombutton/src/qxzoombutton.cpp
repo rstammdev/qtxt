@@ -15,6 +15,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_defaultZoom{100}
     , m_minimumZoom{50}
     , m_maximumZoom{300}
+    , m_zoomStep{25}
     , m_displayMode{DisplayMode::Percentage}
     , m_menuVisible{true}
 {
@@ -87,6 +88,21 @@ void QxZoomButton::setMaximumZoom(int maximum)
 
     m_maximumZoom = maximum;
     emit maximumZoomChanged(m_maximumZoom);
+}
+
+
+int QxZoomButton::zoomStep() const
+{
+    return m_zoomStep;
+}
+
+void QxZoomButton::setZoomStep(int step)
+{
+    if (step == m_zoomStep)
+        return;
+
+    m_zoomStep = step;
+    emit zoomStepChanged(m_zoomStep);
 }
 
 
