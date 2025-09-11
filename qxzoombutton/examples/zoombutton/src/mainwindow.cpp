@@ -102,9 +102,15 @@ MainWindow::MainWindow(QWidget* parent)
     actionDisplayModeText->setCheckable(true);
     actionDisplayModeText->setData(QxZoomButton::DisplayMode::DefaultActionText);
 
+    QAction* actionDisplayModeIcon = addAction(tr("Default Action Icon"));
+    actionDisplayModeIcon->setObjectName("actionDisplayModeDefaultActionIcon"_L1);
+    actionDisplayModeIcon->setCheckable(true);
+    actionDisplayModeIcon->setData(QxZoomButton::DisplayMode::DefaultActionIcon);
+
     QActionGroup* actionsDisplayMode = new QActionGroup(this);
     actionsDisplayMode->addAction(actionDisplayModePercentage);
     actionsDisplayMode->addAction(actionDisplayModeText);
+    actionsDisplayMode->addAction(actionDisplayModeIcon);
 
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
