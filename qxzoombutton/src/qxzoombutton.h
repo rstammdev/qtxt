@@ -21,6 +21,7 @@ class QxZoomButton : public QToolButton
     Q_PROPERTY(int defaultZoom READ defaultZoom WRITE setDefaultZoom NOTIFY defaultZoomChanged)
     Q_PROPERTY(int minimumZoom READ minimumZoom WRITE setMinimumZoom NOTIFY minimumZoomChanged)
     Q_PROPERTY(int maximumZoom READ maximumZoom WRITE setMaximumZoom NOTIFY maximumZoomChanged)
+    Q_PROPERTY(QList<qreal> curvedZoomFactors READ curvedZoomFactors WRITE setCurvedZoomFactors NOTIFY curvedZoomFactorsChanged)
     Q_PROPERTY(int linearZoomStep READ linearZoomStep WRITE setLinearZoomStep NOTIFY linearZoomStepChanged)
     Q_PROPERTY(StepMode stepMode READ stepMode WRITE setStepMode NOTIFY stepModeChanged)
     Q_PROPERTY(DisplayMode displayMode READ displayMode WRITE setDisplayMode NOTIFY displayModeChanged)
@@ -48,6 +49,7 @@ public:
     [[nodiscard]] int defaultZoom() const;
     [[nodiscard]] int minimumZoom() const;
     [[nodiscard]] int maximumZoom() const;
+    [[nodiscard]] QList<qreal> curvedZoomFactors() const;
     [[nodiscard]] int linearZoomStep() const;
     [[nodiscard]] StepMode stepMode() const;
     [[nodiscard]] DisplayMode displayMode() const;
@@ -58,6 +60,7 @@ public slots:
     void setDefaultZoom(int defaultZoom);
     void setMinimumZoom(int minimum);
     void setMaximumZoom(int maximum);
+    void setCurvedZoomFactors(QList<qreal> factors);
     void setLinearZoomStep(int step);
     void setStepMode(QxZoomButton::StepMode mode);
     void setDisplayMode(QxZoomButton::DisplayMode mode);
@@ -74,6 +77,7 @@ signals:
     void defaultZoomChanged(int defaultZoom);
     void minimumZoomChanged(int minimum);
     void maximumZoomChanged(int maximum);
+    void curvedZoomFactorsChanged(QList<qreal> factors);
     void linearZoomStepChanged(int step);
     void stepModeChanged(QxZoomButton::StepMode mode);
     void displayModeChanged(QxZoomButton::DisplayMode mode);
@@ -92,6 +96,7 @@ private:
     int m_defaultZoom;
     int m_minimumZoom;
     int m_maximumZoom;
+    QList<qreal> m_curvedZoomFactors;
     int m_linearZoomStep;
     StepMode m_stepMode;
     DisplayMode m_displayMode;

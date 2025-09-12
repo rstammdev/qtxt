@@ -15,6 +15,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_defaultZoom{100}
     , m_minimumZoom{50}
     , m_maximumZoom{300}
+    , m_curvedZoomFactors{0.3, 0.5, 0.67, 0.8, 0.9, 1.0, 1.1, 1.2, 1.33, 1.5, 1.7, 2.0, 2.4, 3.0, 4.0, 5.0}
     , m_linearZoomStep{25}
     , m_stepMode{StepMode::CurvedSteps}
     , m_displayMode{DisplayMode::Percentage}
@@ -89,6 +90,21 @@ void QxZoomButton::setMaximumZoom(int maximum)
 
     m_maximumZoom = maximum;
     emit maximumZoomChanged(m_maximumZoom);
+}
+
+
+QList<qreal> QxZoomButton::curvedZoomFactors() const
+{
+    return m_curvedZoomFactors;
+}
+
+void QxZoomButton::setCurvedZoomFactors(QList<qreal> factors)
+{
+    if (factors == m_curvedZoomFactors)
+        return;
+
+    m_curvedZoomFactors = factors;
+    emit curvedZoomFactorsChanged(m_curvedZoomFactors);
 }
 
 
