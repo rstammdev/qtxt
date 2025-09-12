@@ -15,7 +15,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_defaultZoom{100}
     , m_minimumZoom{50}
     , m_maximumZoom{300}
-    , m_zoomStep{25}
+    , m_linearZoomStep{25}
     , m_stepMode{StepMode::CurvedSteps}
     , m_displayMode{DisplayMode::Percentage}
     , m_menuVisible{true}
@@ -92,18 +92,18 @@ void QxZoomButton::setMaximumZoom(int maximum)
 }
 
 
-int QxZoomButton::zoomStep() const
+int QxZoomButton::linearZoomStep() const
 {
-    return m_zoomStep;
+    return m_linearZoomStep;
 }
 
-void QxZoomButton::setZoomStep(int step)
+void QxZoomButton::setLinearZoomStep(int step)
 {
-    if (step == m_zoomStep)
+    if (step == m_linearZoomStep)
         return;
 
-    m_zoomStep = step;
-    emit zoomStepChanged(m_zoomStep);
+    m_linearZoomStep = step;
+    emit linearZoomStepChanged(m_linearZoomStep);
 }
 
 
@@ -157,8 +157,8 @@ void QxZoomButton::zoomIn()
     int zoom = m_zoom;
 
     if (m_stepMode == StepMode::LinearSteps)
-        if (zoom + m_zoomStep <= m_maximumZoom)
-            zoom += m_zoomStep;
+        if (zoom + m_linearZoomStep <= m_maximumZoom)
+            zoom += m_linearZoomStep;
 
     setZoom(zoom);
 }
@@ -169,8 +169,8 @@ void QxZoomButton::zoomOut()
     int zoom = m_zoom;
 
     if (m_stepMode == StepMode::LinearSteps)
-        if (zoom - m_zoomStep >= m_minimumZoom)
-            zoom -= m_zoomStep;
+        if (zoom - m_linearZoomStep >= m_minimumZoom)
+            zoom -= m_linearZoomStep;
 
     setZoom(zoom);
 }
