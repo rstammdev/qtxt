@@ -101,6 +101,10 @@ private:
     StepMode m_stepMode;
     DisplayMode m_displayMode;
     bool m_menuVisible;
+
+    QList<int> m_curvedZoomSteps;
+
+    void createCurvedZoomSteps();
 };
 
 #endif // QXZOOMBUTTON_H

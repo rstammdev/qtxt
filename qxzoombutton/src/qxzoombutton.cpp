@@ -20,6 +20,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_stepMode{StepMode::CurvedSteps}
     , m_displayMode{DisplayMode::Percentage}
     , m_menuVisible{true}
+    , m_curvedZoomSteps{}
 {
 
     updateText();
@@ -27,9 +28,10 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     connect(this, &QxZoomButton::zoomChanged, this, &QxZoomButton::updateText);
     connect(this, &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
     connect(this, &QxZoomButton::defaultActionChanged, this, &QxZoomButton::updateText);
-
     connect(this, &QxZoomButton::clicked, this, &QxZoomButton::resetZoom);
+    connect(this, &QxZoomButton::curvedZoomFactorsChanged, this, &QxZoomButton::createCurvedZoomSteps);
 
+    createCurvedZoomSteps();
 }
 
 
@@ -216,6 +218,14 @@ void QxZoomButton::wheelEvent(QWheelEvent* event)
         zoomOut();
 
     event->accept();
+}
+
+
+void QxZoomButton::createCurvedZoomSteps()
+{
+    const QList<qreal> factors = m_curvedZoomFactors;
+    for (const qreal factor : factors)
+        m_curvedZoomSteps << int(factor * 100);
 }
 
 
