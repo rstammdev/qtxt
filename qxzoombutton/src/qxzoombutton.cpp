@@ -11,7 +11,7 @@
 
 QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
-    , m_zoom{100}
+    , m_zoom{0}
     , m_defaultZoom{100}
     , m_minimumZoom{50}
     , m_maximumZoom{300}
@@ -24,8 +24,6 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_curvedZoomSteps{}
 {
 
-    updateText();
-
     connect(this, &QxZoomButton::zoomChanged, this, &QxZoomButton::updateText);
     connect(this, &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
     connect(this, &QxZoomButton::defaultActionChanged, this, &QxZoomButton::updateText);
@@ -33,6 +31,8 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     connect(this, &QxZoomButton::curvedZoomFactorsChanged, this, &QxZoomButton::createCurvedZoomSteps);
 
     createCurvedZoomSteps();
+
+    resetZoom();
 }
 
 
