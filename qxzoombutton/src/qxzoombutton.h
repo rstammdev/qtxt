@@ -110,6 +110,8 @@ private:
     QList<int> m_curvedZoomSteps;
 
     void createCurvedZoomSteps();
+
+    int getNewZoom(int stepIndex);
 };
 
 #endif // QXZOOMBUTTON_H

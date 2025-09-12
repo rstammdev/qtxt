@@ -188,25 +188,56 @@ void QxZoomButton::setMenuVisible(bool visible)
 
 void QxZoomButton::zoomIn()
 {
-    int zoom = m_zoom;
+    int zoom{0};
 
-    if (m_stepMode == StepMode::LinearSteps)
-        if (zoom + m_linearZoomStep <= m_maximumZoom)
-            zoom += m_linearZoomStep;
+    if (m_stepMode == StepMode::CurvedSteps)
+        zoom = getNewZoom(1);
+    else if (m_stepMode == StepMode::LinearSteps)
+        zoom = m_zoom + m_linearZoomStep;
+    else if (m_stepMode == StepMode::CustomSteps)
+        zoom = getNewZoom(1);
 
-    setZoom(zoom);
+    if (zoom >= m_minimumZoom && zoom <= m_maximumZoom)
+        setZoom(zoom);
 }
 
 
 void QxZoomButton::zoomOut()
 {
-    int zoom = m_zoom;
+    int zoom{0};
 
-    if (m_stepMode == StepMode::LinearSteps)
-        if (zoom - m_linearZoomStep >= m_minimumZoom)
-            zoom -= m_linearZoomStep;
+    if (m_stepMode == StepMode::CurvedSteps)
+        zoom = getNewZoom(-1);
+    else if (m_stepMode == StepMode::LinearSteps)
+        zoom = m_zoom - m_linearZoomStep;
+    else if (m_stepMode == StepMode::CustomSteps)
+        zoom = getNewZoom(-1);
 
-    setZoom(zoom);
+    if (zoom >= m_minimumZoom && zoom <= m_maximumZoom)
+        setZoom(zoom);
+}
+
+
+int QxZoomButton::getNewZoom(int stepIndex)
+{
+    int zoom{0};
+
+    if (m_stepMode == StepMode::CurvedSteps) {
+
+        const int newIndex = m_curvedZoomSteps.indexOf(m_zoom) + stepIndex;
+
+        if (newIndex >= 0 && newIndex < m_curvedZoomSteps.count())
+            zoom = m_curvedZoomSteps.at(newIndex);
+    }
+    else if (m_stepMode == StepMode::CustomSteps) {
+
+        const int newIndex = m_customZoomSteps.indexOf(m_zoom) + stepIndex;
+
+        if (newIndex >= 0 && newIndex < m_customZoomSteps.count())
+            zoom = m_customZoomSteps.at(newIndex);
+    }
+
+    return zoom;
 }
 
 
