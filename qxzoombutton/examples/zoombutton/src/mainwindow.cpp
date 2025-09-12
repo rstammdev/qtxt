@@ -122,6 +122,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionsStepMode, &QActionGroup::triggered, buttonResetZoom, [=](QAction* action) {
         buttonResetZoom->setStepMode(action->data().value<QxZoomButton::StepMode>());
+        buttonResetZoom->resetZoom();
     });
 
     connect(actionsDisplayMode, &QActionGroup::triggered, buttonResetZoom, [=](QAction* action) {
