@@ -17,6 +17,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_maximumZoom{300}
     , m_curvedZoomFactors{0.3, 0.5, 0.67, 0.8, 0.9, 1.0, 1.1, 1.2, 1.33, 1.5, 1.7, 2.0, 2.4, 3.0, 4.0, 5.0}
     , m_linearZoomStep{25}
+    , m_customZoomSteps{}
     , m_stepMode{StepMode::CurvedSteps}
     , m_displayMode{DisplayMode::Percentage}
     , m_menuVisible{true}
@@ -122,6 +123,21 @@ void QxZoomButton::setLinearZoomStep(int step)
 
     m_linearZoomStep = step;
     emit linearZoomStepChanged(m_linearZoomStep);
+}
+
+
+QList<int> QxZoomButton::customZoomSteps() const
+{
+    return m_customZoomSteps;
+}
+
+void QxZoomButton::setCustomZoomSteps(QList<int> steps)
+{
+    if (steps == m_customZoomSteps)
+        return;
+
+    m_customZoomSteps = steps;
+    emit customZoomStepsChanged(m_customZoomSteps);
 }
 
 
