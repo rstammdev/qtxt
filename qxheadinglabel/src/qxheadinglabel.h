@@ -32,6 +32,9 @@ public slots:
 signals:
     void fontPropertyChanged();
 
+private slots:
+    void updateFontProperties();
+
 private:
     qreal m_fontPointSizeFactor;
     bool m_fontBold;

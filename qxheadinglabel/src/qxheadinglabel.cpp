@@ -17,7 +17,9 @@ QxHeadingLabel::QxHeadingLabel(QWidget* parent, Qt::WindowFlags flags)
     , m_fontBold{true}
     , m_fontDefaultPointSize{font().pointSizeF()}
 {
+    connect(this, &QxHeadingLabel::fontPropertyChanged, this, &QxHeadingLabel::updateFontProperties);
 
+    updateFontProperties();
 }
 
 QxHeadingLabel::QxHeadingLabel(const QString& text, QWidget* parent, Qt::WindowFlags flags)
@@ -54,4 +56,14 @@ void QxHeadingLabel::setFontBold(bool enable)
 
     m_fontBold = enable;
     emit fontPropertyChanged();
+}
+
+
+void QxHeadingLabel::updateFontProperties()
+{
+    QFont _font = font();
+    _font.setPointSize(qRound(m_fontDefaultPointSize * m_fontPointSizeFactor));
+    _font.setBold(m_fontBold);
+
+    setFont(_font);
 }
