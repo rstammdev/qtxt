@@ -8,11 +8,14 @@
 
 #include "qxheadinglabel.h"
 
+#include <QFont>
+
 
 QxHeadingLabel::QxHeadingLabel(QWidget* parent, Qt::WindowFlags flags)
     : QLabel{parent, flags}
     , m_fontPointSizeFactor{1.2}
     , m_fontBold{true}
+    , m_fontDefaultPointSize{font().pointSizeF()}
 {
 
 }

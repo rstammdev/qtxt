@@ -35,6 +35,8 @@ signals:
 private:
     qreal m_fontPointSizeFactor;
     bool m_fontBold;
+
+    qreal m_fontDefaultPointSize;
 };
 
 #endif // QXHEADINGLABEL_H
