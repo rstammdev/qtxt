@@ -15,10 +15,22 @@
 class QxHeadingLabel : public QLabel
 {
     Q_OBJECT
+    Q_PROPERTY(qreal fontPointSizeFactor READ fontPointSizeFactor WRITE setFontPointSizeFactor NOTIFY fontPropertyChanged)
 
 public:
     explicit QxHeadingLabel(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
     explicit QxHeadingLabel(const QString& text, QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
+
+    qreal fontPointSizeFactor() const;
+
+public slots:
+    void setFontPointSizeFactor(qreal factor);
+
+signals:
+    void fontPropertyChanged();
+
+private:
+    qreal m_fontPointSizeFactor;
 };
 
 #endif // QXHEADINGLABEL_H

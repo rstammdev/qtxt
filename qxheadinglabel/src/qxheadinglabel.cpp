@@ -11,6 +11,7 @@
 
 QxHeadingLabel::QxHeadingLabel(QWidget* parent, Qt::WindowFlags flags)
     : QLabel{parent, flags}
+    , m_fontPointSizeFactor{1.2}
 {
 
 }
@@ -19,4 +20,19 @@ QxHeadingLabel::QxHeadingLabel(const QString& text, QWidget* parent, Qt::WindowF
     : QxHeadingLabel{parent, flags}
 {
     setText(text);
+}
+
+
+qreal QxHeadingLabel::fontPointSizeFactor() const
+{
+    return m_fontPointSizeFactor;
+}
+
+void QxHeadingLabel::setFontPointSizeFactor(qreal factor)
+{
+    if (factor == m_fontPointSizeFactor)
+        return;
+
+    m_fontPointSizeFactor = factor;
+    emit fontPropertyChanged();
 }
