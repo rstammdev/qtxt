@@ -31,6 +31,8 @@ Dialog::Dialog(QWidget* parent)
 
     QLabel* label = new QLabel(tr("QLabel"));
 
+    QLabel* labelRichText = new QLabel(tr("<strong style=\"font-size: large;\">QLabel Rich Text</strong>"));
+
     // Button
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
@@ -44,6 +46,7 @@ Dialog::Dialog(QWidget* parent)
     layout->addWidget(headingLabelLarger);
     layout->addWidget(headingLabelNormal);
     layout->addWidget(label);
+    layout->addWidget(labelRichText);
     layout->addStretch();
     layout->addWidget(buttonBox);
 
