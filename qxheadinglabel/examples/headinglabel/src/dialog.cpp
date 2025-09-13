@@ -9,6 +9,7 @@
 #include "dialog.h"
 
 #include <QDialogButtonBox>
+#include <QLabel>
 #include <QVBoxLayout>
 
 #include <qxheadinglabel.h>
@@ -28,6 +29,8 @@ Dialog::Dialog(QWidget* parent)
     headingLabelNormal->setFontPointSizeFactor(1.0);
     headingLabelNormal->setFontBold(false);
 
+    QLabel* label = new QLabel(tr("QLabel"));
+
     // Button
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
@@ -40,6 +43,7 @@ Dialog::Dialog(QWidget* parent)
     layout->addWidget(headingLabel);
     layout->addWidget(headingLabelLarger);
     layout->addWidget(headingLabelNormal);
+    layout->addWidget(label);
     layout->addStretch();
     layout->addWidget(buttonBox);
 
