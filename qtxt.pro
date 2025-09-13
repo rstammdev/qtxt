@@ -16,5 +16,6 @@ QT += widgets
 include(qxcomponentsdialog/qxcomponentsdialog.pri)
 include(qxconfirmationbox/qxconfirmationbox.pri)
 include(qxdialogheaderbox/qxdialogheaderbox.pri)
+include(qxheadinglabel/qxheadinglabel.pri)
 include(qxtoolbarsdialog/qxtoolbarsdialog.pri)
 include(qxzoombutton/qxzoombutton.pri)
