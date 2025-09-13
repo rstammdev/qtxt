@@ -21,6 +21,9 @@ Dialog::Dialog(QWidget* parent)
 
     QxHeadingLabel* headingLabel = new QxHeadingLabel(tr("QxHeadingLabel"));
 
+    QxHeadingLabel* headingLabelLarger = new QxHeadingLabel(tr("QxHeadingLabel Larger Font Size"));
+    headingLabelLarger->setFontPointSizeFactor(1.4);
+
     // Button
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
@@ -31,6 +34,7 @@ Dialog::Dialog(QWidget* parent)
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(headingLabel);
+    layout->addWidget(headingLabelLarger);
     layout->addStretch();
     layout->addWidget(buttonBox);
 
