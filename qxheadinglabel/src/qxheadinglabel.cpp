@@ -12,6 +12,7 @@
 QxHeadingLabel::QxHeadingLabel(QWidget* parent, Qt::WindowFlags flags)
     : QLabel{parent, flags}
     , m_fontPointSizeFactor{1.2}
+    , m_fontBold{true}
 {
 
 }
@@ -34,5 +35,20 @@ void QxHeadingLabel::setFontPointSizeFactor(qreal factor)
         return;
 
     m_fontPointSizeFactor = factor;
+    emit fontPropertyChanged();
+}
+
+
+bool QxHeadingLabel::isFontBold() const
+{
+    return m_fontBold;
+}
+
+void QxHeadingLabel::setFontBold(bool enable)
+{
+    if (enable == m_fontBold)
+        return;
+
+    m_fontBold = enable;
     emit fontPropertyChanged();
 }
