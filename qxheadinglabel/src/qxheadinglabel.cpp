@@ -14,3 +14,9 @@ QxHeadingLabel::QxHeadingLabel(QWidget* parent, Qt::WindowFlags flags)
 {
 
 }
+
+QxHeadingLabel::QxHeadingLabel(const QString& text, QWidget* parent, Qt::WindowFlags flags)
+    : QxHeadingLabel{parent, flags}
+{
+    setText(text);
+}

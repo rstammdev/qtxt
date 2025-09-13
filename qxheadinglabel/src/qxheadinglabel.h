@@ -18,6 +18,7 @@ class QxHeadingLabel : public QLabel
 
 public:
     explicit QxHeadingLabel(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
+    explicit QxHeadingLabel(const QString& text, QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
 };
 
 #endif // QXHEADINGLABEL_H
