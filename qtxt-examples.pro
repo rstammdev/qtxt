@@ -14,5 +14,6 @@ SUBDIRS += \
     qxcomponentsdialog/examples/componentsdialog \
     qxconfirmationbox/examples/confirmationbox \
     qxdialogheaderbox/examples/dialogheaderbox \
+    qxheadinglabel/examples/headinglabel \
     qxtoolbarsdialog/examples/toolbarsdialog \
     qxzoombutton/examples/zoombutton
