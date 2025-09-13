@@ -11,10 +11,15 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+#include <qxheadinglabel.h>
+
 
 Dialog::Dialog(QWidget* parent)
     : QDialog{parent}
 {
+    // Labels
+
+    QxHeadingLabel* headingLabel = new QxHeadingLabel(tr("QxHeadingLabel"));
 
     // Button
 
@@ -25,6 +30,7 @@ Dialog::Dialog(QWidget* parent)
     //
 
     QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(headingLabel);
     layout->addStretch();
     layout->addWidget(buttonBox);
 
