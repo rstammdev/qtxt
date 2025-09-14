@@ -6,10 +6,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
+!versionAtLeast(QT_VERSION, 6.8) {
+    error("Requires at least Qt 6.8")
+}
+
 TEMPLATE = app
 TARGET = dialogheaderbox
-
-!versionAtLeast(QT_VERSION, 6.8): error("Requires at least Qt 6.8")
 
 QT += core gui widgets
 

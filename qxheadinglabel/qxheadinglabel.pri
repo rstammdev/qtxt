@@ -13,7 +13,7 @@
 isEmpty(QXHEADINGLABEL_PRI_INCLUDED) {
     QXHEADINGLABEL_PRI_INCLUDED = 1
 
-    QT += widgets
+    QT += core gui widgets
 
     INCLUDEPATH += \
         $$PWD/src

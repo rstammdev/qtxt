@@ -13,7 +13,7 @@
 isEmpty(QXCOMPONENTSDIALOG_PRI_INCLUDED) {
     QXCOMPONENTSDIALOG_PRI_INCLUDED = 1
 
-    QT += widgets
+    QT += core gui widgets
 
     INCLUDEPATH += \
         $$PWD/src
