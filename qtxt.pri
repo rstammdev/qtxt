@@ -6,9 +6,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-include(qxcomponentsdialog/qxcomponentsdialog.pri)
-include(qxconfirmationbox/qxconfirmationbox.pri)
-include(qxdialogheaderbox/qxdialogheaderbox.pri)
-include(qxheadinglabel/qxheadinglabel.pri)
-include(qxtoolbarsdialog/qxtoolbarsdialog.pri)
-include(qxzoombutton/qxzoombutton.pri)
+INCLUDEPATH += $$PWD
+
+include($$PWD/qxcomponentsdialog/qxcomponentsdialog.pri)
+include($$PWD/qxconfirmationbox/qxconfirmationbox.pri)
+include($$PWD/qxdialogheaderbox/qxdialogheaderbox.pri)
+include($$PWD/qxheadinglabel/qxheadinglabel.pri)
+include($$PWD/qxtoolbarsdialog/qxtoolbarsdialog.pri)
+include($$PWD/qxzoombutton/qxzoombutton.pri)
