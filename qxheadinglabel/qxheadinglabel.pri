@@ -19,4 +19,7 @@ isEmpty(QXHEADINGLABEL_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxheadinglabel.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }

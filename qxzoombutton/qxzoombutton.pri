@@ -19,4 +19,7 @@ isEmpty(QXZOOMBUTTON_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxzoombutton.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }

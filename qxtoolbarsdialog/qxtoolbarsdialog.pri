@@ -29,4 +29,7 @@ isEmpty(QXTOOLBARSDIALOG_PRI_INCLUDED) {
         $$PWD/src/qxtoolbarstoolbarpagebar.cpp \
         $$PWD/src/qxtoolbarstoolbarpagebutton.cpp \
         $$PWD/src/qxtoolbarstoolbarpageseparator.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }

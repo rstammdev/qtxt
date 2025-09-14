@@ -19,4 +19,7 @@ isEmpty(QXCOMPONENTSDIALOG_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxcomponentsdialog.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }

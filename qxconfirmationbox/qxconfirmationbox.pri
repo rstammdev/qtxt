@@ -19,4 +19,7 @@ isEmpty(QXCONFIRMATIONBOX_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxconfirmationbox.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }

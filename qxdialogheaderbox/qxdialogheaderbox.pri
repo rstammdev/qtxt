@@ -19,4 +19,7 @@ isEmpty(QXDIALOGHEADERBOX_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxdialogheaderbox.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }
