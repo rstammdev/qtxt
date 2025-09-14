@@ -6,13 +6,17 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-QT += widgets
+isEmpty(QXZOOMBUTTON_PRI_INCLUDED) {
+    QXZOOMBUTTON_PRI_INCLUDED = 1
 
-INCLUDEPATH += \
-    $$PWD/src
+    QT += widgets
 
-HEADERS += \
-    $$PWD/src/qxzoombutton.h
+    INCLUDEPATH += \
+        $$PWD/src
 
-SOURCES += \
-    $$PWD/src/qxzoombutton.cpp
+    HEADERS += \
+        $$PWD/src/qxzoombutton.h
+
+    SOURCES += \
+        $$PWD/src/qxzoombutton.cpp
+}

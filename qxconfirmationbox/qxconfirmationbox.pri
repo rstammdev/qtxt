@@ -6,13 +6,17 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-QT += widgets
+isEmpty(QXCONFIRMATIONBOX_PRI_INCLUDED) {
+    QXCONFIRMATIONBOX_PRI_INCLUDED = 1
 
-INCLUDEPATH += \
-    $$PWD/src
+    QT += widgets
 
-HEADERS += \
-    $$PWD/src/qxconfirmationbox.h
+    INCLUDEPATH += \
+        $$PWD/src
 
-SOURCES += \
-    $$PWD/src/qxconfirmationbox.cpp
+    HEADERS += \
+        $$PWD/src/qxconfirmationbox.h
+
+    SOURCES += \
+        $$PWD/src/qxconfirmationbox.cpp
+}

@@ -6,23 +6,27 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-QT += widgets
+isEmpty(QXTOOLBARSDIALOG_PRI_INCLUDED) {
+    QXTOOLBARSDIALOG_PRI_INCLUDED = 1
 
-INCLUDEPATH += \
-    $$PWD/src
+    QT += widgets
 
-HEADERS += \
-    $$PWD/src/qxtoolbarsdialog.h \
-    $$PWD/src/qxtoolbarstoolbar.h \
-    $$PWD/src/qxtoolbarstoolbarpage.h \
-    $$PWD/src/qxtoolbarstoolbarpagebar.h \
-    $$PWD/src/qxtoolbarstoolbarpagebutton.h \
-    $$PWD/src/qxtoolbarstoolbarpageseparator.h
+    INCLUDEPATH += \
+        $$PWD/src
 
-SOURCES += \
-    $$PWD/src/qxtoolbarsdialog.cpp \
-    $$PWD/src/qxtoolbarstoolbar.cpp \
-    $$PWD/src/qxtoolbarstoolbarpage.cpp \
-    $$PWD/src/qxtoolbarstoolbarpagebar.cpp \
-    $$PWD/src/qxtoolbarstoolbarpagebutton.cpp \
-    $$PWD/src/qxtoolbarstoolbarpageseparator.cpp
+    HEADERS += \
+        $$PWD/src/qxtoolbarsdialog.h \
+        $$PWD/src/qxtoolbarstoolbar.h \
+        $$PWD/src/qxtoolbarstoolbarpage.h \
+        $$PWD/src/qxtoolbarstoolbarpagebar.h \
+        $$PWD/src/qxtoolbarstoolbarpagebutton.h \
+        $$PWD/src/qxtoolbarstoolbarpageseparator.h
+
+    SOURCES += \
+        $$PWD/src/qxtoolbarsdialog.cpp \
+        $$PWD/src/qxtoolbarstoolbar.cpp \
+        $$PWD/src/qxtoolbarstoolbarpage.cpp \
+        $$PWD/src/qxtoolbarstoolbarpagebar.cpp \
+        $$PWD/src/qxtoolbarstoolbarpagebutton.cpp \
+        $$PWD/src/qxtoolbarstoolbarpageseparator.cpp
+}

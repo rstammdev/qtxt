@@ -6,13 +6,17 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-QT += widgets
+isEmpty(QXDIALOGHEADERBOX_PRI_INCLUDED) {
+    QXDIALOGHEADERBOX_PRI_INCLUDED = 1
 
-INCLUDEPATH += \
-    $$PWD/src
+    QT += widgets
 
-HEADERS += \
-    $$PWD/src/qxdialogheaderbox.h
+    INCLUDEPATH += \
+        $$PWD/src
 
-SOURCES += \
-    $$PWD/src/qxdialogheaderbox.cpp
+    HEADERS += \
+        $$PWD/src/qxdialogheaderbox.h
+
+    SOURCES += \
+        $$PWD/src/qxdialogheaderbox.cpp
+}

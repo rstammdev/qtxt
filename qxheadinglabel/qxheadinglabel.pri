@@ -6,13 +6,17 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-QT += widgets
+isEmpty(QXHEADINGLABEL_PRI_INCLUDED) {
+    QXHEADINGLABEL_PRI_INCLUDED = 1
 
-INCLUDEPATH += \
-    $$PWD/src
+    QT += widgets
 
-HEADERS += \
-    $$PWD/src/qxheadinglabel.h
+    INCLUDEPATH += \
+        $$PWD/src
 
-SOURCES += \
-    $$PWD/src/qxheadinglabel.cpp
+    HEADERS += \
+        $$PWD/src/qxheadinglabel.h
+
+    SOURCES += \
+        $$PWD/src/qxheadinglabel.cpp
+}
