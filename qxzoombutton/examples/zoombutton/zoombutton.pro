@@ -9,7 +9,7 @@
 TEMPLATE = app
 TARGET = zoombutton
 
-!versionAtLeast(QT_VERSION, 6.5): error("Requires at least Qt 6.5")
+!versionAtLeast(QT_VERSION, 6.8): error("Requires at least Qt 6.8")
 
 QT += core gui widgets
 
