@@ -6,6 +6,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
+!versionAtLeast(QT_VERSION, 6.8) {
+    error("Requires at least Qt 6.8")
+}
+
 isEmpty(QXTOOLBARSDIALOG_PRI_INCLUDED) {
     QXTOOLBARSDIALOG_PRI_INCLUDED = 1
 
