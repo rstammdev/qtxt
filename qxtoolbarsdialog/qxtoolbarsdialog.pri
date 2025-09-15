@@ -15,6 +15,8 @@ isEmpty(QXTOOLBARSDIALOG_PRI_INCLUDED) {
 
     QT += core gui widgets
 
+    CONFIG += qt6 c++23
+
     INCLUDEPATH += \
         $$PWD/src
 
