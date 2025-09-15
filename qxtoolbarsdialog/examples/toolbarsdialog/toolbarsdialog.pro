@@ -15,13 +15,11 @@ TARGET = toolbarsdialog
 
 QT += core gui widgets
 
-CONFIG += c++23
+CONFIG += qt6 c++23
 CONFIG += lrelease
 CONFIG += embed_translations
 
 DEFINES += QT_DEPRECATED_WARNINGS
-
-include(../../qxtoolbarsdialog.pri)
 
 HEADERS += \
     src/mainwindow.h
@@ -29,3 +27,5 @@ HEADERS += \
 SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp
+
+include(../../qxtoolbarsdialog.pri)

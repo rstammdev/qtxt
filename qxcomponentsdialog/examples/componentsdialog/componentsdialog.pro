@@ -15,13 +15,11 @@ TARGET = componentsdialog
 
 QT += core gui widgets
 
-CONFIG += c++23
+CONFIG += qt6 c++23
 CONFIG += lrelease
 CONFIG += embed_translations
 
 DEFINES += QT_DEPRECATED_WARNINGS
-
-include(../../qxcomponentsdialog.pri)
 
 HEADERS += \
     src/dialog.h
@@ -29,3 +27,5 @@ HEADERS += \
 SOURCES += \
     src/dialog.cpp \
     src/main.cpp
+
+include(../../qxcomponentsdialog.pri)
