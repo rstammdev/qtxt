@@ -8,21 +8,22 @@
 
 #include "qxtoolbarstoolbarpagebutton.h"
 
-#include <QFont>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QLabel>
 #include <QRadioButton>
 #include <QVBoxLayout>
 
+#include <qxheadinglabel.h>
+
 
 QxToolbarsToolbarPageButton::QxToolbarsToolbarPageButton(QToolButton* button, QWidget* parent)
     : QxToolbarsToolbarPage{parent}
     , m_button{button}
 {
-    QLabel* pageTitle = new QLabel;
+    QxHeadingLabel* pageTitle = new QxHeadingLabel;
 
-    connect(this, &QxToolbarsToolbarPage::pageTitleChanged, pageTitle, &QLabel::setText);
+    connect(this, &QxToolbarsToolbarPage::pageTitleChanged, pageTitle, &QxHeadingLabel::setText);
 
     // Style
 
@@ -81,11 +82,6 @@ QxToolbarsToolbarPageButton::QxToolbarsToolbarPageButton(QToolButton* button, QW
     layout->addWidget(groupVisibility);
     layout->addStretch();
     setLayout(layout);
-
-    QFont fontTitle = pageTitle->font();
-    fontTitle.setPointSize(int(fontTitle.pointSizeF() * 1.2));
-    fontTitle.setBold(true);
-    pageTitle->setFont(fontTitle);
 
     m_buttonsStyle->button(m_button->toolButtonStyle())->setChecked(true);
 

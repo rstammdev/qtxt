@@ -38,4 +38,6 @@ isEmpty(QXTOOLBARSDIALOG_PRI_INCLUDED) {
 
     DISTFILES += \
         $$PWD/README.md
+
+    include($$PWD/../qxheadinglabel/qxheadinglabel.pri)
 }

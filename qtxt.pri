@@ -8,9 +8,12 @@
 
 INCLUDEPATH += $$PWD
 
+# Tier 1
 include($$PWD/qxcomponentsdialog/qxcomponentsdialog.pri)
 include($$PWD/qxconfirmationbox/qxconfirmationbox.pri)
 include($$PWD/qxdialogheaderbox/qxdialogheaderbox.pri)
 include($$PWD/qxheadinglabel/qxheadinglabel.pri)
-include($$PWD/qxtoolbarsdialog/qxtoolbarsdialog.pri)
 include($$PWD/qxzoombutton/qxzoombutton.pri)
+
+# Tier 2
+include($$PWD/qxtoolbarsdialog/qxtoolbarsdialog.pri)

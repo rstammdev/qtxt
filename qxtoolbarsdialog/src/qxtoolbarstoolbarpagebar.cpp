@@ -8,7 +8,6 @@
 
 #include "qxtoolbarstoolbarpagebar.h"
 
-#include <QFont>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QLabel>
@@ -17,14 +16,16 @@
 #include <QSize>
 #include <QVBoxLayout>
 
+#include <qxheadinglabel.h>
+
 
 QxToolbarsToolbarPageBar::QxToolbarsToolbarPageBar(QToolBar* bar, QWidget* parent)
     : QxToolbarsToolbarPage{parent}
     , m_bar{bar}
 {
-    QLabel* pageTitle = new QLabel;
+    QxHeadingLabel* pageTitle = new QxHeadingLabel;
 
-    connect(this, &QxToolbarsToolbarPage::pageTitleChanged, pageTitle, &QLabel::setText);
+    connect(this, &QxToolbarsToolbarPage::pageTitleChanged, pageTitle, &QxHeadingLabel::setText);
 
     // Icon Size
 
@@ -83,11 +84,6 @@ QxToolbarsToolbarPageBar::QxToolbarsToolbarPageBar(QToolBar* bar, QWidget* paren
     layout->addWidget(groupVisibility);
     layout->addStretch();
     setLayout(layout);
-
-    QFont fontTitle = pageTitle->font();
-    fontTitle.setPointSize(int(fontTitle.pointSizeF() * 1.2));
-    fontTitle.setBold(true);
-    pageTitle->setFont(fontTitle);
 
     const QList<int> ids{16, 22, 32, 48};
     const int id = ids.contains(m_bar->iconSize().height()) ? m_bar->iconSize().height() : 0;
