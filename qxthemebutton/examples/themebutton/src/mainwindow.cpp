@@ -32,5 +32,10 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
+    menuSettings->setObjectName("menuSettings"_L1);
+
+    //
+
     setMinimumSize(640, 480);
 }
