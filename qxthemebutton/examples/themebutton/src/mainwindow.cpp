@@ -12,6 +12,8 @@
 #include <QMenuBar>
 #include <QToolBar>
 
+#include <qxthemebutton.h>
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -40,8 +42,13 @@ MainWindow::MainWindow(QWidget* parent)
     menuSettings->setObjectName("menuSettings"_L1);
     menuSettings->addAction(actionTheme);
 
+    QxThemeButton* buttonTheme = new QxThemeButton;
+    buttonTheme->setObjectName("buttonTheme"_L1);
+    buttonTheme->setDefaultAction(actionTheme);
+
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
+    toolbarSettings->addWidget(buttonTheme);
 
     //
 
