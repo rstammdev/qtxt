@@ -25,4 +25,7 @@ isEmpty(QXTHEMEBUTTON_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxthemebutton.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }
