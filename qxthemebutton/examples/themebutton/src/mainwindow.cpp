@@ -32,8 +32,13 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    QAction* actionTheme = addAction(tr("&Theme"));
+    actionTheme->setObjectName("actionTheme"_L1);
+    actionTheme->setCheckable(true);
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
+    menuSettings->addAction(actionTheme);
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
