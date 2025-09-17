@@ -8,6 +8,8 @@
 
 #include "qxzoombutton.h"
 
+using namespace Qt::Literals::StringLiterals;
+
 
 QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
@@ -18,6 +20,8 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_text{tr("%1%")}
 {
     connect(this, &QxZoomButton::clicked, this, &QxZoomButton::resetZoomFactor);
+
+    updateText();
 }
 
 
@@ -158,5 +162,11 @@ void QxZoomButton::wheelEvent(QWheelEvent* event)
 
 void QxZoomButton::updateText()
 {
+    const int percentage = int(m_zoomFactor * 100);
+    QString text = !m_iconText.isEmpty() ? m_iconText : m_text;
 
+    if (text.contains("%1"_L1))
+        text = QString(text).arg(percentage);
+
+    QToolButton::setText(text);
 }
