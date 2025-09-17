@@ -11,8 +11,8 @@
 
 QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
+    , m_defaultZoomFactor{1.0}
     , m_zoom{0}
-    , m_defaultZoom{100}
     , m_menuVisible{true}
 {
 
@@ -21,6 +21,26 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     connect(this, &QxZoomButton::clicked, this, &QxZoomButton::resetZoom);
 
     resetZoom();
+}
+
+
+qreal QxZoomButton::defaultZoomFactor() const
+{
+    return m_defaultZoomFactor;
+}
+
+void QxZoomButton::setDefaultZoomFactor(const qreal factor)
+{
+    if (factor == m_defaultZoomFactor)
+        return;
+
+    m_defaultZoomFactor = factor;
+    emit defaultZoomFactorChanged(m_defaultZoomFactor);
+}
+
+void QxZoomButton::resetDefaultZoomFactor()
+{
+
 }
 
 
@@ -36,21 +56,6 @@ void QxZoomButton::setZoom(int zoom)
 
     m_zoom = zoom;
     emit zoomChanged(m_zoom);
-}
-
-
-int QxZoomButton::defaultZoom() const
-{
-    return m_defaultZoom;
-}
-
-void QxZoomButton::setDefaultZoom(int defaultZoom)
-{
-    if (defaultZoom == m_defaultZoom)
-        return;
-
-    m_defaultZoom = defaultZoom;
-    emit defaultZoomChanged(m_defaultZoom);
 }
 
 
@@ -83,7 +88,7 @@ void QxZoomButton::zoomOut()
 
 void QxZoomButton::resetZoom()
 {
-    setZoom(m_defaultZoom);
+
 }
 
 
