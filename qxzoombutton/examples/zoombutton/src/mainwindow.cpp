@@ -49,7 +49,9 @@ MainWindow::MainWindow(QWidget* parent)
 
     QAction* actionResetZoom = addAction(tr("&Reset Zoom"));
     actionResetZoom->setObjectName("actionResetZoom"_L1);
+    actionResetZoom->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::ZoomFitBest));
     actionResetZoom->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_0));
+    actionResetZoom->setIconText(tr("%1%"));
 
     QMenu* menuView = menuBar()->addMenu(tr("&View"));
     menuView->setObjectName("menuView"_L1);
@@ -60,6 +62,7 @@ MainWindow::MainWindow(QWidget* parent)
     QxZoomButton* buttonResetZoom = new QxZoomButton;
     buttonResetZoom->setObjectName("buttonResetZoom"_L1);
     buttonResetZoom->setDefaultAction(actionResetZoom);
+    buttonResetZoom->setToolButtonStyle(Qt::ToolButtonTextOnly);
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
