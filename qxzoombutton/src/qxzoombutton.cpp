@@ -44,7 +44,7 @@ void QxZoomButton::setDefaultZoomFactor(const qreal factor)
 
 void QxZoomButton::resetDefaultZoomFactor()
 {
-
+    setDefaultZoomFactor(1.0);
 }
 
 
