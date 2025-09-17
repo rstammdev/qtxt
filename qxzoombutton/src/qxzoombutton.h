@@ -43,6 +43,7 @@ public slots:
     void resetZoom();
 
     void setDefaultAction(QAction* action);
+    void setText(const QString& text);
 
 signals:
     void defaultZoomFactorChanged(qreal factor);

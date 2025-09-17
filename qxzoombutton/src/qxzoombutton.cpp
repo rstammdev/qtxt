@@ -132,6 +132,19 @@ void QxZoomButton::setDefaultAction(QAction* action)
 }
 
 
+void QxZoomButton::setText(const QString& text)
+{
+    if (text == QxZoomButton::text())
+        return;
+
+    QToolButton::setText(text);
+
+    m_text = text;
+    m_iconText = QString();
+    updateText();
+}
+
+
 void QxZoomButton::wheelEvent(QWheelEvent* event)
 {
     if (event->angleDelta().y() > 0)
