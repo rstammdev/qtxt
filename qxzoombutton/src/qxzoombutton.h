@@ -65,8 +65,6 @@ private:
 
     QString m_text;
     QString m_iconText;
-
-    int getNewZoom(int stepIndex);
 };
 
 #endif // QXZOOMBUTTON_H

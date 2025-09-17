@@ -75,20 +75,19 @@ MainWindow::MainWindow(QWidget* parent)
     connect(actionResetZoom, &QAction::triggered, buttonResetZoom, &QxZoomButton::resetZoom);
     connect(buttonResetZoom, &QxZoomButton::zoomFactorChanged, this, &MainWindow::applyZoomFactor);
 
-    QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
-    menuSettings->setObjectName("menuSettings"_L1);
-
     m_textEditor = new QPlainTextEdit;
+    m_textEditor->setObjectName("textEditor"_L1);
     m_textEditor->setPlainText("Lorem ipsum dolor sit amet, consectetur adipiscing elit ..."_L1);
-    setCentralWidget(m_textEditor);
 
     m_fontBasePointSize = m_textEditor->font().pointSizeF();
     if (m_fontBasePointSize <= 0)
-        m_fontBasePointSize = 10.0;
+        m_fontBasePointSize = 12.0;
 
     //
 
-    setMinimumSize(600, 480);
+    setMinimumSize(640, 480);
+
+    setCentralWidget(m_textEditor);
 }
 
 
