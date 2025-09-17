@@ -50,8 +50,6 @@ signals:
     void zoomFactorsChanged();
     void menuVisibleChanged();
 
-    void defaultActionChanged();
-
 protected:
     void wheelEvent(QWheelEvent* event) override;
 
@@ -63,6 +61,9 @@ private:
     qreal m_zoomFactor;
     QList<qreal> m_zoomFactors;
     bool m_menuVisible;
+
+    QString m_text;
+    QString m_iconText;
 
     int getNewZoom(int stepIndex);
 };
