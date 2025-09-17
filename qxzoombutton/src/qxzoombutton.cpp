@@ -13,7 +13,6 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
     , m_zoom{0}
     , m_defaultZoom{100}
-    , m_customZoomSteps{}
     , m_menuVisible{true}
 {
 
@@ -52,21 +51,6 @@ void QxZoomButton::setDefaultZoom(int defaultZoom)
 
     m_defaultZoom = defaultZoom;
     emit defaultZoomChanged(m_defaultZoom);
-}
-
-
-QList<int> QxZoomButton::customZoomSteps() const
-{
-    return m_customZoomSteps;
-}
-
-void QxZoomButton::setCustomZoomSteps(QList<int> steps)
-{
-    if (steps == m_customZoomSteps)
-        return;
-
-    m_customZoomSteps = steps;
-    emit customZoomStepsChanged(m_customZoomSteps);
 }
 
 

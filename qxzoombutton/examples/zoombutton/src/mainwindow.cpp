@@ -60,7 +60,6 @@ MainWindow::MainWindow(QWidget* parent)
     QxZoomButton* buttonResetZoom = new QxZoomButton;
     buttonResetZoom->setObjectName("buttonResetZoom"_L1);
     buttonResetZoom->setDefaultAction(actionResetZoom);
-    buttonResetZoom->setCustomZoomSteps({60, 80, 100, 120, 140, 160, 180});
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
