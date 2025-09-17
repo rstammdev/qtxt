@@ -13,19 +13,14 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
     , m_zoom{0}
     , m_defaultZoom{100}
-    , m_curvedZoomFactors{0.3, 0.5, 0.67, 0.8, 0.9, 1.0, 1.1, 1.2, 1.33, 1.5, 1.7, 2.0, 2.4, 3.0, 4.0, 5.0}
     , m_linearZoomStep{25}
     , m_customZoomSteps{}
     , m_menuVisible{true}
-    , m_curvedZoomSteps{}
 {
 
     connect(this, &QxZoomButton::zoomChanged, this, &QxZoomButton::updateText);
     connect(this, &QxZoomButton::defaultActionChanged, this, &QxZoomButton::updateText);
     connect(this, &QxZoomButton::clicked, this, &QxZoomButton::resetZoom);
-    connect(this, &QxZoomButton::curvedZoomFactorsChanged, this, &QxZoomButton::createCurvedZoomSteps);
-
-    createCurvedZoomSteps();
 
     resetZoom();
 }
@@ -58,21 +53,6 @@ void QxZoomButton::setDefaultZoom(int defaultZoom)
 
     m_defaultZoom = defaultZoom;
     emit defaultZoomChanged(m_defaultZoom);
-}
-
-
-QList<qreal> QxZoomButton::curvedZoomFactors() const
-{
-    return m_curvedZoomFactors;
-}
-
-void QxZoomButton::setCurvedZoomFactors(QList<qreal> factors)
-{
-    if (factors == m_curvedZoomFactors)
-        return;
-
-    m_curvedZoomFactors = factors;
-    emit curvedZoomFactorsChanged(m_curvedZoomFactors);
 }
 
 
@@ -157,14 +137,6 @@ void QxZoomButton::wheelEvent(QWheelEvent* event)
         zoomOut();
 
     event->accept();
-}
-
-
-void QxZoomButton::createCurvedZoomSteps()
-{
-    const QList<qreal> factors = m_curvedZoomFactors;
-    for (const qreal factor : factors)
-        m_curvedZoomSteps << int(factor * 100);
 }
 
 
