@@ -13,7 +13,6 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
     , m_zoom{0}
     , m_defaultZoom{100}
-    , m_maximumZoom{300}
     , m_curvedZoomFactors{0.3, 0.5, 0.67, 0.8, 0.9, 1.0, 1.1, 1.2, 1.33, 1.5, 1.7, 2.0, 2.4, 3.0, 4.0, 5.0}
     , m_linearZoomStep{25}
     , m_customZoomSteps{}
@@ -59,21 +58,6 @@ void QxZoomButton::setDefaultZoom(int defaultZoom)
 
     m_defaultZoom = defaultZoom;
     emit defaultZoomChanged(m_defaultZoom);
-}
-
-
-int QxZoomButton::maximumZoom() const
-{
-    return m_maximumZoom;
-}
-
-void QxZoomButton::setMaximumZoom(int maximum)
-{
-    if (maximum == m_maximumZoom)
-        return;
-
-    m_maximumZoom = maximum;
-    emit maximumZoomChanged(m_maximumZoom);
 }
 
 
