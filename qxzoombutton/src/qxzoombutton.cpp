@@ -109,7 +109,10 @@ void QxZoomButton::zoomIn()
 
 void QxZoomButton::zoomOut()
 {
+    const int indexOut = m_zoomFactors.indexOf(m_zoomFactor) - 1;
 
+    if (indexOut > 0)
+        setZoomFactor(m_zoomFactors.at(indexOut));
 }
 
 
