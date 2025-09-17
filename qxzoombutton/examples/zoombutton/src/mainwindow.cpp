@@ -70,7 +70,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(actionZoomIn, &QAction::triggered, buttonResetZoom, &QxZoomButton::zoomIn);
     connect(actionZoomOut, &QAction::triggered, buttonResetZoom, &QxZoomButton::zoomOut);
     connect(actionResetZoom, &QAction::triggered, buttonResetZoom, &QxZoomButton::resetZoom);
-    connect(buttonResetZoom, &QxZoomButton::zoomChanged, this, &MainWindow::applyZoom);
+    connect(buttonResetZoom, &QxZoomButton::zoomFactorChanged, this, &MainWindow::applyZoomFactor);
 
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
@@ -89,9 +89,9 @@ MainWindow::MainWindow(QWidget* parent)
 }
 
 
-void MainWindow::applyZoom(int zoom)
+void MainWindow::applyZoomFactor(const qreal factor)
 {
     QFont font = m_textEditor->font();
-    font.setPointSizeF(m_fontBasePointSize * (zoom / 100.0));
+    font.setPointSizeF(m_fontBasePointSize * factor);
     m_textEditor->setFont(font);
 }

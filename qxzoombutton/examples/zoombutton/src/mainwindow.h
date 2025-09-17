@@ -22,7 +22,7 @@ public:
     ~MainWindow() = default;
 
 private slots:
-    void applyZoom(int zoom);
+    void applyZoomFactor(const qreal factor);
 
 private:
     QPlainTextEdit* m_textEditor;
