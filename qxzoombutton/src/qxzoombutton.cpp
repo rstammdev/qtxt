@@ -16,11 +16,8 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_zoomFactors{0.3, 0.5, 0.67, 0.8, 0.9, 1.0, 1.1, 1.2, 1.33, 1.5, 1.7, 2.0, 2.4, 3.0, 4.0, 5.0}
     , m_menuVisible{true}
 {
-
     connect(this, &QxZoomButton::defaultActionChanged, this, &QxZoomButton::updateText);
-    connect(this, &QxZoomButton::clicked, this, &QxZoomButton::resetZoom);
-
-    resetZoom();
+    connect(this, &QxZoomButton::clicked, this, &QxZoomButton::resetZoomFactor);
 }
 
 
@@ -118,7 +115,7 @@ void QxZoomButton::zoomOut()
 
 void QxZoomButton::resetZoom()
 {
-
+    resetZoomFactor();
 }
 
 
