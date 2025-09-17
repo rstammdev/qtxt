@@ -36,7 +36,7 @@ public slots:
     void setZoomFactor(const qreal factor);
     void resetZoomFactor();
     void setZoomFactors(const QList<qreal>& factors);
-    void setMenuVisible(bool visible);
+    void setMenuVisible(const bool visible);
 
     void zoomIn();
     void zoomOut();
@@ -48,7 +48,7 @@ signals:
     void defaultZoomFactorChanged(qreal factor);
     void zoomFactorChanged(qreal factor);
     void zoomFactorsChanged();
-    void menuVisibleChanged(bool visible);
+    void menuVisibleChanged();
 
     void defaultActionChanged();
 
