@@ -73,26 +73,6 @@ MainWindow::MainWindow(QWidget* parent)
     connect(actionResetZoom, &QAction::triggered, buttonResetZoom, &QxZoomButton::resetZoom);
     connect(buttonResetZoom, &QxZoomButton::zoomChanged, this, &MainWindow::applyZoom);
 
-    QAction* actionStepModeCurved = addAction(tr("Curved Steps"));
-    actionStepModeCurved->setObjectName("actionStepModeCurved"_L1);
-    actionStepModeCurved->setCheckable(true);
-    actionStepModeCurved->setData(QxZoomButton::StepMode::CurvedSteps);
-
-    QAction* actionStepModeLinear = addAction(tr("Linear Steps"));
-    actionStepModeLinear->setObjectName("actionStepModeLinear"_L1);
-    actionStepModeLinear->setCheckable(true);
-    actionStepModeLinear->setData(QxZoomButton::StepMode::LinearSteps);
-
-    QAction* actionStepModeCustom = addAction(tr("Custom Steps"));
-    actionStepModeCustom->setObjectName("actionStepModeCustom"_L1);
-    actionStepModeCustom->setCheckable(true);
-    actionStepModeCustom->setData(QxZoomButton::StepMode::CustomSteps);
-
-    QActionGroup* actionsStepMode = new QActionGroup(this);
-    actionsStepMode->addAction(actionStepModeCurved);
-    actionsStepMode->addAction(actionStepModeLinear);
-    actionsStepMode->addAction(actionStepModeCustom);
-
     QAction* actionDisplayModePercentage = addAction(tr("Percentage"));
     actionDisplayModePercentage->setObjectName("actionDisplayModePercentage"_L1);
     actionDisplayModePercentage->setCheckable(true);
@@ -115,15 +95,8 @@ MainWindow::MainWindow(QWidget* parent)
 
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
-    menuSettings->addSection("Step Mode"_L1);
-    menuSettings->addActions(actionsStepMode->actions());
     menuSettings->addSection("Display Mode"_L1);
     menuSettings->addActions(actionsDisplayMode->actions());
-
-    connect(actionsStepMode, &QActionGroup::triggered, buttonResetZoom, [=](QAction* action) {
-        buttonResetZoom->setStepMode(action->data().value<QxZoomButton::StepMode>());
-        buttonResetZoom->resetZoom();
-    });
 
     connect(actionsDisplayMode, &QActionGroup::triggered, buttonResetZoom, [=](QAction* action) {
         buttonResetZoom->setDisplayMode(action->data().value<QxZoomButton::DisplayMode>());
@@ -140,10 +113,6 @@ MainWindow::MainWindow(QWidget* parent)
     //
 
     setMinimumSize(600, 480);
-
-    for (QAction* action : actionsStepMode->actions())
-        if (action->data().value<QxZoomButton::StepMode>() == buttonResetZoom->stepMode())
-            action->setChecked(true);
 
     for (QAction* action : actionsDisplayMode->actions())
         if (action->data().value<QxZoomButton::DisplayMode>() == buttonResetZoom->displayMode())

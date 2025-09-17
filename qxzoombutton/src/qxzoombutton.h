@@ -24,18 +24,10 @@ class QxZoomButton : public QToolButton
     Q_PROPERTY(QList<qreal> curvedZoomFactors READ curvedZoomFactors WRITE setCurvedZoomFactors NOTIFY curvedZoomFactorsChanged)
     Q_PROPERTY(int linearZoomStep READ linearZoomStep WRITE setLinearZoomStep NOTIFY linearZoomStepChanged)
     Q_PROPERTY(QList<int> customZoomSteps READ customZoomSteps WRITE setCustomZoomSteps NOTIFY customZoomStepsChanged)
-    Q_PROPERTY(StepMode stepMode READ stepMode WRITE setStepMode NOTIFY stepModeChanged)
     Q_PROPERTY(DisplayMode displayMode READ displayMode WRITE setDisplayMode NOTIFY displayModeChanged)
     Q_PROPERTY(bool menuVisible READ isMenuVisible WRITE setMenuVisible NOTIFY menuVisibleChanged)
 
 public:
-    enum StepMode {
-        CurvedSteps,
-        LinearSteps,
-        CustomSteps
-    };
-    Q_ENUM(StepMode)
-
     enum DisplayMode {
         Percentage,
         DefaultActionText,
@@ -53,7 +45,6 @@ public:
     [[nodiscard]] QList<qreal> curvedZoomFactors() const;
     [[nodiscard]] int linearZoomStep() const;
     [[nodiscard]] QList<int> customZoomSteps() const;
-    [[nodiscard]] StepMode stepMode() const;
     [[nodiscard]] DisplayMode displayMode() const;
     [[nodiscard]] bool isMenuVisible() const;
 
@@ -65,7 +56,6 @@ public slots:
     void setCurvedZoomFactors(QList<qreal> factors);
     void setLinearZoomStep(int step);
     void setCustomZoomSteps(QList<int> steps);
-    void setStepMode(QxZoomButton::StepMode mode);
     void setDisplayMode(QxZoomButton::DisplayMode mode);
     void setMenuVisible(bool visible);
 
@@ -83,7 +73,6 @@ signals:
     void curvedZoomFactorsChanged(QList<qreal> factors);
     void linearZoomStepChanged(int step);
     void customZoomStepsChanged(QList<int> steps);
-    void stepModeChanged(QxZoomButton::StepMode mode);
     void displayModeChanged(QxZoomButton::DisplayMode mode);
     void menuVisibleChanged(bool visible);
 
@@ -103,7 +92,6 @@ private:
     QList<qreal> m_curvedZoomFactors;
     int m_linearZoomStep;
     QList<int> m_customZoomSteps;
-    StepMode m_stepMode;
     DisplayMode m_displayMode;
     bool m_menuVisible;
 

@@ -18,7 +18,6 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_curvedZoomFactors{0.3, 0.5, 0.67, 0.8, 0.9, 1.0, 1.1, 1.2, 1.33, 1.5, 1.7, 2.0, 2.4, 3.0, 4.0, 5.0}
     , m_linearZoomStep{25}
     , m_customZoomSteps{}
-    , m_stepMode{StepMode::CurvedSteps}
     , m_displayMode{DisplayMode::Percentage}
     , m_menuVisible{true}
     , m_curvedZoomSteps{}
@@ -141,21 +140,6 @@ void QxZoomButton::setCustomZoomSteps(QList<int> steps)
 }
 
 
-QxZoomButton::StepMode QxZoomButton::stepMode() const
-{
-    return m_stepMode;
-}
-
-void QxZoomButton::setStepMode(StepMode mode)
-{
-    if (mode == m_stepMode)
-        return;
-
-    m_stepMode = mode;
-    emit stepModeChanged(m_stepMode);
-}
-
-
 QxZoomButton::DisplayMode QxZoomButton::displayMode() const
 {
     return m_displayMode;
@@ -188,56 +172,13 @@ void QxZoomButton::setMenuVisible(bool visible)
 
 void QxZoomButton::zoomIn()
 {
-    int zoom{0};
 
-    if (m_stepMode == StepMode::CurvedSteps)
-        zoom = getNewZoom(1);
-    else if (m_stepMode == StepMode::LinearSteps)
-        zoom = m_zoom + m_linearZoomStep;
-    else if (m_stepMode == StepMode::CustomSteps)
-        zoom = getNewZoom(1);
-
-    if (zoom >= m_minimumZoom && zoom <= m_maximumZoom)
-        setZoom(zoom);
 }
 
 
 void QxZoomButton::zoomOut()
 {
-    int zoom{0};
 
-    if (m_stepMode == StepMode::CurvedSteps)
-        zoom = getNewZoom(-1);
-    else if (m_stepMode == StepMode::LinearSteps)
-        zoom = m_zoom - m_linearZoomStep;
-    else if (m_stepMode == StepMode::CustomSteps)
-        zoom = getNewZoom(-1);
-
-    if (zoom >= m_minimumZoom && zoom <= m_maximumZoom)
-        setZoom(zoom);
-}
-
-
-int QxZoomButton::getNewZoom(int stepIndex)
-{
-    int zoom{0};
-
-    if (m_stepMode == StepMode::CurvedSteps) {
-
-        const int newIndex = m_curvedZoomSteps.indexOf(m_zoom) + stepIndex;
-
-        if (newIndex >= 0 && newIndex < m_curvedZoomSteps.count())
-            zoom = m_curvedZoomSteps.at(newIndex);
-    }
-    else if (m_stepMode == StepMode::CustomSteps) {
-
-        const int newIndex = m_customZoomSteps.indexOf(m_zoom) + stepIndex;
-
-        if (newIndex >= 0 && newIndex < m_customZoomSteps.count())
-            zoom = m_customZoomSteps.at(newIndex);
-    }
-
-    return zoom;
 }
 
 
