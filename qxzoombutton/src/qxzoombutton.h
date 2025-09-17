@@ -24,17 +24,9 @@ class QxZoomButton : public QToolButton
     Q_PROPERTY(QList<qreal> curvedZoomFactors READ curvedZoomFactors WRITE setCurvedZoomFactors NOTIFY curvedZoomFactorsChanged)
     Q_PROPERTY(int linearZoomStep READ linearZoomStep WRITE setLinearZoomStep NOTIFY linearZoomStepChanged)
     Q_PROPERTY(QList<int> customZoomSteps READ customZoomSteps WRITE setCustomZoomSteps NOTIFY customZoomStepsChanged)
-    Q_PROPERTY(DisplayMode displayMode READ displayMode WRITE setDisplayMode NOTIFY displayModeChanged)
     Q_PROPERTY(bool menuVisible READ isMenuVisible WRITE setMenuVisible NOTIFY menuVisibleChanged)
 
 public:
-    enum DisplayMode {
-        Percentage,
-        DefaultActionText,
-        DefaultActionIcon
-    };
-    Q_ENUM(DisplayMode)
-
     explicit QxZoomButton(QWidget* parent = nullptr);
     ~QxZoomButton() = default;
 
@@ -45,7 +37,6 @@ public:
     [[nodiscard]] QList<qreal> curvedZoomFactors() const;
     [[nodiscard]] int linearZoomStep() const;
     [[nodiscard]] QList<int> customZoomSteps() const;
-    [[nodiscard]] DisplayMode displayMode() const;
     [[nodiscard]] bool isMenuVisible() const;
 
 public slots:
@@ -56,7 +47,6 @@ public slots:
     void setCurvedZoomFactors(QList<qreal> factors);
     void setLinearZoomStep(int step);
     void setCustomZoomSteps(QList<int> steps);
-    void setDisplayMode(QxZoomButton::DisplayMode mode);
     void setMenuVisible(bool visible);
 
     void zoomIn();
@@ -73,7 +63,6 @@ signals:
     void curvedZoomFactorsChanged(QList<qreal> factors);
     void linearZoomStepChanged(int step);
     void customZoomStepsChanged(QList<int> steps);
-    void displayModeChanged(QxZoomButton::DisplayMode mode);
     void menuVisibleChanged(bool visible);
 
     void defaultActionChanged();
@@ -92,7 +81,6 @@ private:
     QList<qreal> m_curvedZoomFactors;
     int m_linearZoomStep;
     QList<int> m_customZoomSteps;
-    DisplayMode m_displayMode;
     bool m_menuVisible;
 
     QList<int> m_curvedZoomSteps;

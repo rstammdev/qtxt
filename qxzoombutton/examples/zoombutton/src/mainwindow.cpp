@@ -73,34 +73,8 @@ MainWindow::MainWindow(QWidget* parent)
     connect(actionResetZoom, &QAction::triggered, buttonResetZoom, &QxZoomButton::resetZoom);
     connect(buttonResetZoom, &QxZoomButton::zoomChanged, this, &MainWindow::applyZoom);
 
-    QAction* actionDisplayModePercentage = addAction(tr("Percentage"));
-    actionDisplayModePercentage->setObjectName("actionDisplayModePercentage"_L1);
-    actionDisplayModePercentage->setCheckable(true);
-    actionDisplayModePercentage->setData(QxZoomButton::DisplayMode::Percentage);
-
-    QAction* actionDisplayModeText = addAction(tr("Default Action Text"));
-    actionDisplayModeText->setObjectName("actionDisplayModeDefaultActionText"_L1);
-    actionDisplayModeText->setCheckable(true);
-    actionDisplayModeText->setData(QxZoomButton::DisplayMode::DefaultActionText);
-
-    QAction* actionDisplayModeIcon = addAction(tr("Default Action Icon"));
-    actionDisplayModeIcon->setObjectName("actionDisplayModeDefaultActionIcon"_L1);
-    actionDisplayModeIcon->setCheckable(true);
-    actionDisplayModeIcon->setData(QxZoomButton::DisplayMode::DefaultActionIcon);
-
-    QActionGroup* actionsDisplayMode = new QActionGroup(this);
-    actionsDisplayMode->addAction(actionDisplayModePercentage);
-    actionsDisplayMode->addAction(actionDisplayModeText);
-    actionsDisplayMode->addAction(actionDisplayModeIcon);
-
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
-    menuSettings->addSection("Display Mode"_L1);
-    menuSettings->addActions(actionsDisplayMode->actions());
-
-    connect(actionsDisplayMode, &QActionGroup::triggered, buttonResetZoom, [=](QAction* action) {
-        buttonResetZoom->setDisplayMode(action->data().value<QxZoomButton::DisplayMode>());
-    });
 
     m_textEditor = new QPlainTextEdit;
     m_textEditor->setPlainText("Lorem ipsum dolor sit amet, consectetur adipiscing elit ..."_L1);
@@ -113,10 +87,6 @@ MainWindow::MainWindow(QWidget* parent)
     //
 
     setMinimumSize(600, 480);
-
-    for (QAction* action : actionsDisplayMode->actions())
-        if (action->data().value<QxZoomButton::DisplayMode>() == buttonResetZoom->displayMode())
-            action->setChecked(true);
 }
 
 

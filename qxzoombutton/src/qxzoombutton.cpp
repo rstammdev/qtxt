@@ -18,13 +18,11 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_curvedZoomFactors{0.3, 0.5, 0.67, 0.8, 0.9, 1.0, 1.1, 1.2, 1.33, 1.5, 1.7, 2.0, 2.4, 3.0, 4.0, 5.0}
     , m_linearZoomStep{25}
     , m_customZoomSteps{}
-    , m_displayMode{DisplayMode::Percentage}
     , m_menuVisible{true}
     , m_curvedZoomSteps{}
 {
 
     connect(this, &QxZoomButton::zoomChanged, this, &QxZoomButton::updateText);
-    connect(this, &QxZoomButton::displayModeChanged, this, &QxZoomButton::updateText);
     connect(this, &QxZoomButton::defaultActionChanged, this, &QxZoomButton::updateText);
     connect(this, &QxZoomButton::clicked, this, &QxZoomButton::resetZoom);
     connect(this, &QxZoomButton::curvedZoomFactorsChanged, this, &QxZoomButton::createCurvedZoomSteps);
@@ -140,21 +138,6 @@ void QxZoomButton::setCustomZoomSteps(QList<int> steps)
 }
 
 
-QxZoomButton::DisplayMode QxZoomButton::displayMode() const
-{
-    return m_displayMode;
-}
-
-void QxZoomButton::setDisplayMode(DisplayMode mode)
-{
-    if (mode == m_displayMode)
-        return;
-
-    m_displayMode = mode;
-    emit displayModeChanged(m_displayMode);
-}
-
-
 bool QxZoomButton::isMenuVisible() const
 {
     return m_menuVisible;
@@ -219,16 +202,5 @@ void QxZoomButton::createCurvedZoomSteps()
 
 void QxZoomButton::updateText()
 {
-    QString text;
-    QIcon icon;
 
-    if (m_displayMode == DisplayMode::Percentage)
-        text = tr("%1%").arg(m_zoom);
-    else if (m_displayMode == DisplayMode::DefaultActionText && defaultAction())
-        text = defaultAction()->text();
-    else if (m_displayMode == DisplayMode::DefaultActionIcon && defaultAction())
-        icon = defaultAction()->icon();
-
-    setText(text);
-    setIcon(icon);
 }
