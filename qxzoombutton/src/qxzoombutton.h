@@ -18,6 +18,7 @@ class QxZoomButton : public QToolButton
     Q_OBJECT
     Q_PROPERTY(int defaultZoomFactor READ defaultZoomFactor WRITE setDefaultZoomFactor RESET resetDefaultZoomFactor NOTIFY defaultZoomFactorChanged)
     Q_PROPERTY(qreal zoomFactor READ zoomFactor WRITE setZoomFactor RESET resetZoomFactor NOTIFY zoomFactorChanged)
+    Q_PROPERTY(QList<qreal> zoomFactors READ zoomFactors WRITE setZoomFactors NOTIFY zoomFactorsChanged)
     Q_PROPERTY(bool menuVisible READ isMenuVisible WRITE setMenuVisible NOTIFY menuVisibleChanged)
 
 public:
@@ -26,6 +27,7 @@ public:
 
     [[nodiscard]] qreal defaultZoomFactor() const;
     [[nodiscard]] qreal zoomFactor() const;
+    [[nodiscard]] QList<qreal> zoomFactors() const;
     [[nodiscard]] bool isMenuVisible() const;
 
 public slots:
@@ -33,6 +35,7 @@ public slots:
     void resetDefaultZoomFactor();
     void setZoomFactor(const qreal factor);
     void resetZoomFactor();
+    void setZoomFactors(const QList<qreal>& factors);
     void setMenuVisible(bool visible);
 
     void zoomIn();
@@ -44,6 +47,7 @@ public slots:
 signals:
     void defaultZoomFactorChanged(qreal factor);
     void zoomFactorChanged(qreal factor);
+    void zoomFactorsChanged();
     void menuVisibleChanged(bool visible);
 
     void defaultActionChanged();
@@ -57,6 +61,7 @@ private slots:
 private:
     qreal m_defaultZoomFactor;
     qreal m_zoomFactor;
+    QList<qreal> m_zoomFactors;
     bool m_menuVisible;
 
     int getNewZoom(int stepIndex);

@@ -13,6 +13,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     : QToolButton{parent}
     , m_defaultZoomFactor{1.0}
     , m_zoomFactor{1.0}
+    , m_zoomFactors{0.3, 0.5, 0.67, 0.8, 0.9, 1.0, 1.1, 1.2, 1.33, 1.5, 1.7, 2.0, 2.4, 3.0, 4.0, 5.0}
     , m_menuVisible{true}
 {
 
@@ -30,6 +31,9 @@ qreal QxZoomButton::defaultZoomFactor() const
 
 void QxZoomButton::setDefaultZoomFactor(const qreal factor)
 {
+    if (m_zoomFactors.indexOf(factor) < 0)
+        qWarning("QxZoomButton::setDefaultZoomFactor(): given factor is not included in the factor list");
+
     if (factor == m_defaultZoomFactor)
         return;
 
@@ -61,6 +65,21 @@ void QxZoomButton::setZoomFactor(const qreal factor)
 void QxZoomButton::resetZoomFactor()
 {
     setZoomFactor(m_defaultZoomFactor);
+}
+
+
+QList<qreal> QxZoomButton::zoomFactors() const
+{
+    return m_zoomFactors;
+}
+
+void QxZoomButton::setZoomFactors(const QList<qreal>& factors)
+{
+    if (factors == m_zoomFactors)
+        return;
+
+    m_zoomFactors = factors;
+    emit zoomFactorsChanged();
 }
 
 
