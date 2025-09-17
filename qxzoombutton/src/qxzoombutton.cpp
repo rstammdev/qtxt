@@ -100,7 +100,10 @@ void QxZoomButton::setMenuVisible(const bool visible)
 
 void QxZoomButton::zoomIn()
 {
+    const int indexIn = m_zoomFactors.indexOf(m_zoomFactor) + 1;
 
+    if (indexIn < m_zoomFactors.count())
+        setZoomFactor(m_zoomFactors.at(indexIn));
 }
 
 
