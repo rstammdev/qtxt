@@ -101,10 +101,18 @@ void QxZoomButton::setMenuVisible(const bool visible)
 
 void QxZoomButton::zoomIn()
 {
-    const int indexIn = m_zoomFactors.indexOf(m_zoomFactor) + 1;
+    int index = m_zoomFactors.indexOf(m_zoomFactor);
 
-    if (indexIn < m_zoomFactors.count())
-        setZoomFactor(m_zoomFactors.at(indexIn));
+    if (index >= 0)
+        index += 1;
+    else {
+        index = 0;
+        for ( ; index < m_zoomFactors.count(); index++)
+            if (m_zoomFactors.at(index) >= m_zoomFactor)
+                break;
+    }
+
+    setZoomFactorByIndex(index);
 }
 
 
@@ -114,6 +122,13 @@ void QxZoomButton::zoomOut()
 
     if (indexOut > 0)
         setZoomFactor(m_zoomFactors.at(indexOut));
+}
+
+
+void QxZoomButton::setZoomFactorByIndex(const int index)
+{
+    if (index >= 0 && index < m_zoomFactors.count())
+        setZoomFactor(m_zoomFactors.at(index));
 }
 
 

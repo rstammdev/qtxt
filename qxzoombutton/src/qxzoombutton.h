@@ -63,6 +63,8 @@ private:
     QList<qreal> m_zoomFactors;
     bool m_menuVisible;
 
+    void setZoomFactorByIndex(const int index);
+
     QString m_text;
     QString m_iconText;
 };
