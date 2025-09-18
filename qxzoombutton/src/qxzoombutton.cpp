@@ -19,11 +19,15 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_menuVisible{true}
     , m_menuItemText{tr("%1%")}
     , m_text{tr("%1%")}
+    , m_actionsZoomFactors{new QActionGroup(this)}
     , m_menuZoomFactors{new QMenu(this)}
 {
     connect(this, &QxZoomButton::clicked, this, &QxZoomButton::resetZoomFactor);
 
+    rebuildMenu();
+
     updateText();
+    updateActions();
     updateMenu();
 }
 
@@ -63,6 +67,7 @@ void QxZoomButton::setZoomFactor(const qreal factor)
 
     m_zoomFactor = factor;
     updateText();
+    updateActions();
     emit zoomFactorChanged(m_zoomFactor);
 }
 
@@ -83,6 +88,7 @@ void QxZoomButton::setZoomFactors(const QList<qreal>& factors)
         return;
 
     m_zoomFactors = factors;
+    rebuildMenu();
     emit zoomFactorsChanged();
 }
 
@@ -114,6 +120,7 @@ void QxZoomButton::setMenuItemText(const QString& text)
         return;
 
     m_menuItemText = text;
+    rebuildMenu();
     emit menuItemTextChanged();
 }
 
@@ -210,6 +217,43 @@ void QxZoomButton::updateText()
         text = QString(text).arg(percentage);
 
     QToolButton::setText(text);
+}
+
+
+void QxZoomButton::updateActions()
+{
+    for (QAction* action : m_actionsZoomFactors->actions())
+        action->setChecked(action->data().toDouble() == m_zoomFactor);
+}
+
+
+void QxZoomButton::rebuildMenu()
+{
+    m_menuZoomFactors->clear();
+
+    for (QAction* action : m_actionsZoomFactors->actions()) {
+        m_actionsZoomFactors->removeAction(action);
+        delete action;
+    }
+
+    const QList<qreal>& factors =  m_zoomFactors;
+    for (const qreal factor : factors) {
+
+        QString text = m_menuItemText;
+        if (text.contains("%1"_L1))
+            text = QString(text).arg(int(factor * 100));
+
+        QAction* action = new QAction(m_actionsZoomFactors);
+        action->setText(text);
+        action->setCheckable(true);
+        action->setData(factor);
+
+        m_menuZoomFactors->addAction(action);
+
+        connect(action, &QAction::triggered, [=, this]() {
+            setZoomFactor(factor);
+        });
+    }
 }
 
 
