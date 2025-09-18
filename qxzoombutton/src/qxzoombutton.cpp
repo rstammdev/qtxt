@@ -18,10 +18,12 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_zoomFactors{0.3, 0.5, 0.67, 0.8, 0.9, 1.0, 1.1, 1.2, 1.33, 1.5, 1.7, 2.0, 2.4, 3.0, 4.0, 5.0}
     , m_menuVisible{true}
     , m_text{tr("%1%")}
+    , m_menuZoomFactors{new QMenu(this)}
 {
     connect(this, &QxZoomButton::clicked, this, &QxZoomButton::resetZoomFactor);
 
     updateText();
+    updateMenu();
 }
 
 
@@ -95,6 +97,7 @@ void QxZoomButton::setMenuVisible(const bool visible)
         return;
 
     m_menuVisible = visible;
+    updateMenu();
     emit menuVisibleChanged();
 }
 
@@ -138,7 +141,6 @@ void QxZoomButton::setZoomFactorByIndex(const int index)
     if (index >= 0 && index < m_zoomFactors.count())
         setZoomFactor(m_zoomFactors.at(index));
 }
-
 
 void QxZoomButton::resetZoom()
 {
@@ -192,4 +194,17 @@ void QxZoomButton::updateText()
         text = QString(text).arg(percentage);
 
     QToolButton::setText(text);
+}
+
+
+void QxZoomButton::updateMenu()
+{
+    if (m_menuVisible) {
+        setMenu(m_menuZoomFactors);
+        setPopupMode(QToolButton::MenuButtonPopup);
+    }
+    else {
+        setMenu(nullptr);
+        setPopupMode(QToolButton::DelayedPopup);
+    }
 }

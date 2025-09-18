@@ -9,6 +9,7 @@
 #ifndef QXZOOMBUTTON_H
 #define QXZOOMBUTTON_H
 
+#include <QMenu>
 #include <QToolButton>
 #include <QWheelEvent>
 
@@ -67,6 +68,10 @@ private:
 
     QString m_text;
     QString m_iconText;
+
+    QMenu* m_menuZoomFactors;
+
+    void updateMenu();
 };
 
 #endif // QXZOOMBUTTON_H
