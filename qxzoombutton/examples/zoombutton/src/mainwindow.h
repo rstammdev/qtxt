@@ -19,15 +19,13 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget* parent = nullptr);
-    ~MainWindow() = default;
 
 private slots:
     void applyZoomFactor(const qreal factor);
 
 private:
     QPlainTextEdit* m_textEditor;
-
-    qreal m_fontBasePointSize;
+    qreal m_fontDefaultPointSize;
 };
 
 #endif // MAINWINDOW_H

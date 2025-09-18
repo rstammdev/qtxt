@@ -60,9 +60,6 @@ signals:
 protected:
     void wheelEvent(QWheelEvent* event) override;
 
-private slots:
-    void updateText();
-
 private:
     qreal m_defaultZoomFactor;
     qreal m_zoomFactor;
@@ -74,6 +71,8 @@ private:
 
     QString m_text;
     QString m_iconText;
+
+    void updateText();
 
     QActionGroup* m_actionsZoomFactors;
 

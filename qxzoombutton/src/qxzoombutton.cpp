@@ -19,6 +19,7 @@ QxZoomButton::QxZoomButton(QWidget* parent)
     , m_menuVisible{true}
     , m_menuItemText{tr("%1%")}
     , m_text{tr("%1%")}
+    , m_iconText{}
     , m_actionsZoomFactors{new QActionGroup(this)}
     , m_menuZoomFactors{new QMenu(this)}
 {
@@ -165,6 +166,7 @@ void QxZoomButton::setZoomFactorByIndex(const int index)
         setZoomFactor(m_zoomFactors.at(index));
 }
 
+
 void QxZoomButton::resetZoom()
 {
     resetZoomFactor();
@@ -210,11 +212,9 @@ void QxZoomButton::wheelEvent(QWheelEvent* event)
 
 void QxZoomButton::updateText()
 {
-    const int percentage = int(m_zoomFactor * 100);
     QString text = !m_iconText.isEmpty() ? m_iconText : m_text;
-
     if (text.contains("%1"_L1))
-        text = QString(text).arg(percentage);
+        text = QString(text).arg(int(m_zoomFactor * 100));
 
     QToolButton::setText(text);
 }

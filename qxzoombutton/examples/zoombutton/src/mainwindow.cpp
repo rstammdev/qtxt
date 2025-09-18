@@ -79,9 +79,9 @@ MainWindow::MainWindow(QWidget* parent)
     m_textEditor->setObjectName("textEditor"_L1);
     m_textEditor->setPlainText("Lorem ipsum dolor sit amet, consectetur adipiscing elit ..."_L1);
 
-    m_fontBasePointSize = m_textEditor->font().pointSizeF();
-    if (m_fontBasePointSize <= 0)
-        m_fontBasePointSize = 12.0;
+    m_fontDefaultPointSize = m_textEditor->font().pointSizeF();
+    if (m_fontDefaultPointSize <= 0)
+        m_fontDefaultPointSize = 12.0;
 
     //
 
@@ -94,6 +94,6 @@ MainWindow::MainWindow(QWidget* parent)
 void MainWindow::applyZoomFactor(const qreal factor)
 {
     QFont font = m_textEditor->font();
-    font.setPointSizeF(m_fontBasePointSize * factor);
+    font.setPointSizeF(m_fontDefaultPointSize * factor);
     m_textEditor->setFont(font);
 }
