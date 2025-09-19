@@ -13,6 +13,7 @@ include($$PWD/qxcomponentsdialog/qxcomponentsdialog.pri)
 include($$PWD/qxconfirmationbox/qxconfirmationbox.pri)
 include($$PWD/qxdialogheaderbox/qxdialogheaderbox.pri)
 include($$PWD/qxheadinglabel/qxheadinglabel.pri)
+include($$PWD/qxstatusbutton/qxstatusbutton.pri)
 include($$PWD/qxthemebutton/qxthemebutton.pri)
 include($$PWD/qxzoombutton/qxzoombutton.pri)
 
