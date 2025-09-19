@@ -32,8 +32,16 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    QAction* actionFullScreen = addAction(tr("F&ull Screen"));
+    actionFullScreen->setObjectName("actionFullScreen"_L1);
+    actionFullScreen->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::ViewFullscreen));
+    actionFullScreen->setIconText(tr("Full Screen"));
+    actionFullScreen->setShortcut(QKeySequence::FullScreen);
+    actionFullScreen->setCheckable(true);
+
     QMenu* menuView = menuBar()->addMenu(tr("&View"));
     menuView->setObjectName("menuView"_L1);
+    menuView->addAction(actionFullScreen);
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
