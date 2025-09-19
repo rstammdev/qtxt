@@ -18,6 +18,9 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget* parent = nullptr);
+
+private slots:
+    void toggleFullScreen(const bool checked);
 };
 
 #endif // MAINWINDOW_H

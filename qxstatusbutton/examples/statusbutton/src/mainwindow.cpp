@@ -12,6 +12,8 @@
 #include <QMenuBar>
 #include <QToolBar>
 
+#include <qxstatusbutton.h>
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -43,10 +45,23 @@ MainWindow::MainWindow(QWidget* parent)
     menuView->setObjectName("menuView"_L1);
     menuView->addAction(actionFullScreen);
 
+    QxStatusButton* buttonFullScreen = new QxStatusButton;
+    buttonFullScreen->setObjectName("buttonFullScreen"_L1);
+    buttonFullScreen->setDefaultAction(actionFullScreen);
+
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
+    toolbarView->addWidget(buttonFullScreen);
+
+    connect(buttonFullScreen, &QxStatusButton::toggled, this, &MainWindow::toggleFullScreen);
 
     //
 
     setMinimumSize(640, 480);
+}
+
+
+void MainWindow::toggleFullScreen(const bool checked)
+{
+
 }
