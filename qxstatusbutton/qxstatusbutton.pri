@@ -25,4 +25,7 @@ isEmpty(QXSTATUSBUTTON_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxstatusbutton.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }
