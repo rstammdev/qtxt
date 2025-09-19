@@ -248,12 +248,13 @@ void QxZoomButton::rebuildMenu()
         action->setCheckable(true);
         action->setData(factor);
 
-        m_menuZoomFactors->addAction(action);
-
         connect(action, &QAction::triggered, [=, this]() {
             setZoomFactor(factor);
         });
     }
+
+    m_menuZoomFactors->addSection(tr("Zooms"));
+    m_menuZoomFactors->addActions(m_actionsZoomFactors->actions());
 }
 
 
