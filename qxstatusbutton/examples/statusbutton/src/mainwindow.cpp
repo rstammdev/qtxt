@@ -9,6 +9,7 @@
 #include "mainwindow.h"
 
 #include <QAction>
+#include <QLabel>
 #include <QMenuBar>
 #include <QToolBar>
 
@@ -55,13 +56,22 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(buttonFullScreen, &QxStatusButton::toggled, this, &MainWindow::toggleFullScreen);
 
+    QLabel* labelFullScreen = new QLabel;
+    labelFullScreen->setObjectName("labelFullScreen"_L1);
+    labelFullScreen->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    setCentralWidget(labelFullScreen);
+
     //
 
     setMinimumSize(640, 480);
+
+    toggleFullScreen(buttonFullScreen->isChecked());
 }
 
 
 void MainWindow::toggleFullScreen(const bool checked)
 {
+    QString state = checked ? tr("On") : tr("Off");
 
+    qobject_cast<QLabel*>(centralWidget())->setText(tr("Full Screen is %1").arg(state));
 }
