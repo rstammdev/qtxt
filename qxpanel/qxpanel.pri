@@ -21,8 +21,10 @@ isEmpty(QXPANEL_PRI_INCLUDED) {
         $$PWD/src
 
     HEADERS += \
-        $$PWD/src/qxpanelpalette.h
+        $$PWD/src/qxpanelpalette.h \
+        $$PWD/src/qxpanelunit.h
 
     SOURCES += \
-        $$PWD/src/qxpanelpalette.cpp
+        $$PWD/src/qxpanelpalette.cpp \
+        $$PWD/src/qxpanelunit.cpp
 }
