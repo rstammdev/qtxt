@@ -19,4 +19,10 @@ isEmpty(QXPANEL_PRI_INCLUDED) {
 
     INCLUDEPATH += \
         $$PWD/src
+
+    HEADERS += \
+        $$PWD/src/qxpanelpalette.h
+
+    SOURCES += \
+        $$PWD/src/qxpanelpalette.cpp
 }
