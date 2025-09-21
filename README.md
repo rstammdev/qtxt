@@ -27,6 +27,9 @@ QtXt is a modular Qt 6 framework providing reusable widgets and built-in example
 - [**QxHeadingLabel**](qxheadinglabel/README.md)  
   A widget that displays text as a heading element.
 
+- [**QxPanel**](qxpanel/README.md)  
+  A general concept of a modular container designed for use in the dock widget area.
+
 - [**QxStatusButton**](qxstatusbutton/README.md)  
   A tool button that displays the status of the button.
 

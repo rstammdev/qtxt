@@ -27,4 +27,7 @@ isEmpty(QXPANEL_PRI_INCLUDED) {
     SOURCES += \
         $$PWD/src/qxpanelpalette.cpp \
         $$PWD/src/qxpanelunit.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }
