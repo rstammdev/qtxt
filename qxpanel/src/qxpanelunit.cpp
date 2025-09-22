@@ -11,6 +11,22 @@
 
 QxPanelUnit::QxPanelUnit(QWidget* parent, Qt::WindowFlags flags)
     : QWidget{parent, flags}
+    , m_unitDisplayMode{UnitDisplayMode::NoBox}
 {
 
+}
+
+
+QxPanelUnit::UnitDisplayMode QxPanelUnit::unitDisplayMode() const
+{
+    return m_unitDisplayMode;
+}
+
+void QxPanelUnit::setUnitDisplayMode(const UnitDisplayMode mode)
+{
+    if (mode == m_unitDisplayMode)
+        return;
+
+    m_unitDisplayMode = mode;
+    emit unitDisplayModeChanged(m_unitDisplayMode);
 }

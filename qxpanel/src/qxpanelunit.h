@@ -15,9 +15,30 @@
 class QxPanelUnit : public QWidget
 {
     Q_OBJECT
+    Q_PROPERTY(UnitDisplayMode unitDisplayMode READ unitDisplayMode WRITE setUnitDisplayMode NOTIFY unitDisplayModeChanged)
 
 public:
+    enum UnitDisplayMode {
+        NoBox = 0,
+        FrameBox,
+        GroupBox,
+        TabBox,
+        ToolBox
+    };
+    Q_ENUM(UnitDisplayMode)
+
     explicit QxPanelUnit(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
+
+    [[nodiscard]] UnitDisplayMode unitDisplayMode() const;
+
+public slots:
+    void setUnitDisplayMode(const QxPanelUnit::UnitDisplayMode mode);
+
+signals:
+    void unitDisplayModeChanged(const QxPanelUnit::UnitDisplayMode mode);
+
+private:
+    UnitDisplayMode m_unitDisplayMode;
 };
 
 #endif // QXPANELUNIT_H
