@@ -12,6 +12,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMenuBar>
+#include <QPushButton>
 #include <QToolBar>
 
 #include <qxpanelpalette.h>
@@ -50,10 +51,35 @@ MainWindow::MainWindow(QWidget* parent)
     unitLabel->setUnitTitle(tr("Label"));
     unitLabel->setLayout(layoutLabel);
 
+    QPushButton* buttonNo1 = new QPushButton(tr("#1"));
+    buttonNo1->setObjectName("buttonNo1"_L1);
+
+    QPushButton* buttonNo2 = new QPushButton(tr("#2"));
+    buttonNo2->setObjectName("buttonNo2"_L1);
+
+    QHBoxLayout* layoutButtons = new QHBoxLayout;
+    layoutButtons->setObjectName("layoutButtons"_L1);
+    layoutButtons->addWidget(buttonNo1);
+    layoutButtons->addWidget(buttonNo2);
+
+    QxPanelUnit* unitButtons = new QxPanelUnit;
+    unitButtons->setObjectName("unitButtons"_L1);
+    unitButtons->setUnitDisplayMode(QxPanelUnit::GroupBox);
+    unitButtons->setUnitTitle(tr("Buttons"));
+    unitButtons->setLayout(layoutButtons);
+
     QxPanelPalette* panelLabelButtons = new QxPanelPalette(tr("Label && Buttons Panel"), this);
     panelLabelButtons->setObjectName("panelLabelButtons"_L1);
     panelLabelButtons->addUnit(unitLabel);
+    panelLabelButtons->addUnit(unitButtons);
     addDockWidget(Qt::RightDockWidgetArea, panelLabelButtons);
+
+    connect(buttonNo1, &QPushButton::clicked, [=]() {
+        labelResult->setText(tr("Button #1 clicked"));
+    });
+    connect(buttonNo2, &QPushButton::clicked, [=]() {
+        labelResult->setText(tr("Button #2 clicked"));
+    });
 
     setCentralWidget(new QWidget);
 
