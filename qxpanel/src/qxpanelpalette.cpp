@@ -57,3 +57,12 @@ int QxPanelPalette::insertUnit(int index, QxPanelUnit* unit)
 
     return m_listUnits.indexOf(unit);
 }
+
+
+void QxPanelPalette::removeUnit(const int index)
+{
+    if (index < 0 || index >= m_listUnits.count())
+        return;
+
+    m_listUnits.removeAt(index);
+}

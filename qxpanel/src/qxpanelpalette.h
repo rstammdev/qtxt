@@ -40,6 +40,8 @@ public:
 
     int insertUnit(const int index, QxPanelUnit* unit);
 
+    void removeUnit(const int index);
+
 public slots:
     void setDisplayMode(const QxPanelPalette::DisplayMode mode);
 
