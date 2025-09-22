@@ -11,6 +11,7 @@
 
 QxPanelPalette::QxPanelPalette(QWidget* parent, Qt::WindowFlags flags)
     : QDockWidget{parent, flags}
+    , m_displayMode{DisplayMode::NoMode}
 {
 
 }
@@ -19,4 +20,19 @@ QxPanelPalette::QxPanelPalette(const QString& title, QWidget* parent, Qt::Window
     : QxPanelPalette{parent, flags}
 {
     setWindowTitle(title);
+}
+
+
+QxPanelPalette::DisplayMode QxPanelPalette::displayMode() const
+{
+    return m_displayMode;
+}
+
+void QxPanelPalette::setDisplayMode(const DisplayMode mode)
+{
+    if (mode == m_displayMode)
+        return;
+
+    m_displayMode = mode;
+    emit displayModeChanged(m_displayMode);
 }

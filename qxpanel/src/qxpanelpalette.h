@@ -15,10 +15,32 @@
 class QxPanelPalette : public QDockWidget
 {
     Q_OBJECT
+    Q_PROPERTY(DisplayMode displayMode READ displayMode WRITE setDisplayMode NOTIFY displayModeChanged)
 
 public:
+    enum DisplayMode {
+        NoMode = 0,
+        NoBox,
+        FrameBox,
+        GroupBox,
+        TabBox,
+        ToolBox
+    };
+    Q_ENUM(DisplayMode)
+
     explicit QxPanelPalette(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
     explicit QxPanelPalette(const QString& text, QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
+
+    [[nodiscard]] DisplayMode displayMode() const;
+
+public slots:
+    void setDisplayMode(const QxPanelPalette::DisplayMode mode);
+
+signals:
+    void displayModeChanged(const QxPanelPalette::DisplayMode mode);
+
+private:
+    DisplayMode m_displayMode;
 };
 
 #endif // QXPANELPALETTE_H
