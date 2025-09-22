@@ -36,6 +36,8 @@ public:
 
     [[nodiscard]] DisplayMode displayMode() const;
 
+    int addUnit(QxPanelUnit* unit);
+
     int insertUnit(const int index, QxPanelUnit* unit);
 
 public slots:

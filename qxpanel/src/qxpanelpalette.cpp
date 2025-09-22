@@ -39,6 +39,12 @@ void QxPanelPalette::setDisplayMode(const DisplayMode mode)
 }
 
 
+int QxPanelPalette::addUnit(QxPanelUnit* unit)
+{
+    return insertUnit(-1, unit);
+}
+
+
 int QxPanelPalette::insertUnit(int index, QxPanelUnit* unit)
 {
     if (index < -1 || index >= m_listUnits.count() || !unit)
