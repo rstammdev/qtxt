@@ -10,6 +10,9 @@
 #define QXPANELPALETTE_H
 
 #include <QDockWidget>
+#include <QList>
+
+#include <qxpanelunit.h>
 
 
 class QxPanelPalette : public QDockWidget
@@ -33,6 +36,8 @@ public:
 
     [[nodiscard]] DisplayMode displayMode() const;
 
+    int insertUnit(const int index, QxPanelUnit* unit);
+
 public slots:
     void setDisplayMode(const QxPanelPalette::DisplayMode mode);
 
@@ -41,6 +46,8 @@ signals:
 
 private:
     DisplayMode m_displayMode;
+
+    QList<QxPanelUnit*> m_listUnits;
 };
 
 #endif // QXPANELPALETTE_H

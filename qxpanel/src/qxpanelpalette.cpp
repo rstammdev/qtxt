@@ -12,6 +12,7 @@
 QxPanelPalette::QxPanelPalette(QWidget* parent, Qt::WindowFlags flags)
     : QDockWidget{parent, flags}
     , m_displayMode{DisplayMode::NoMode}
+    , m_listUnits{}
 {
 
 }
@@ -35,4 +36,18 @@ void QxPanelPalette::setDisplayMode(const DisplayMode mode)
 
     m_displayMode = mode;
     emit displayModeChanged(m_displayMode);
+}
+
+
+int QxPanelPalette::insertUnit(int index, QxPanelUnit* unit)
+{
+    if (index < -1 || index >= m_listUnits.count() || !unit)
+        return -1;
+
+    if (index >= 0)
+        m_listUnits.insert(index, unit);
+    else
+        m_listUnits.append(unit);
+
+    return m_listUnits.indexOf(unit);
 }
