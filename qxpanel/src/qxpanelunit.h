@@ -17,6 +17,7 @@ class QxPanelUnit : public QWidget
     Q_OBJECT
     Q_PROPERTY(UnitDisplayMode unitDisplayMode READ unitDisplayMode WRITE setUnitDisplayMode NOTIFY unitDisplayModeChanged)
     Q_PROPERTY(QString unitTitle READ unitTitle WRITE setUnitTitle NOTIFY unitTitleChanged)
+    Q_PROPERTY(QString unitDescription READ unitDescription WRITE setUnitDescription NOTIFY unitDescriptionChanged)
 
 public:
     enum UnitDisplayMode {
@@ -32,18 +33,22 @@ public:
 
     [[nodiscard]] UnitDisplayMode unitDisplayMode() const;
     [[nodiscard]] QString unitTitle() const;
+    [[nodiscard]] QString unitDescription() const;
 
 public slots:
     void setUnitDisplayMode(const QxPanelUnit::UnitDisplayMode mode);
     void setUnitTitle(const QString& title);
+    void setUnitDescription(const QString& description);
 
 signals:
     void unitDisplayModeChanged(const QxPanelUnit::UnitDisplayMode mode);
     void unitTitleChanged(const QString& title);
+    void unitDescriptionChanged(const QString& description);
 
 private:
     UnitDisplayMode m_unitDisplayMode;
     QString m_unitTitle;
+    QString m_unitDescription;
 };
 
 #endif // QXPANELUNIT_H

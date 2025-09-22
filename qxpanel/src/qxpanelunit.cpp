@@ -13,9 +13,8 @@ QxPanelUnit::QxPanelUnit(QWidget* parent, Qt::WindowFlags flags)
     : QWidget{parent, flags}
     , m_unitDisplayMode{UnitDisplayMode::NoBox}
     , m_unitTitle{}
-{
-
-}
+    , m_unitDescription{}
+{}
 
 
 QxPanelUnit::UnitDisplayMode QxPanelUnit::unitDisplayMode() const
@@ -45,4 +44,19 @@ void QxPanelUnit::setUnitTitle(const QString& title)
 
     m_unitTitle = title;
     emit unitTitleChanged(m_unitTitle);
+}
+
+
+QString QxPanelUnit::unitDescription() const
+{
+    return m_unitDescription;
+}
+
+void QxPanelUnit::setUnitDescription(const QString& description)
+{
+    if (description == m_unitDescription)
+        return;
+
+    m_unitDescription = description;
+    emit unitDescriptionChanged(m_unitDescription);
 }
