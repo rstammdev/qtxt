@@ -12,6 +12,8 @@
 #include <QMenuBar>
 #include <QToolBar>
 
+#include <qxpanelpalette.h>
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -31,6 +33,12 @@ MainWindow::MainWindow(QWidget* parent)
     toolbarFile->addAction(actionQuit);
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
+
+    QxPanelPalette* panelLabelButtons = new QxPanelPalette(tr("Label && Buttons Panel"), this);
+    panelLabelButtons->setObjectName("panelLabelButtons"_L1);
+    addDockWidget(Qt::RightDockWidgetArea, panelLabelButtons);
+
+    setCentralWidget(new QWidget);
 
     //
 
