@@ -22,10 +22,9 @@ class QxPanelUnit : public QWidget
 public:
     enum UnitDisplayMode {
         NoBox = 0,
+        FlatBox,
         FrameBox,
-        GroupBox,
-        TabBox,
-        ToolBox
+        GroupBox
     };
     Q_ENUM(UnitDisplayMode)
 
