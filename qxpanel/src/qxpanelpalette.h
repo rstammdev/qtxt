@@ -24,10 +24,9 @@ public:
     enum DisplayMode {
         NoMode = 0,
         NoBox,
+        FlatBox,
         FrameBox,
-        GroupBox,
-        TabBox,
-        ToolBox
+        GroupBox
     };
     Q_ENUM(DisplayMode)
 
