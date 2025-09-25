@@ -15,37 +15,37 @@
 class QxPanelUnit : public QWidget
 {
     Q_OBJECT
-    Q_PROPERTY(UnitDisplayMode unitDisplayMode READ unitDisplayMode WRITE setUnitDisplayMode NOTIFY unitDisplayModeChanged)
+    Q_PROPERTY(UnitType unitType READ unitType WRITE setUnitType NOTIFY unitTypeChanged)
     Q_PROPERTY(QString unitTitle READ unitTitle WRITE setUnitTitle NOTIFY unitTitleChanged)
     Q_PROPERTY(QString unitDescription READ unitDescription WRITE setUnitDescription NOTIFY unitDescriptionChanged)
 
 public:
-    enum UnitDisplayMode {
-        NoBox = 0,
+    enum UnitType {
+        NoType = 0,
         FlatBox,
         FrameBox,
         GroupBox
     };
-    Q_ENUM(UnitDisplayMode)
+    Q_ENUM(UnitType)
 
     explicit QxPanelUnit(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
 
-    [[nodiscard]] UnitDisplayMode unitDisplayMode() const;
+    [[nodiscard]] UnitType unitType() const;
     [[nodiscard]] QString unitTitle() const;
     [[nodiscard]] QString unitDescription() const;
 
 public slots:
-    void setUnitDisplayMode(const QxPanelUnit::UnitDisplayMode mode);
+    void setUnitType(const QxPanelUnit::UnitType type);
     void setUnitTitle(const QString& title);
     void setUnitDescription(const QString& description);
 
 signals:
-    void unitDisplayModeChanged(const QxPanelUnit::UnitDisplayMode mode);
+    void unitTypeChanged(const QxPanelUnit::UnitType type);
     void unitTitleChanged(const QString& title);
     void unitDescriptionChanged(const QString& description);
 
 private:
-    UnitDisplayMode m_unitDisplayMode;
+    UnitType m_unitType;
     QString m_unitTitle;
     QString m_unitDescription;
 };

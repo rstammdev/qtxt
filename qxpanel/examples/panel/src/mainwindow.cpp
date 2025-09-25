@@ -47,7 +47,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     QxPanelUnit* unitLabel = new QxPanelUnit;
     unitLabel->setObjectName("unitLabel"_L1);
-    unitLabel->setUnitDisplayMode(QxPanelUnit::FrameBox);
+    unitLabel->setUnitType(QxPanelUnit::FrameBox);
     unitLabel->setUnitTitle(tr("Label"));
     unitLabel->setLayout(layoutLabel);
 
@@ -64,7 +64,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     QxPanelUnit* unitButtons = new QxPanelUnit;
     unitButtons->setObjectName("unitButtons"_L1);
-    unitButtons->setUnitDisplayMode(QxPanelUnit::GroupBox);
+    unitButtons->setUnitType(QxPanelUnit::GroupBox);
     unitButtons->setUnitTitle(tr("Buttons"));
     unitButtons->setLayout(layoutButtons);
 
