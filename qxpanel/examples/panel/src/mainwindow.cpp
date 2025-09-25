@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     QHBoxLayout* layoutLabel = new QHBoxLayout;
     layoutLabel->setObjectName("layoutLabel"_L1);
-    layoutLabel->addWidget(labelResult, Qt::AlignCenter);
+    layoutLabel->addWidget(labelResult, 0, Qt::AlignCenter);
 
     QxPanelUnit* unitLabel = new QxPanelUnit;
     unitLabel->setObjectName("unitLabel"_L1);
