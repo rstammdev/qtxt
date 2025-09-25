@@ -57,6 +57,8 @@ private:
     QBoxLayout::Direction m_paletteDisplayDirection;
 
     QList<QxPanelUnit*> m_listUnits;
+
+    void updateLayout();
 };
 
 #endif // QXPANELPALETTE_H
