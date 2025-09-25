@@ -9,6 +9,7 @@
 #ifndef QXPANELPALETTE_H
 #define QXPANELPALETTE_H
 
+#include <QBoxLayout>
 #include <QDockWidget>
 #include <QList>
 
@@ -19,6 +20,7 @@ class QxPanelPalette : public QDockWidget
 {
     Q_OBJECT
     Q_PROPERTY(PaletteDisplayMode paletteDisplayMode READ paletteDisplayMode WRITE setPaletteDisplayMode NOTIFY paletteDisplayModeChanged)
+    Q_PROPERTY(QBoxLayout::Direction paletteDisplayDirection READ paletteDisplayDirection WRITE setPaletteDisplayDirection NOTIFY paletteDisplayDirectionChanged)
 
 public:
     enum PaletteDisplayMode {
@@ -34,6 +36,7 @@ public:
     explicit QxPanelPalette(const QString& text, QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
 
     [[nodiscard]] PaletteDisplayMode paletteDisplayMode() const;
+    [[nodiscard]] QBoxLayout::Direction paletteDisplayDirection() const;
 
     int addUnit(QxPanelUnit* unit);
 
@@ -43,12 +46,15 @@ public:
 
 public slots:
     void setPaletteDisplayMode(const QxPanelPalette::PaletteDisplayMode mode);
+    void setPaletteDisplayDirection(const QBoxLayout::Direction direction);
 
 signals:
     void paletteDisplayModeChanged(const QxPanelPalette::PaletteDisplayMode mode);
+    void paletteDisplayDirectionChanged(const QBoxLayout::Direction direction);
 
 private:
     PaletteDisplayMode m_paletteDisplayMode;
+    QBoxLayout::Direction m_paletteDisplayDirection;
 
     QList<QxPanelUnit*> m_listUnits;
 };

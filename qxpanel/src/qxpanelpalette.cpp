@@ -12,6 +12,7 @@
 QxPanelPalette::QxPanelPalette(QWidget* parent, Qt::WindowFlags flags)
     : QDockWidget{parent, flags}
     , m_paletteDisplayMode{PaletteDisplayMode::NoMode}
+    , m_paletteDisplayDirection{QBoxLayout::TopToBottom}
     , m_listUnits{}
 {
 
@@ -36,6 +37,22 @@ void QxPanelPalette::setPaletteDisplayMode(const PaletteDisplayMode mode)
 
     m_paletteDisplayMode = mode;
     emit paletteDisplayModeChanged(m_paletteDisplayMode);
+}
+
+
+QBoxLayout::Direction QxPanelPalette::paletteDisplayDirection() const
+{
+    return m_paletteDisplayDirection;
+}
+
+void QxPanelPalette::setPaletteDisplayDirection(const QBoxLayout::Direction direction)
+{
+    if (direction == m_paletteDisplayDirection)
+        return;
+
+    m_paletteDisplayDirection = direction;
+
+    emit paletteDisplayDirectionChanged(m_paletteDisplayDirection);
 }
 
 
