@@ -18,22 +18,22 @@
 class QxPanelPalette : public QDockWidget
 {
     Q_OBJECT
-    Q_PROPERTY(DisplayMode displayMode READ displayMode WRITE setDisplayMode NOTIFY displayModeChanged)
+    Q_PROPERTY(PaletteDisplayMode paletteDisplayMode READ paletteDisplayMode WRITE setPaletteDisplayMode NOTIFY paletteDisplayModeChanged)
 
 public:
-    enum DisplayMode {
+    enum PaletteDisplayMode {
         NoMode = 0,
-        NoBox,
-        FlatBox,
-        FrameBox,
-        GroupBox
+        NoBoxes,
+        FlatBoxes,
+        FrameBoxes,
+        GroupBoxes
     };
-    Q_ENUM(DisplayMode)
+    Q_ENUM(PaletteDisplayMode)
 
     explicit QxPanelPalette(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
     explicit QxPanelPalette(const QString& text, QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
 
-    [[nodiscard]] DisplayMode displayMode() const;
+    [[nodiscard]] PaletteDisplayMode paletteDisplayMode() const;
 
     int addUnit(QxPanelUnit* unit);
 
@@ -42,13 +42,13 @@ public:
     void removeUnit(const int index);
 
 public slots:
-    void setDisplayMode(const QxPanelPalette::DisplayMode mode);
+    void setPaletteDisplayMode(const QxPanelPalette::PaletteDisplayMode mode);
 
 signals:
-    void displayModeChanged(const QxPanelPalette::DisplayMode mode);
+    void paletteDisplayModeChanged(const QxPanelPalette::PaletteDisplayMode mode);
 
 private:
-    DisplayMode m_displayMode;
+    PaletteDisplayMode m_paletteDisplayMode;
 
     QList<QxPanelUnit*> m_listUnits;
 };
