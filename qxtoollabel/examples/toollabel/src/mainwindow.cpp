@@ -13,6 +13,8 @@
 #include <QToolBar>
 #include <QToolButton>
 
+#include <qxtoollabel.h>
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -33,6 +35,11 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    QxToolLabel* labelButtons = new QxToolLabel;
+    labelButtons->setObjectName("labelButtons"_L1);
+    labelButtons->setText(tr("Buttons"));
+    labelButtons->setFontBold(true);
+
     QToolButton* buttonButton1 = new QToolButton;
     buttonButton1->setObjectName("buttonButton1"_L1);
     buttonButton1->setText(tr("Button 1"));
@@ -43,6 +50,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     QToolBar* toolbarButtons = addToolBar(tr("Buttons Toolbar"));
     toolbarButtons->setObjectName("toolbarButtons"_L1);
+    toolbarButtons->addWidget(labelButtons);
     toolbarButtons->addWidget(buttonButton1);
     toolbarButtons->addWidget(buttonButton2);
 
