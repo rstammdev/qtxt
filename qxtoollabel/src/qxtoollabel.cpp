@@ -22,6 +22,8 @@ QxToolLabel::QxToolLabel(QWidget* parent, Qt::WindowFlags flags)
 
     QMargins margins = style()->pixelMetric(QStyle::PM_ToolBarItemMargin, &option, this) * QMargins( 1, 1, 1, 1);
     setContentsMargins(margins);
+
+    setAlignment(Qt::AlignCenter);
 }
 
 QxToolLabel::QxToolLabel(const QString& text, QWidget* parent, Qt::WindowFlags flags)
