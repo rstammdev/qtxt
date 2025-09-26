@@ -19,4 +19,5 @@ SUBDIRS += \
     qxstatusbutton/examples/statusbutton \
     qxthemebutton/examples/themebutton \
     qxtoolbarsdialog/examples/toolbarsdialog \
+    qxtoollabel/examples/toollabel \
     qxzoombutton/examples/zoombutton
