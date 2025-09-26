@@ -32,6 +32,9 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    QToolBar* toolbarButtons = addToolBar(tr("Buttons Toolbar"));
+    toolbarButtons->setObjectName("toolbarButtons"_L1);
+
     //
 
     setMinimumSize(640, 480);
