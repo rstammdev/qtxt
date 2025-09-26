@@ -21,9 +21,11 @@ public:
     explicit QxToolLabel(const QString& text, QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
 
     bool fontBold() const;
+    bool fontItalic() const;
 
 public slots:
     void setFontBold(const bool enable);
+    void setFontItalic(const bool enable);
 };
 
 #endif // QXTOOLLABEL_H
