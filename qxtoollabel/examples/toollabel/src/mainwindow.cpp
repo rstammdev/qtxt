@@ -37,9 +37,14 @@ MainWindow::MainWindow(QWidget* parent)
     buttonButton1->setObjectName("buttonButton1"_L1);
     buttonButton1->setText(tr("Button 1"));
 
+    QToolButton* buttonButton2 = new QToolButton;
+    buttonButton2->setObjectName("buttonButton2"_L1);
+    buttonButton2->setText(tr("Button 2"));
+
     QToolBar* toolbarButtons = addToolBar(tr("Buttons Toolbar"));
     toolbarButtons->setObjectName("toolbarButtons"_L1);
     toolbarButtons->addWidget(buttonButton1);
+    toolbarButtons->addWidget(buttonButton2);
 
     //
 
