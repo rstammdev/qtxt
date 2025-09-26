@@ -50,3 +50,17 @@ void QxToolLabel::setFontItalic(const bool enable)
 
     setFont(font);
 }
+
+
+bool QxToolLabel::fontUnderline() const
+{
+    return font().underline();
+}
+
+void QxToolLabel::setFontUnderline(const bool enable)
+{
+    QFont font = this->font();
+    font.setUnderline(enable);
+
+    setFont(font);
+}
