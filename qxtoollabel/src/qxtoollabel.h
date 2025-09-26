@@ -19,6 +19,11 @@ class QxToolLabel : public QLabel
 public:
     explicit QxToolLabel(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
     explicit QxToolLabel(const QString& text, QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
+
+    bool fontBold() const;
+
+public slots:
+    void setFontBold(const bool enable);
 };
 
 #endif // QXTOOLLABEL_H

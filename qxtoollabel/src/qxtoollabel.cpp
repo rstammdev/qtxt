@@ -8,6 +8,8 @@
 
 #include "qxtoollabel.h"
 
+#include <QFont>
+
 
 QxToolLabel::QxToolLabel(QWidget* parent, Qt::WindowFlags flags)
     : QLabel{parent, flags}
@@ -19,4 +21,18 @@ QxToolLabel::QxToolLabel(const QString& text, QWidget* parent, Qt::WindowFlags f
     : QxToolLabel{parent, flags}
 {
     setText(text);
+}
+
+
+bool QxToolLabel::fontBold() const
+{
+    return font().bold();
+}
+
+void QxToolLabel::setFontBold(const bool enable)
+{
+    QFont font = this->font();
+    font.setBold(enable);
+
+    setFont(font);
 }
