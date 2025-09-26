@@ -9,12 +9,19 @@
 #include "qxtoollabel.h"
 
 #include <QFont>
+#include <QMargins>
+#include <QStyle>
+#include <QStyleOptionToolButton>
 
 
 QxToolLabel::QxToolLabel(QWidget* parent, Qt::WindowFlags flags)
     : QLabel{parent, flags}
 {
+    QStyleOptionToolButton option;
+    option.initFrom(this);
 
+    QMargins margins = style()->pixelMetric(QStyle::PM_ToolBarItemMargin, &option, this) * QMargins( 1, 1, 1, 1);
+    setContentsMargins(margins);
 }
 
 QxToolLabel::QxToolLabel(const QString& text, QWidget* parent, Qt::WindowFlags flags)
