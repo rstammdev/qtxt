@@ -11,6 +11,7 @@
 #include <QAction>
 #include <QMenuBar>
 #include <QToolBar>
+#include <QToolButton>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -32,8 +33,13 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    QToolButton* buttonButton1 = new QToolButton;
+    buttonButton1->setObjectName("buttonButton1"_L1);
+    buttonButton1->setText(tr("Button 1"));
+
     QToolBar* toolbarButtons = addToolBar(tr("Buttons Toolbar"));
     toolbarButtons->setObjectName("toolbarButtons"_L1);
+    toolbarButtons->addWidget(buttonButton1);
 
     //
 
