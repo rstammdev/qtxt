@@ -39,6 +39,9 @@ QtXt is a modular Qt 6 framework providing reusable widgets and built-in example
 - [**QxToolbarsDialog**](qxtoolbarsdialog/README.md)  
   A dialog for customizing toolbars and tool buttons.
 
+- [**QxToolLabel**](qxtoollabel/README.md)  
+  A widget that extends QLabel for use in toolbars.
+
 - [**QxZoomButton**](qxzoombutton/README.md)  
   A tool button for zoom control.
 
