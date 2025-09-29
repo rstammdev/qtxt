@@ -51,17 +51,18 @@ QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
 
             if (!action->isSeparator()) {
 
-                QToolButton* button = qobject_cast<QToolButton*>(widget);
+               if (QToolButton* button = qobject_cast<QToolButton*>(widget)) {
 
-                QxToolbarsToolbarPageButton* pageButton = new QxToolbarsToolbarPageButton(button, this);
-                pageButton->setPageTitle(button->text().replace("&&"_L1, "&"_L1));
+                    QxToolbarsToolbarPageButton* pageButton = new QxToolbarsToolbarPageButton(button, this);
+                    pageButton->setPageTitle(button->text().replace("&&"_L1, "&"_L1));
 
-                treeItemBranch->setText(0, pageButton->pageTitle());
-                treeItemBranch->setData(0, Qt::UserRole, m_stackedPages->addWidget(pageButton));
+                    treeItemBranch->setText(0, pageButton->pageTitle());
+                    treeItemBranch->setData(0, Qt::UserRole, m_stackedPages->addWidget(pageButton));
 
-                connect(pageButton, &QxToolbarsToolbarPage::stateChanged, this, &QxToolbarsToolbar::stateChanged);
-                connect(this, &QxToolbarsToolbar::restoreDefaultsRequested, pageButton, &QxToolbarsToolbarPage::restoreDefaults);
-                connect(this, &QxToolbarsToolbar::saveRequested, pageButton, &QxToolbarsToolbarPage::save);
+                    connect(pageButton, &QxToolbarsToolbarPage::stateChanged, this, &QxToolbarsToolbar::stateChanged);
+                    connect(this, &QxToolbarsToolbar::restoreDefaultsRequested, pageButton, &QxToolbarsToolbarPage::restoreDefaults);
+                    connect(this, &QxToolbarsToolbar::saveRequested, pageButton, &QxToolbarsToolbarPage::save);
+                }
             }
             else {
 
