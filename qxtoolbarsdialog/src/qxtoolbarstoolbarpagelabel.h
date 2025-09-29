@@ -11,13 +11,18 @@
 
 #include "qxtoolbarstoolbarpage.h"
 
+#include <QLabel>
+
 
 class QxToolbarsToolbarPageLabel : public QxToolbarsToolbarPage
 {
     Q_OBJECT
 
 public:
-    explicit QxToolbarsToolbarPageLabel(QWidget* parent = nullptr);
+    explicit QxToolbarsToolbarPageLabel(QLabel* label, QWidget* parent = nullptr);
+
+private:
+    QLabel* m_label;
 };
 
 #endif // QXTOOLBARSTOOLBARPAGELABEL_H

@@ -9,8 +9,9 @@
 #include "qxtoolbarstoolbarpagelabel.h"
 
 
-QxToolbarsToolbarPageLabel::QxToolbarsToolbarPageLabel(QWidget* parent)
+QxToolbarsToolbarPageLabel::QxToolbarsToolbarPageLabel(QLabel* label, QWidget* parent)
     : QxToolbarsToolbarPage{parent}
+    , m_label{label}
 {
 
 }
