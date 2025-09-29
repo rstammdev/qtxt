@@ -11,6 +11,7 @@
 
 #include "qxtoolbarstoolbarpage.h"
 
+#include <QCheckBox>
 #include <QLabel>
 
 
@@ -27,6 +28,8 @@ public slots:
 
 private:
     QLabel* m_label;
+
+    QCheckBox* m_checkboxVisible;
 };
 
 #endif // QXTOOLBARSTOOLBARPAGELABEL_H
