@@ -23,6 +23,7 @@ public:
 
 public slots:
     void restoreDefaults(bool current) override;
+    void save() override;
 
 private:
     QLabel* m_label;

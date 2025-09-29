@@ -35,3 +35,9 @@ void QxToolbarsToolbarPageLabel::restoreDefaults(bool current)
 {
     Q_UNUSED(current)
 }
+
+
+void QxToolbarsToolbarPageLabel::save()
+{
+
+}
