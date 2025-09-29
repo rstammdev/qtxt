@@ -9,11 +9,13 @@
 #include "qxtoolbarstoolbar.h"
 
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QTreeWidget>
 
 #include "qxtoolbarstoolbarpage.h"
 #include "qxtoolbarstoolbarpagebar.h"
 #include "qxtoolbarstoolbarpagebutton.h"
+#include "qxtoolbarstoolbarpagelabel.h"
 #include "qxtoolbarstoolbarpageseparator.h"
 
 using namespace Qt::Literals::StringLiterals;
@@ -51,7 +53,7 @@ QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
 
             if (!action->isSeparator()) {
 
-               if (QToolButton* button = qobject_cast<QToolButton*>(widget)) {
+                if (QToolButton* button = qobject_cast<QToolButton*>(widget)) {
 
                     QxToolbarsToolbarPageButton* pageButton = new QxToolbarsToolbarPageButton(button, this);
                     pageButton->setPageTitle(button->text().replace("&&"_L1, "&"_L1));
@@ -62,6 +64,18 @@ QxToolbarsToolbar::QxToolbarsToolbar(QToolBar* toolbar, QWidget* parent)
                     connect(pageButton, &QxToolbarsToolbarPage::stateChanged, this, &QxToolbarsToolbar::stateChanged);
                     connect(this, &QxToolbarsToolbar::restoreDefaultsRequested, pageButton, &QxToolbarsToolbarPage::restoreDefaults);
                     connect(this, &QxToolbarsToolbar::saveRequested, pageButton, &QxToolbarsToolbarPage::save);
+                }
+                else if (QLabel* label = qobject_cast<QLabel*>(widget)) {
+
+                    QxToolbarsToolbarPageLabel* pageLabel = new QxToolbarsToolbarPageLabel(label, this);
+                    pageLabel->setPageTitle(label->text().replace("&&"_L1, "&"_L1));
+
+                    treeItemBranch->setText(0, pageLabel->pageTitle());
+                    treeItemBranch->setData(0, Qt::UserRole, m_stackedPages->addWidget(pageLabel));
+
+                    connect(pageLabel, &QxToolbarsToolbarPage::stateChanged, this, &QxToolbarsToolbar::stateChanged);
+                    connect(this, &QxToolbarsToolbar::restoreDefaultsRequested, pageLabel, &QxToolbarsToolbarPage::restoreDefaults);
+                    connect(this, &QxToolbarsToolbar::saveRequested, pageLabel, &QxToolbarsToolbarPage::save);
                 }
             }
             else {
