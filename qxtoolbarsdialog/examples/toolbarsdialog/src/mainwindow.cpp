@@ -9,6 +9,7 @@
 #include "mainwindow.h"
 
 #include <QAction>
+#include <QLabel>
 #include <QMenuBar>
 #include <QToolBar>
 
@@ -29,10 +30,14 @@ MainWindow::MainWindow(QWidget* parent)
     menuFile->setObjectName("menuFile"_L1);
     menuFile->addAction(actionQuit);
 
+    QLabel* labelLabel = new QLabel(tr("Label"));
+    labelLabel->setObjectName("labelLabel"_L1);
+
     QToolBar* toolbarFile = addToolBar(tr("File Toolbar"));
     toolbarFile->setObjectName("toolbarFile"_L1);
     toolbarFile->addAction(actionQuit);
     toolbarFile->addSeparator();
+    toolbarFile->addWidget(labelLabel);
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
