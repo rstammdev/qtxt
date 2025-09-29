@@ -21,6 +21,9 @@ class QxToolbarsToolbarPageLabel : public QxToolbarsToolbarPage
 public:
     explicit QxToolbarsToolbarPageLabel(QLabel* label, QWidget* parent = nullptr);
 
+public slots:
+    void restoreDefaults(bool current) override;
+
 private:
     QLabel* m_label;
 };

@@ -29,3 +29,9 @@ QxToolbarsToolbarPageLabel::QxToolbarsToolbarPageLabel(QLabel* label, QWidget* p
     layout->addStretch();
     setLayout(layout);
 }
+
+
+void QxToolbarsToolbarPageLabel::restoreDefaults(bool current)
+{
+    Q_UNUSED(current)
+}
