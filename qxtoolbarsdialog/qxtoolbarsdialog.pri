@@ -26,6 +26,7 @@ isEmpty(QXTOOLBARSDIALOG_PRI_INCLUDED) {
         $$PWD/src/qxtoolbarstoolbarpage.h \
         $$PWD/src/qxtoolbarstoolbarpagebar.h \
         $$PWD/src/qxtoolbarstoolbarpagebutton.h \
+        $$PWD/src/qxtoolbarstoolbarpagelabel.h \
         $$PWD/src/qxtoolbarstoolbarpageseparator.h
 
     SOURCES += \
@@ -34,6 +35,7 @@ isEmpty(QXTOOLBARSDIALOG_PRI_INCLUDED) {
         $$PWD/src/qxtoolbarstoolbarpage.cpp \
         $$PWD/src/qxtoolbarstoolbarpagebar.cpp \
         $$PWD/src/qxtoolbarstoolbarpagebutton.cpp \
+        $$PWD/src/qxtoolbarstoolbarpagelabel.cpp \
         $$PWD/src/qxtoolbarstoolbarpageseparator.cpp
 
     DISTFILES += \
