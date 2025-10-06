@@ -33,3 +33,16 @@ void QxLabel::setFontBold(const bool enable)
     font.setBold(enable);
     setFont(font);
 }
+
+
+bool QxLabel::fontItalic() const
+{
+    return font().italic();
+}
+
+void QxLabel::setFontItalic(const bool enable)
+{
+    QFont font = this->font();
+    font.setItalic(enable);
+    setFont(font);
+}
