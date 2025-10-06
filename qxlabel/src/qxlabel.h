@@ -25,6 +25,7 @@ public:
     bool fontUnderline() const;
 
     int fontPixelSize() const;
+    int fontPointSize() const;
 
 public slots:
     void setFontBold(const bool enable);
@@ -32,6 +33,7 @@ public slots:
     void setFontUnderline(const bool enable);
 
     void setFontPixelSize(const int size);
+    void setFontPointSize(const int size);
 };
 
 #endif // QXLABEL_H
