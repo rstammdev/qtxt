@@ -21,6 +21,9 @@ Dialog::Dialog(QWidget* parent)
 
     QxLabel* labelDefault = new QxLabel(tr("Default Style"));
 
+    QxLabel* labelBold = new QxLabel(tr("Bold Font Style"));
+    labelBold->setFontBold(true);
+
     // Button
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
@@ -31,6 +34,7 @@ Dialog::Dialog(QWidget* parent)
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(labelDefault);
+    layout->addWidget(labelBold);
     layout->addStretch();
     layout->addWidget(buttonBox);
 
