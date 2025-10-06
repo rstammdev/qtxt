@@ -24,6 +24,9 @@ Dialog::Dialog(QWidget* parent)
     QxLabel* labelBold = new QxLabel(tr("Bold Font Style"));
     labelBold->setFontBold(true);
 
+    QxLabel* labelItalic = new QxLabel(tr("Italic Font Style"));
+    labelItalic->setFontItalic(true);
+
     // Button
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
@@ -35,6 +38,7 @@ Dialog::Dialog(QWidget* parent)
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(labelDefault);
     layout->addWidget(labelBold);
+    layout->addWidget(labelItalic);
     layout->addStretch();
     layout->addWidget(buttonBox);
 
