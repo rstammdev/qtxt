@@ -30,6 +30,9 @@ Dialog::Dialog(QWidget* parent)
     QxLabel* labelUnderline = new QxLabel(tr("Underline Font Style"));
     labelUnderline->setFontUnderline(true);
 
+    QxLabel* labelLarge = new QxLabel(tr("Large Font Style"));
+    labelLarge->setFontPointSizeF(labelLarge->fontPointSizeF() * 1.2);
+
     // Button
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
@@ -43,6 +46,7 @@ Dialog::Dialog(QWidget* parent)
     layout->addWidget(labelBold);
     layout->addWidget(labelItalic);
     layout->addWidget(labelUnderline);
+    layout->addWidget(labelLarge);
     layout->addStretch();
     layout->addWidget(buttonBox);
 
