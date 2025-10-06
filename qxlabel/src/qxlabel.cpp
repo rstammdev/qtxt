@@ -46,3 +46,16 @@ void QxLabel::setFontItalic(const bool enable)
     font.setItalic(enable);
     setFont(font);
 }
+
+
+bool QxLabel::fontUnderline() const
+{
+    return font().underline();
+}
+
+void QxLabel::setFontUnderline(const bool enable)
+{
+    QFont font = this->font();
+    font.setUnderline(enable);
+    setFont(font);
+}

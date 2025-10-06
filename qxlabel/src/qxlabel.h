@@ -22,10 +22,12 @@ public:
 
     bool fontBold() const;
     bool fontItalic() const;
+    bool fontUnderline() const;
 
 public slots:
     void setFontBold(const bool enable);
     void setFontItalic(const bool enable);
+    void setFontUnderline(const bool enable);
 };
 
 #endif // QXLABEL_H
