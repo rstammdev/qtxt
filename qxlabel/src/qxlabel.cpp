@@ -48,6 +48,19 @@ void QxLabel::setFontItalic(const bool enable)
 }
 
 
+bool QxLabel::fontStrikeOut() const
+{
+    return font().strikeOut();
+}
+
+void QxLabel::setFontStrikeOut(const bool enable)
+{
+    QFont font = this->font();
+    font.setStrikeOut(enable);
+    setFont(font);
+}
+
+
 bool QxLabel::fontUnderline() const
 {
     return font().underline();
