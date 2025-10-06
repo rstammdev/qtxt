@@ -25,4 +25,7 @@ isEmpty(QXLABEL_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxlabel.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }
