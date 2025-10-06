@@ -11,10 +11,15 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+#include <qxlabel.h>
+
 
 Dialog::Dialog(QWidget* parent)
     : QDialog{parent}
 {
+    // Labels
+
+    QxLabel* labelDefault = new QxLabel(tr("Default Style"));
 
     // Button
 
@@ -25,6 +30,7 @@ Dialog::Dialog(QWidget* parent)
     //
 
     QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(labelDefault);
     layout->addStretch();
     layout->addWidget(buttonBox);
 
