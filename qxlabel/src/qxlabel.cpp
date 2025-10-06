@@ -59,3 +59,16 @@ void QxLabel::setFontUnderline(const bool enable)
     font.setUnderline(enable);
     setFont(font);
 }
+
+
+int QxLabel::fontPixelSize() const
+{
+    return font().pixelSize();
+}
+
+void QxLabel::setFontPixelSize(const int size)
+{
+    QFont font = this->font();
+    font.setPixelSize(size);
+    setFont(font);
+}

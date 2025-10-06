@@ -24,10 +24,14 @@ public:
     bool fontItalic() const;
     bool fontUnderline() const;
 
+    int fontPixelSize() const;
+
 public slots:
     void setFontBold(const bool enable);
     void setFontItalic(const bool enable);
     void setFontUnderline(const bool enable);
+
+    void setFontPixelSize(const int size);
 };
 
 #endif // QXLABEL_H
