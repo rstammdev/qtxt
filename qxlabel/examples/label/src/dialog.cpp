@@ -27,6 +27,9 @@ Dialog::Dialog(QWidget* parent)
     QxLabel* labelItalic = new QxLabel(tr("Italic Font Style"));
     labelItalic->setFontItalic(true);
 
+    QxLabel* labelStrikeOut = new QxLabel(tr("Strike Out Font Style"));
+    labelStrikeOut->setFontStrikeOut(true);
+
     QxLabel* labelUnderline = new QxLabel(tr("Underline Font Style"));
     labelUnderline->setFontUnderline(true);
 
@@ -49,6 +52,7 @@ Dialog::Dialog(QWidget* parent)
     layout->addWidget(labelDefault);
     layout->addWidget(labelBold);
     layout->addWidget(labelItalic);
+    layout->addWidget(labelStrikeOut);
     layout->addWidget(labelUnderline);
     layout->addWidget(labelLarge);
     layout->addWidget(labelHeading);
