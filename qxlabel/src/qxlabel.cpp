@@ -85,3 +85,16 @@ void QxLabel::setFontPointSize(const int size)
     font.setPointSize(size);
     setFont(font);
 }
+
+
+qreal QxLabel::fontPointSizeF() const
+{
+    return font().pointSizeF();
+}
+
+void QxLabel::setFontPointSizeF(const qreal size)
+{
+    QFont font = this->font();
+    font.setPointSizeF(size);
+    setFont(font);
+}

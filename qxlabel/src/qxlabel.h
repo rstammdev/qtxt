@@ -26,6 +26,7 @@ public:
 
     int fontPixelSize() const;
     int fontPointSize() const;
+    qreal fontPointSizeF() const;
 
 public slots:
     void setFontBold(const bool enable);
@@ -34,6 +35,7 @@ public slots:
 
     void setFontPixelSize(const int size);
     void setFontPointSize(const int size);
+    void setFontPointSizeF(const qreal size);
 };
 
 #endif // QXLABEL_H
