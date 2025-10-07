@@ -28,4 +28,6 @@ isEmpty(QXTOOLLABEL_PRI_INCLUDED) {
 
     DISTFILES += \
         $$PWD/README.md
+
+    include($$PWD/../qxlabel/qxlabel.pri)
 }

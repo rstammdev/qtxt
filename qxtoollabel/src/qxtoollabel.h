@@ -9,25 +9,16 @@
 #ifndef QXTOOLLABEL_H
 #define QXTOOLLABEL_H
 
-#include <QLabel>
+#include <qxlabel.h>
 
 
-class QxToolLabel : public QLabel
+class QxToolLabel : public QxLabel
 {
     Q_OBJECT
 
 public:
     explicit QxToolLabel(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
     explicit QxToolLabel(const QString& text, QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
-
-    bool fontBold() const;
-    bool fontItalic() const;
-    bool fontUnderline() const;
-
-public slots:
-    void setFontBold(const bool enable);
-    void setFontItalic(const bool enable);
-    void setFontUnderline(const bool enable);
 };
 
 #endif // QXTOOLLABEL_H
