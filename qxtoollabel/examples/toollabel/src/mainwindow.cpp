@@ -21,6 +21,8 @@ using namespace Qt::Literals::StringLiterals;
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow{parent}
 {
+    // File menu & toolbar
+
     QAction* actionQuit = addAction(tr("&Quit"));
     actionQuit->setObjectName("actionQuit"_L1);
     actionQuit->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::ApplicationExit));
@@ -34,6 +36,8 @@ MainWindow::MainWindow(QWidget* parent)
     toolbarFile->addAction(actionQuit);
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
+
+    // Buttons toolbar
 
     QxToolLabel* labelButtons = new QxToolLabel;
     labelButtons->setObjectName("labelButtons"_L1);
