@@ -56,5 +56,5 @@ MainWindow::MainWindow(QWidget* parent)
 
     //
 
-    setMinimumSize(640, 480);
+    resize(640, 480);
 }
