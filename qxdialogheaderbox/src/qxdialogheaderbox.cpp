@@ -34,6 +34,8 @@ QxDialogHeaderBox::QxDialogHeaderBox(QWidget* parent, Qt::WindowFlags flags)
     layout->addWidget(m_labelTitle, 0, 1);
     layout->addWidget(m_labelDescription, 1, 1);
     setLayout(layout);
+
+    layout->setContentsMargins(0, 0, 0, 0);
 }
 
 
