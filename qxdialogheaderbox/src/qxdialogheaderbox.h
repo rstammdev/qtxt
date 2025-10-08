@@ -32,11 +32,15 @@ public:
     [[nodiscard]] QString subTitle() const;
     [[nodiscard]] QString description() const;
 
+    int layoutHorizontalSpacing() const;
+
 public slots:
     void setIcon(const QIcon& icon);
     void setTitle(const QString& title);
     void setSubTitle(const QString& subTitle);
     void setDescription(const QString& description);
+
+    void setLayoutHorizontalSpacing(const int spacing);
 
 signals:
     void changed();
