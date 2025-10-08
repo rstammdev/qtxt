@@ -18,7 +18,6 @@
 class QxDialogHeaderBox : public QWidget
 {
     Q_OBJECT
-
     Q_PROPERTY(QIcon icon READ icon WRITE setIcon NOTIFY changed)
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY changed)
     Q_PROPERTY(QString subTitle READ subTitle WRITE setSubTitle NOTIFY changed)

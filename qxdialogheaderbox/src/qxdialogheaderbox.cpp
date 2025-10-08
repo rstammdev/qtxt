@@ -29,12 +29,10 @@ QxDialogHeaderBox::QxDialogHeaderBox(QWidget* parent, Qt::WindowFlags flags)
 
     //
 
-    QGridLayout* layout = new QGridLayout(this);
+    QGridLayout* layout = new QGridLayout;
     layout->addWidget(m_labelIcon, 0, 0, 2, 1);
     layout->addWidget(m_labelTitle, 0, 1);
     layout->addWidget(m_labelDescription, 1, 1);
-    layout->setColumnStretch(1, 1);
-    layout->setHorizontalSpacing(layout->horizontalSpacing() * 2);
     setLayout(layout);
 }
 
