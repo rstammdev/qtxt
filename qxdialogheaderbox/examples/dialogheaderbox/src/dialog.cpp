@@ -41,5 +41,5 @@ Dialog::Dialog(QWidget* parent)
     layout->addWidget(buttonBox);
     setLayout(layout);
 
-    setMinimumSize(320, 240);
+    resize(640, 480);
 }
