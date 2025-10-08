@@ -18,6 +18,7 @@ int main(int argc, char* argv[])
     QApplication app(argc, argv);
     app.setOrganizationName("QtXt-Examples"_L1);
     app.setApplicationName("DialogHeaderBox"_L1);
+    app.setApplicationDisplayName("DialogHeaderBox"_L1);
 
     Dialog dialog;
     dialog.show();

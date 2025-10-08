@@ -41,6 +41,5 @@ Dialog::Dialog(QWidget* parent)
     layout->addWidget(buttonBox);
     setLayout(layout);
 
-    setWindowTitle("Example of QxDialogHeaderBox"_L1);
     setMinimumSize(320, 240);
 }
