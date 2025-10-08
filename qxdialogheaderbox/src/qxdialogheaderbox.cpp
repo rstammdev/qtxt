@@ -16,6 +16,7 @@ QxDialogHeaderBox::QxDialogHeaderBox(QWidget* parent, Qt::WindowFlags flags)
     : QWidget{parent, flags}
 {
     m_labelIcon = new QLabel;
+    m_labelIcon->setAlignment(Qt::AlignmentFlag::AlignCenter);
     m_labelIcon->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
     m_labelTitle = new QLabel;
