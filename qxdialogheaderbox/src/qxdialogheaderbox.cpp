@@ -12,8 +12,8 @@
 #include <QGridLayout>
 
 
-QxDialogHeaderBox::QxDialogHeaderBox(QWidget* parent)
-    : QWidget{parent}
+QxDialogHeaderBox::QxDialogHeaderBox(QWidget* parent, Qt::WindowFlags flags)
+    : QWidget{parent, flags}
 {
     m_labelIcon = new QLabel;
     m_labelIcon->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);

@@ -25,7 +25,7 @@ class QxDialogHeaderBox : public QWidget
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY changed)
 
 public:
-    explicit QxDialogHeaderBox(QWidget* parent = nullptr);
+    explicit QxDialogHeaderBox(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
     ~QxDialogHeaderBox() = default;
 
     [[nodiscard]] QIcon icon() const;
