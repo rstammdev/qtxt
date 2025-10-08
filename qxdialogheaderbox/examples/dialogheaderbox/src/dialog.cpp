@@ -30,6 +30,9 @@ Dialog::Dialog(QWidget* parent)
     headerBoxTitleDescription->setSubTitle(tr("v1.2.3"));
     headerBoxTitleDescription->setDescription(tr("This is an example of QxDialogHeaderBox without an icon."));
 
+    QxDialogHeaderBox* headerBoxTitle = new QxDialogHeaderBox(this);
+    headerBoxTitle->setTitle(tr("DialogHeaderBox"));
+
     // Button
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
@@ -41,6 +44,7 @@ Dialog::Dialog(QWidget* parent)
     QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(headerBoxFull);
     layout->addWidget(headerBoxTitleDescription);
+    layout->addWidget(headerBoxTitle);
     layout->addStretch();
     layout->addWidget(buttonBox);
     setLayout(layout);
