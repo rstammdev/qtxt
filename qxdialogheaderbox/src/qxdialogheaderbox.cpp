@@ -27,8 +27,6 @@ QxDialogHeaderBox::QxDialogHeaderBox(QWidget* parent, Qt::WindowFlags flags)
     m_labelDescription->setAlignment(Qt::AlignmentFlag::AlignLeading | Qt::AlignmentFlag::AlignTop);
     m_labelDescription->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
-    connect(this, &QxDialogHeaderBox::changed, this, &QxDialogHeaderBox::updateLayout);
-
     //
 
     QGridLayout* layout = new QGridLayout(this);
@@ -52,6 +50,9 @@ void QxDialogHeaderBox::setIcon(const QIcon& icon)
         return;
 
     m_icon = icon;
+
+    updateLayout();
+
     emit changed();
 }
 
@@ -67,6 +68,9 @@ void QxDialogHeaderBox::setTitle(const QString& title)
         return;
 
     m_title = title;
+
+    updateLayout();
+
     emit changed();
 }
 
@@ -82,6 +86,9 @@ void QxDialogHeaderBox::setSubTitle(const QString& subTitle)
         return;
 
     m_subTitle = subTitle;
+
+    updateLayout();
+
     emit changed();
 }
 
@@ -97,6 +104,9 @@ void QxDialogHeaderBox::setDescription(const QString& description)
         return;
 
     m_description = description;
+
+    updateLayout();
+
     emit changed();
 }
 
