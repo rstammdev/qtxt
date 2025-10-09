@@ -9,6 +9,7 @@
 #include "qxaboutdialog.h"
 
 #include <QApplication>
+#include <QDialogButtonBox>
 #include <QVBoxLayout>
 
 
@@ -27,11 +28,18 @@ QxAboutDialog::QxAboutDialog(QWidget* parent, Qt::WindowFlags flags)
 
     m_tabBox = new QTabWidget;
 
+    // Button
+
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QxAboutDialog::close);
+
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(m_headerBox);
     layout->addWidget(m_tabBox);
+    layout->addWidget(buttonBox);
     setLayout(layout);
 }
 
