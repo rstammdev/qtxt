@@ -55,6 +55,10 @@ MainWindow::MainWindow(QWidget* parent)
     toolbarHelp->addAction(actionAbout);
 
     connect(actionAbout, &QAction::triggered, this, &MainWindow::showAboutDialog);
+
+    //
+
+    resize(640, 480);
 }
 
 
