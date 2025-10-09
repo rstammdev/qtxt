@@ -41,6 +41,8 @@ QxAboutDialog::QxAboutDialog(QWidget* parent, Qt::WindowFlags flags)
     layout->addWidget(m_tabBox);
     layout->addWidget(buttonBox);
     setLayout(layout);
+
+    setWindowTitle(tr("About %1").arg(QApplication::applicationName()));
 }
 
 
