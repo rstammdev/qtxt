@@ -11,6 +11,7 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 SUBDIRS += \
+    qxaboutdialog/examples/aboutdialog \
     qxcomponentsdialog/examples/componentsdialog \
     qxconfirmationbox/examples/confirmationbox \
     qxdialogheaderbox/examples/dialogheaderbox \
