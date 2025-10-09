@@ -36,4 +36,9 @@ MainWindow::MainWindow(QWidget* parent)
     toolbarFile->addAction(actionQuit);
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
+
+    // Help menu
+
+    QMenu* menuHelp = menuBar()->addMenu(tr("&Help"));
+    menuHelp->setObjectName("menuHelp"_L1);
 }
