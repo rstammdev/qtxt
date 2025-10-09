@@ -13,6 +13,8 @@
 #include <QMenuBar>
 #include <QToolBar>
 
+#include <qxaboutdialog.h>
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -64,5 +66,6 @@ MainWindow::MainWindow(QWidget* parent)
 
 void MainWindow::showAboutDialog()
 {
-
+    QxAboutDialog dialog(this);
+    dialog.exec();
 }
