@@ -37,8 +37,11 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
-    // Help menu
+    // Help menu & toolbar
 
     QMenu* menuHelp = menuBar()->addMenu(tr("&Help"));
     menuHelp->setObjectName("menuHelp"_L1);
+
+    QToolBar* toolbarHelp = addToolBar(tr("Help Toolbar"));
+    toolbarHelp->setObjectName("toolbarHelp"_L1);
 }
