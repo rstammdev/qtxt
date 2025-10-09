@@ -9,6 +9,7 @@
 #include "mainwindow.h"
 
 #include <QAction>
+#include <QApplication>
 #include <QMenuBar>
 #include <QToolBar>
 
@@ -39,9 +40,25 @@ MainWindow::MainWindow(QWidget* parent)
 
     // Help menu & toolbar
 
+    QAction* actionAbout = addAction(tr("&About %1").arg(QApplication::applicationName()));
+    actionAbout->setObjectName("actionAbout"_L1);
+    actionAbout->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::HelpAbout));
+    actionAbout->setIconText(tr("About"));
+    actionAbout->setMenuRole(QAction::AboutRole);
+
     QMenu* menuHelp = menuBar()->addMenu(tr("&Help"));
     menuHelp->setObjectName("menuHelp"_L1);
+    menuHelp->addAction(actionAbout);
 
     QToolBar* toolbarHelp = addToolBar(tr("Help Toolbar"));
     toolbarHelp->setObjectName("toolbarHelp"_L1);
+    toolbarHelp->addAction(actionAbout);
+
+    connect(actionAbout, &QAction::triggered, this, &MainWindow::showAboutDialog);
+}
+
+
+void MainWindow::showAboutDialog()
+{
+
 }
