@@ -28,4 +28,6 @@ isEmpty(QXABOUTDIALOG_PRI_INCLUDED) {
 
     DISTFILES += \
         $$PWD/README.md
+
+    include($$PWD/../qxdialogheaderbox/qxdialogheaderbox.pri)
 }

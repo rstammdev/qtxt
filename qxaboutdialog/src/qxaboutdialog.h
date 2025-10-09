@@ -11,6 +11,8 @@
 
 #include <QDialog>
 
+#include <qxdialogheaderbox.h>
+
 
 class QxAboutDialog : public QDialog
 {
@@ -18,6 +20,11 @@ class QxAboutDialog : public QDialog
 
 public:
     explicit QxAboutDialog(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
+
+    QxDialogHeaderBox* header() const;
+
+private:
+    QxDialogHeaderBox* m_headerBox;
 };
 
 #endif // QXABOUTDIALOG_H
