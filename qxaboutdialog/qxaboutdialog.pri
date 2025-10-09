@@ -25,4 +25,7 @@ isEmpty(QXABOUTDIALOG_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxaboutdialog.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }
