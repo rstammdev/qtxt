@@ -23,10 +23,15 @@ QxAboutDialog::QxAboutDialog(QWidget* parent, Qt::WindowFlags flags)
     if (!QApplication::applicationVersion().isEmpty())
         m_headerBox->setSubTitle(tr("v%1").arg(QApplication::applicationVersion()));
 
+    // Tabs
+
+    m_tabBox = new QTabWidget;
+
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(m_headerBox);
+    layout->addWidget(m_tabBox);
     setLayout(layout);
 }
 
@@ -34,4 +39,10 @@ QxAboutDialog::QxAboutDialog(QWidget* parent, Qt::WindowFlags flags)
 QxDialogHeaderBox* QxAboutDialog::header() const
 {
     return m_headerBox;
+}
+
+
+QTabWidget* QxAboutDialog::tabs() const
+{
+    return m_tabBox;
 }

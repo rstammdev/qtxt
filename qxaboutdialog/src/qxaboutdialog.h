@@ -10,6 +10,7 @@
 #define QXABOUTDIALOG_H
 
 #include <QDialog>
+#include <QTabWidget>
 
 #include <qxdialogheaderbox.h>
 
@@ -23,8 +24,12 @@ public:
 
     QxDialogHeaderBox* header() const;
 
+    QTabWidget* tabs() const;
+
 private:
     QxDialogHeaderBox* m_headerBox;
+
+    QTabWidget* m_tabBox;
 };
 
 #endif // QXABOUTDIALOG_H
