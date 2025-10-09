@@ -21,4 +21,5 @@ include($$PWD/qxtoollabel/qxtoollabel.pri)
 include($$PWD/qxzoombutton/qxzoombutton.pri)
 
 # Tier 2
+include($$PWD/qxaboutdialog/qxaboutdialog.pri)
 include($$PWD/qxtoolbarsdialog/qxtoolbarsdialog.pri)
