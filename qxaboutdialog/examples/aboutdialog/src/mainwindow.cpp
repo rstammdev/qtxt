@@ -60,6 +60,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     //
 
+    setWindowIcon(QIcon::fromTheme(QIcon::ThemeIcon::HelpAbout));
     resize(640, 480);
 }
 
