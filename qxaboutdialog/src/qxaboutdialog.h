@@ -26,6 +26,9 @@ public:
 
     QTabWidget* tabs() const;
 
+    int addPage(QWidget* page, const QString& label);
+    int addPage(QWidget* page, const QIcon& icon, const QString& label);
+
     int insertPage(const int index, QWidget* page, const QString& label);
     int insertPage(const int index, QWidget* page, const QIcon& icon, const QString& label);
 

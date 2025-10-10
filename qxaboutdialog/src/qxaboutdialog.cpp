@@ -60,6 +60,18 @@ QTabWidget* QxAboutDialog::tabs() const
 }
 
 
+int QxAboutDialog::addPage(QWidget* page, const QString& label)
+{
+    return addPage(page, QIcon(), label);
+}
+
+
+int QxAboutDialog::addPage(QWidget* page, const QIcon& icon, const QString& label)
+{
+    return insertPage(-1, page, icon, label);
+}
+
+
 int QxAboutDialog::insertPage(const int index, QWidget* page, const QString& label)
 {
     return insertPage(index, page, QIcon(), label);
