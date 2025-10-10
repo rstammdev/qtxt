@@ -32,6 +32,8 @@ public:
     int insertPage(const int index, QWidget* page, const QString& label);
     int insertPage(const int index, QWidget* page, const QIcon& icon, const QString& label);
 
+    void removePage(const int index);
+
 private:
     QxDialogHeaderBox* m_headerBox;
 

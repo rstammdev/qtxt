@@ -88,3 +88,9 @@ int QxAboutDialog::insertPage(const int index, QWidget* page, const QIcon& icon,
 
     return m_tabBox->insertTab(index, scrollPage, icon, label);
 }
+
+
+void QxAboutDialog::removePage(const int index)
+{
+    m_tabBox->removeTab(index);
+}
