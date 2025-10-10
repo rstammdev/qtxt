@@ -43,6 +43,7 @@ QxAboutDialog::QxAboutDialog(QWidget* parent, Qt::WindowFlags flags)
     setLayout(layout);
 
     setWindowTitle(tr("About %1").arg(QApplication::applicationName()));
+    setMinimumSize(240, 160);
 }
 
 
