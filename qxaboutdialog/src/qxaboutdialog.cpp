@@ -10,6 +10,7 @@
 
 #include <QApplication>
 #include <QDialogButtonBox>
+#include <QScrollArea>
 #include <QVBoxLayout>
 
 
@@ -56,4 +57,22 @@ QxDialogHeaderBox* QxAboutDialog::header() const
 QTabWidget* QxAboutDialog::tabs() const
 {
     return m_tabBox;
+}
+
+
+int QxAboutDialog::insertPage(const int index, QWidget* page, const QString& label)
+{
+    return insertPage(index, page, QIcon(), label);
+}
+
+
+int QxAboutDialog::insertPage(const int index, QWidget* page, const QIcon& icon, const QString& label)
+{
+    QScrollArea* scrollPage = new QScrollArea(this);
+    scrollPage->setWidget(page);
+    scrollPage->setWidgetResizable(true);
+    scrollPage->hide();
+    scrollPage->setFrameStyle(QFrame::NoFrame);
+
+    return m_tabBox->insertTab(index, scrollPage, icon, label);
 }

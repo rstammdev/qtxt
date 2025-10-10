@@ -26,6 +26,9 @@ public:
 
     QTabWidget* tabs() const;
 
+    int insertPage(const int index, QWidget* page, const QString& label);
+    int insertPage(const int index, QWidget* page, const QIcon& icon, const QString& label);
+
 private:
     QxDialogHeaderBox* m_headerBox;
 
