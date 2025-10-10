@@ -21,6 +21,9 @@ public:
 
 private slots:
     void showAboutDialog();
+
+private:
+    QWidget* pageLoremIpsum();
 };
 
 #endif // MAINWINDOW_H

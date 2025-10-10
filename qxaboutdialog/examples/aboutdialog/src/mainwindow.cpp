@@ -10,8 +10,10 @@
 
 #include <QAction>
 #include <QApplication>
+#include <QLabel>
 #include <QMenuBar>
 #include <QToolBar>
+#include <QVBoxLayout>
 
 #include <qxaboutdialog.h>
 
@@ -70,5 +72,33 @@ void MainWindow::showAboutDialog()
     QxAboutDialog dialog(this);
     dialog.header()->setSubTitle(tr("v1.2.3"));
     dialog.header()->setDescription(tr("This is an example in action"));
+    dialog.addPage(pageLoremIpsum(), tr("Lorem Ipsum"));
     dialog.exec();
+}
+
+
+QWidget *MainWindow::pageLoremIpsum()
+{
+    QLabel* paragraph1 = new QLabel;
+    paragraph1->setText(tr("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."));
+    paragraph1->setWordWrap(true);
+
+    QLabel* paragraph2 = new QLabel;
+    paragraph2->setText(tr("Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."));
+    paragraph2->setWordWrap(true);
+
+    QLabel* paragraph3 = new QLabel;
+    paragraph3->setText(tr("Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."));
+    paragraph3->setWordWrap(true);
+
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->addWidget(paragraph1);
+    layout->addWidget(paragraph2);
+    layout->addWidget(paragraph3);
+    layout->addStretch();
+
+    QWidget* page = new QWidget;
+    page->setLayout(layout);
+
+    return page;
 }
