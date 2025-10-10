@@ -20,6 +20,8 @@ QxAboutDialog::QxAboutDialog(QWidget* parent, Qt::WindowFlags flags)
     // Header
 
     m_headerBox = new QxDialogHeaderBox;
+    if (parent && !parent->windowIcon().isNull())
+        m_headerBox->setIcon(parent->windowIcon());
     if (!QApplication::applicationName().isEmpty())
         m_headerBox->setTitle(QApplication::applicationName());
     if (!QApplication::applicationVersion().isEmpty())
