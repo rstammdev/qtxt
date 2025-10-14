@@ -62,13 +62,14 @@ QSize QxDialogHeaderBox::iconSize() const
     return m_iconSize;
 }
 
-
 void QxDialogHeaderBox::setIconSize(const QSize& size)
 {
     if (size == m_iconSize)
         return;
 
     m_iconSize = size;
+
+    updateLayout();
 
     emit changed();
 }
@@ -201,8 +202,15 @@ void QxDialogHeaderBox::updateLayout()
     }
 
     if (!m_icon.isNull()) {
-        const int height = layout()->sizeHint().height();
-        m_labelIcon->setPixmap(m_icon.pixmap(height, height));
+
+        QSize size = m_iconSize;
+        if (size.isEmpty()) {
+            const int height = m_labelTitle->sizeHint().height() + 3 * layoutVerticalSpacing() + m_labelDescription->sizeHint().height();
+            size.setHeight(height);
+            size.setWidth(height);
+        }
+
+        m_labelIcon->setPixmap(m_icon.pixmap(size));
         m_labelIcon->setVisible(true);
     }
     else {
