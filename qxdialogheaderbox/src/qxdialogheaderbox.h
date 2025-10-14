@@ -33,6 +33,7 @@ public:
     [[nodiscard]] QString description() const;
 
     int layoutHorizontalSpacing() const;
+    int layoutVerticalSpacing() const;
 
 public slots:
     void setIcon(const QIcon& icon);
@@ -41,6 +42,7 @@ public slots:
     void setDescription(const QString& description);
 
     void setLayoutHorizontalSpacing(const int spacing);
+    void setLayoutVerticalSpacing(const int spacing);
 
 signals:
     void changed();

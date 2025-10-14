@@ -126,6 +126,23 @@ void QxDialogHeaderBox::setLayoutHorizontalSpacing(const int spacing)
 }
 
 
+int QxDialogHeaderBox::layoutVerticalSpacing() const
+{
+    if (QGridLayout* layout = qobject_cast<QGridLayout*>(this->layout()))
+        return layout->verticalSpacing();
+
+    return -1;
+}
+
+void QxDialogHeaderBox::setLayoutVerticalSpacing(const int spacing)
+{
+    if (QGridLayout* layout = qobject_cast<QGridLayout*>(this->layout()))
+        layout->setVerticalSpacing(spacing);
+
+    updateLayout();
+}
+
+
 void QxDialogHeaderBox::resizeEvent(QResizeEvent* event)
 {
     QWidget::resizeEvent(event);
