@@ -57,6 +57,23 @@ void QxDialogHeaderBox::setIcon(const QIcon& icon)
 }
 
 
+QSize QxDialogHeaderBox::iconSize() const
+{
+    return m_iconSize;
+}
+
+
+void QxDialogHeaderBox::setIconSize(const QSize& size)
+{
+    if (size == m_iconSize)
+        return;
+
+    m_iconSize = size;
+
+    emit changed();
+}
+
+
 QString QxDialogHeaderBox::title() const
 {
     return m_title;

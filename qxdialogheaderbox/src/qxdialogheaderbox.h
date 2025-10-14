@@ -12,6 +12,7 @@
 #include <QIcon>
 #include <QLabel>
 #include <QResizeEvent>
+#include <QSize>
 #include <QWidget>
 
 
@@ -19,6 +20,7 @@ class QxDialogHeaderBox : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(QIcon icon READ icon WRITE setIcon NOTIFY changed)
+    Q_PROPERTY(QSize iconSize READ iconSize WRITE setIconSize NOTIFY changed)
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY changed)
     Q_PROPERTY(QString subTitle READ subTitle WRITE setSubTitle NOTIFY changed)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY changed)
@@ -28,6 +30,7 @@ public:
     ~QxDialogHeaderBox() = default;
 
     [[nodiscard]] QIcon icon() const;
+    [[nodiscard]] QSize iconSize() const;
     [[nodiscard]] QString title() const;
     [[nodiscard]] QString subTitle() const;
     [[nodiscard]] QString description() const;
@@ -37,6 +40,7 @@ public:
 
 public slots:
     void setIcon(const QIcon& icon);
+    void setIconSize(const QSize& size);
     void setTitle(const QString& title);
     void setSubTitle(const QString& subTitle);
     void setDescription(const QString& description);
@@ -55,6 +59,7 @@ private slots:
 
 private:
     QIcon m_icon;
+    QSize m_iconSize;
     QString m_title;
     QString m_subTitle;
     QString m_description;
