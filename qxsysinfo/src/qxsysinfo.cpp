@@ -8,7 +8,7 @@
 
 #include "qxsysinfo.h"
 
-#include <QApplication>
+#include <QGuiApplication>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -27,7 +27,7 @@ QString QxSysInfo::currentQtVersion()
 
 QString QxSysInfo::prettyPlatformName()
 {
-    const QString& platformName = QApplication::platformName();
+    const QString& platformName = QGuiApplication::platformName();
 
     if (platformName == "wayland"_L1)
         return "Wayland"_L1;

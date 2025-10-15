@@ -13,7 +13,7 @@
 isEmpty(QXSYSINFO_PRI_INCLUDED) {
     QXSYSINFO_PRI_INCLUDED = 1
 
-    QT += core
+    QT += core gui
 
     CONFIG += qt6 c++23
 
