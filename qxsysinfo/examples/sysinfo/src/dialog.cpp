@@ -23,8 +23,11 @@ Dialog::Dialog(QWidget* parent)
 
     QLabel* buildQtVersion = new QLabel(QxSysInfo::buildQtVersion());
 
+    QLabel* currentQtVersion = new QLabel(QxSysInfo::currentQtVersion());
+
     QFormLayout* layoutSysInfo = new QFormLayout;
     layoutSysInfo->addRow(tr("Build Qt Version:"), buildQtVersion);
+    layoutSysInfo->addRow(tr("Current Qt Version:"), currentQtVersion);
 
     // Button
 
