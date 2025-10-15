@@ -70,8 +70,8 @@ MainWindow::MainWindow(QWidget* parent)
 void MainWindow::showAboutDialog()
 {
     QxAboutDialog dialog(this);
-    dialog.header()->setSubTitle(tr("v1.2.3"));
-    dialog.header()->setDescription(tr("This is an example in action"));
+    dialog.setSubTitle(tr("v1.2.3"));
+    dialog.setDescription(tr("This is an example in action"));
     dialog.addPage(pageLoremIpsum(), tr("Lorem Ipsum"));
     dialog.exec();
 }
