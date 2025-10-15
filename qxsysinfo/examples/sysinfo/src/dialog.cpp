@@ -31,12 +31,15 @@ Dialog::Dialog(QWidget* parent)
 
     QLabel* currentCpuArchitecture = new QLabel(QxSysInfo::currentCpuArchitecture());
 
+    QLabel* buildAbi = new QLabel(QxSysInfo::buildAbi());
+
     QFormLayout* layoutSysInfo = new QFormLayout;
     layoutSysInfo->addRow(tr("Build Qt Version:"), buildQtVersion);
     layoutSysInfo->addRow(tr("Current Qt Version:"), currentQtVersion);
     layoutSysInfo->addRow(tr("Pretty Product Name:"), prettyProductName);
     layoutSysInfo->addRow(tr("Pretty Platform Name:"), prettyPlatformName);
     layoutSysInfo->addRow(tr("Current CPU Architecture:"), currentCpuArchitecture);
+    layoutSysInfo->addRow(tr("Build Full Architecture String:"), buildAbi);
 
     // Button
 
