@@ -26,6 +26,7 @@ public:
     QxDialogHeaderBox* header() const;
 
     void setIcon(const QIcon& icon);
+    void setTitle(const QString& title);
 
     QTabWidget* tabs() const;
 

@@ -62,6 +62,12 @@ void QxAboutDialog::setIcon(const QIcon& icon)
 }
 
 
+void QxAboutDialog::setTitle(const QString& title)
+{
+    m_headerBox->setTitle(title);
+}
+
+
 QTabWidget* QxAboutDialog::tabs() const
 {
     return m_tabBox;
