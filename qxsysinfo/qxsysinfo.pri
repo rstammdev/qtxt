@@ -25,4 +25,7 @@ isEmpty(QXSYSINFO_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxsysinfo.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }

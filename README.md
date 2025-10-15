@@ -39,6 +39,9 @@ QtXt is a modular Qt 6 framework providing reusable widgets and built-in example
 - [**QxStatusButton**](qxstatusbutton/README.md)  
   A tool button that displays the status of the button.
 
+- [**QxSysInfo**](qxsysinfo/README.md)  
+  A class that provides information about the system.
+
 - [**QxThemeButton**](qxthemebutton/README.md)  
   A tool button that applies a preselected theme.
 
