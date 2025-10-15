@@ -205,9 +205,15 @@ void QxDialogHeaderBox::updateLayout()
 
         QSize size = m_iconSize;
         if (size.isEmpty()) {
-            const int height = m_labelTitle->sizeHint().height() + 3 * layoutVerticalSpacing() + m_labelDescription->sizeHint().height();
+
+            int height = layoutVerticalSpacing();
+            if (!m_labelTitle->text().isEmpty())
+                height += m_labelTitle->sizeHint().height() + layoutVerticalSpacing();
+            if (!m_labelDescription->text().isEmpty())
+                height += m_labelDescription->sizeHint().height() + layoutVerticalSpacing();
+
             size.setHeight(height);
-            size.setWidth(height);
+            size.setWidth(size.height());
         }
 
         m_labelIcon->setPixmap(m_icon.pixmap(size));
