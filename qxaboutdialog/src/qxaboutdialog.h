@@ -10,6 +10,7 @@
 #define QXABOUTDIALOG_H
 
 #include <QDialog>
+#include <QIcon>
 #include <QTabWidget>
 
 #include <qxdialogheaderbox.h>
@@ -23,6 +24,8 @@ public:
     explicit QxAboutDialog(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
 
     QxDialogHeaderBox* header() const;
+
+    void setIcon(const QIcon& icon);
 
     QTabWidget* tabs() const;
 

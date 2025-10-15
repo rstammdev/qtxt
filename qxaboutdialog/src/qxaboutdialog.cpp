@@ -56,6 +56,12 @@ QxDialogHeaderBox* QxAboutDialog::header() const
 }
 
 
+void QxAboutDialog::setIcon(const QIcon& icon)
+{
+    m_headerBox->setIcon(icon);
+}
+
+
 QTabWidget* QxAboutDialog::tabs() const
 {
     return m_tabBox;
