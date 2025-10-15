@@ -25,9 +25,12 @@ Dialog::Dialog(QWidget* parent)
 
     QLabel* currentQtVersion = new QLabel(QxSysInfo::currentQtVersion());
 
+    QLabel* prettyProductName = new QLabel(QxSysInfo::prettyProductName());
+
     QFormLayout* layoutSysInfo = new QFormLayout;
     layoutSysInfo->addRow(tr("Build Qt Version:"), buildQtVersion);
     layoutSysInfo->addRow(tr("Current Qt Version:"), currentQtVersion);
+    layoutSysInfo->addRow(tr("Pretty Product Name:"), prettyProductName);
 
     // Button
 
