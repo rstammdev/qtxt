@@ -10,6 +10,8 @@
 
 #include <QApplication>
 
+using namespace Qt::Literals::StringLiterals;
+
 
 QString QxSysInfo::buildQtVersion()
 {
@@ -20,4 +22,17 @@ QString QxSysInfo::buildQtVersion()
 QString QxSysInfo::currentQtVersion()
 {
     return qVersion();
+}
+
+
+QString QxSysInfo::prettyPlatformName()
+{
+    const QString& platformName = QApplication::platformName();
+
+    if (platformName == "wayland"_L1)
+        return "Wayland"_L1;
+    else if (platformName == "xcb"_L1)
+        return "X11"_L1;
+
+    return QCoreApplication::translate("qxsysinfo", "Unknown (%1)").arg(platformName);
 }
