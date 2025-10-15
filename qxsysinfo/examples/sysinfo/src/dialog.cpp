@@ -8,10 +8,26 @@
 
 #include "dialog.h"
 
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
 
 Dialog::Dialog(QWidget* parent)
     : QDialog{parent}
 {
+
+    // Button
+
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &Dialog::close);
+
+    //
+
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->addStretch();
+    layout->addWidget(buttonBox);
+    setLayout(layout);
 
     resize(640, 480);
 }
