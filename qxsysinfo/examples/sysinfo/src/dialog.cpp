@@ -29,11 +29,14 @@ Dialog::Dialog(QWidget* parent)
 
     QLabel* prettyPlatformName = new QLabel(QxSysInfo::prettyPlatformName());
 
+    QLabel* currentCpuArchitecture = new QLabel(QxSysInfo::currentCpuArchitecture());
+
     QFormLayout* layoutSysInfo = new QFormLayout;
     layoutSysInfo->addRow(tr("Build Qt Version:"), buildQtVersion);
     layoutSysInfo->addRow(tr("Current Qt Version:"), currentQtVersion);
     layoutSysInfo->addRow(tr("Pretty Product Name:"), prettyProductName);
     layoutSysInfo->addRow(tr("Pretty Platform Name:"), prettyPlatformName);
+    layoutSysInfo->addRow(tr("Current CPU Architecture:"), currentCpuArchitecture);
 
     // Button
 
