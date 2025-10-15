@@ -7,3 +7,11 @@
  */
 
 #include "qxsysinfo.h"
+
+#include <QApplication>
+
+
+QString QxSysInfo::buildQtVersion()
+{
+    return QT_VERSION_STR;
+}
