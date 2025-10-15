@@ -33,6 +33,8 @@ Dialog::Dialog(QWidget* parent)
 
     QLabel* buildAbi = new QLabel(QxSysInfo::buildAbi());
 
+    QLabel* kernelType = new QLabel(QxSysInfo::kernelType());
+
     QFormLayout* layoutSysInfo = new QFormLayout;
     layoutSysInfo->addRow(tr("Build Qt Version:"), buildQtVersion);
     layoutSysInfo->addRow(tr("Current Qt Version:"), currentQtVersion);
@@ -40,6 +42,7 @@ Dialog::Dialog(QWidget* parent)
     layoutSysInfo->addRow(tr("Pretty Platform Name:"), prettyPlatformName);
     layoutSysInfo->addRow(tr("Current CPU Architecture:"), currentCpuArchitecture);
     layoutSysInfo->addRow(tr("Build Full Architecture String:"), buildAbi);
+    layoutSysInfo->addRow(tr("Kernel Type:"), kernelType);
 
     // Button
 
