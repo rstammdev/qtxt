@@ -28,6 +28,7 @@ public:
     void setIcon(const QIcon& icon);
     void setTitle(const QString& title);
     void setSubTitle(const QString& subTitle);
+    void setDescription(const QString& description);
 
     QTabWidget* tabs() const;
 

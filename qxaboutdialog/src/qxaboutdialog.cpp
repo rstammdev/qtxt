@@ -74,6 +74,12 @@ void QxAboutDialog::setSubTitle(const QString &subTitle)
 }
 
 
+void QxAboutDialog::setDescription(const QString& description)
+{
+    m_headerBox->setDescription(description);
+}
+
+
 QTabWidget* QxAboutDialog::tabs() const
 {
     return m_tabBox;
