@@ -15,3 +15,9 @@ QString QxSysInfo::buildQtVersion()
 {
     return QT_VERSION_STR;
 }
+
+
+QString QxSysInfo::currentQtVersion()
+{
+    return qVersion();
+}

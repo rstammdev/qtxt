@@ -16,6 +16,7 @@ class QxSysInfo : public QSysInfo
 {
 public:
     static QString buildQtVersion();
+    static QString currentQtVersion();
 };
 
 #endif // QXSYSINFO_H
