@@ -20,6 +20,7 @@ SUBDIRS += \
     qxpanel/examples/panel \
     qxstatusbutton/examples/statusbutton \
     qxthemebutton/examples/themebutton \
+    qxsysinfo/examples/sysinfo \
     qxtoolbarsdialog/examples/toolbarsdialog \
     qxtoollabel/examples/toollabel \
     qxzoombutton/examples/zoombutton
