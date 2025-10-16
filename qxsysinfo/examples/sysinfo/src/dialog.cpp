@@ -21,31 +21,15 @@ Dialog::Dialog(QWidget* parent)
 {
     // System information
 
-    QLabel* buildQtVersion = new QLabel(QxSysInfo::buildQtVersion());
-
-    QLabel* currentQtVersion = new QLabel(QxSysInfo::currentQtVersion());
-
-    QLabel* prettyProductName = new QLabel(QxSysInfo::prettyProductName());
-
-    QLabel* prettyPlatformName = new QLabel(QxSysInfo::prettyPlatformName());
-
-    QLabel* currentCpuArchitecture = new QLabel(QxSysInfo::currentCpuArchitecture());
-
-    QLabel* buildAbi = new QLabel(QxSysInfo::buildAbi());
-
-    QLabel* kernelType = new QLabel(QxSysInfo::kernelType());
-
-    QLabel* kernelVersion = new QLabel(QxSysInfo::kernelVersion());
-
     QFormLayout* layoutSysInfo = new QFormLayout;
-    layoutSysInfo->addRow(tr("Build Qt Version:"), buildQtVersion);
-    layoutSysInfo->addRow(tr("Current Qt Version:"), currentQtVersion);
-    layoutSysInfo->addRow(tr("Pretty Product Name:"), prettyProductName);
-    layoutSysInfo->addRow(tr("Pretty Platform Name:"), prettyPlatformName);
-    layoutSysInfo->addRow(tr("Current CPU Architecture:"), currentCpuArchitecture);
-    layoutSysInfo->addRow(tr("Build Full Architecture String:"), buildAbi);
-    layoutSysInfo->addRow(tr("Kernel Type:"), kernelType);
-    layoutSysInfo->addRow(tr("Kernel Version:"), kernelVersion);
+    layoutSysInfo->addRow(tr("Build Qt Version:"), new QLabel(QxSysInfo::buildQtVersion()));
+    layoutSysInfo->addRow(tr("Current Qt Version:"), new QLabel(QxSysInfo::currentQtVersion()));
+    layoutSysInfo->addRow(tr("Pretty Product Name:"), new QLabel(QxSysInfo::prettyProductName()));
+    layoutSysInfo->addRow(tr("Pretty Platform Name:"), new QLabel(QxSysInfo::prettyPlatformName()));
+    layoutSysInfo->addRow(tr("Current CPU Architecture:"), new QLabel(QxSysInfo::currentCpuArchitecture()));
+    layoutSysInfo->addRow(tr("Build Architecture String:"), new QLabel(QxSysInfo::buildAbi()));
+    layoutSysInfo->addRow(tr("Kernel Type:"), new QLabel(QxSysInfo::kernelType()));
+    layoutSysInfo->addRow(tr("Kernel Version:"), new QLabel(QxSysInfo::kernelVersion()));
 
     // Button
 
@@ -60,8 +44,6 @@ Dialog::Dialog(QWidget* parent)
     layout->addStretch();
     layout->addWidget(buttonBox);
     setLayout(layout);
-
-    layoutSysInfo->setHorizontalSpacing(layoutSysInfo->horizontalSpacing() * 2);
 
     resize(640, 480);
 }
