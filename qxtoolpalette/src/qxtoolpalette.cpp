@@ -13,6 +13,7 @@ QxToolPalette::QxToolPalette(QWidget* parent, Qt::WindowFlags flags)
     : QDockWidget{parent, flags}
     , m_displayMode{DisplayMode::Custom}
     , m_columnCount{1}
+    , m_rowCount{}
 {
 
 }
@@ -53,4 +54,20 @@ void QxToolPalette::setColumnCount(const int count)
     m_columnCount = count;
 
     emit columnCountChanged(m_columnCount);
+}
+
+
+int QxToolPalette::rowCount() const
+{
+    return m_rowCount;
+}
+
+void QxToolPalette::setRowCount(const int count)
+{
+    if (count == m_rowCount)
+        return;
+
+    m_rowCount = count;
+
+    emit rowCountChanged(m_rowCount);
 }
