@@ -25,4 +25,7 @@ isEmpty(QXTOOLPALETTE_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxtoolpalette.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }
