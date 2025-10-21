@@ -12,6 +12,8 @@
 #include <QMenuBar>
 #include <QToolBar>
 
+#include <qxtoolpalette.h>
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -36,6 +38,12 @@ MainWindow::MainWindow(QWidget* parent)
     toolbarFile->addAction(actionQuit);
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
+
+    // Information tool palette
+
+    QxToolPalette* paletteInformation = new QxToolPalette(tr("Information"));
+    actionQuit->setObjectName("paletteInformation"_L1);
+    addDockWidget(Qt::RightDockWidgetArea, paletteInformation);
 
     //
 
