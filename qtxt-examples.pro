@@ -23,4 +23,5 @@ SUBDIRS += \
     qxsysinfo/examples/sysinfo \
     qxtoolbarsdialog/examples/toolbarsdialog \
     qxtoollabel/examples/toollabel \
+    qxtoolpalette/examples/toolpalette \
     qxzoombutton/examples/zoombutton
