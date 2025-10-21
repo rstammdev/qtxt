@@ -24,3 +24,4 @@ include($$PWD/qxzoombutton/qxzoombutton.pri)
 # Tier 2
 include($$PWD/qxaboutdialog/qxaboutdialog.pri)
 include($$PWD/qxtoolbarsdialog/qxtoolbarsdialog.pri)
+include($$PWD/qxtoolpalette/qxtoolpalette.pri)
