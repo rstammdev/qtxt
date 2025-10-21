@@ -18,10 +18,10 @@ include($$PWD/qxpanel/qxpanel.pri)
 include($$PWD/qxstatusbutton/qxstatusbutton.pri)
 include($$PWD/qxsysinfo/qxsysinfo.pri)
 include($$PWD/qxthemebutton/qxthemebutton.pri)
-include($$PWD/qxtoollabel/qxtoollabel.pri)
 include($$PWD/qxzoombutton/qxzoombutton.pri)
 
 # Tier 2
 include($$PWD/qxaboutdialog/qxaboutdialog.pri)
 include($$PWD/qxtoolbarsdialog/qxtoolbarsdialog.pri)
+include($$PWD/qxtoollabel/qxtoollabel.pri)
 include($$PWD/qxtoolpalette/qxtoolpalette.pri)
