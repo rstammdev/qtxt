@@ -16,6 +16,7 @@ class QxToolPalette : public QDockWidget
 {
     Q_OBJECT
 
+public:
     explicit QxToolPalette(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
     explicit QxToolPalette(const QString& text, QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
 };
