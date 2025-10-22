@@ -25,4 +25,7 @@ isEmpty(QXTOOLGROUP_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxtoolgroup.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }
