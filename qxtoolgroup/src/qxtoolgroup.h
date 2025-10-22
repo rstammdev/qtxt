@@ -17,6 +17,7 @@ class QxToolGroup : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(Type type READ type WRITE setType NOTIFY typeChanged)
+    Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
 
 public:
     enum Type {
@@ -30,15 +31,19 @@ public:
     explicit QxToolGroup(QWidget* parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
 
     [[nodiscard]] Type type() const;
+    [[nodiscard]] QString title() const;
 
 public slots:
     void setType(const QxToolGroup::Type type);
+    void setTitle(const QString& title);
 
 signals:
     void typeChanged(const QxToolGroup::Type type);
+    void titleChanged(const QString& title);
 
 private:
     Type m_type;
+    QString m_title;
 };
 
 #endif // QXTOOLGROUP_H

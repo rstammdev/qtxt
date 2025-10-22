@@ -12,6 +12,7 @@
 QxToolGroup::QxToolGroup(QWidget* parent, Qt::WindowFlags flags)
     : QWidget{parent, flags}
     , m_type{Type::NoBox}
+    , m_title{}
 {
 
 }
@@ -30,4 +31,20 @@ void QxToolGroup::setType(const QxToolGroup::Type type)
     m_type = type;
 
     emit typeChanged(m_type);
+}
+
+
+QString QxToolGroup::title() const
+{
+    return m_title;
+}
+
+void QxToolGroup::setTitle(const QString& title)
+{
+    if (title == m_title)
+        return;
+
+    m_title = title;
+
+    emit titleChanged(m_title);
 }
