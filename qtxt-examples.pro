@@ -22,6 +22,7 @@ SUBDIRS += \
     qxthemebutton/examples/themebutton \
     qxsysinfo/examples/sysinfo \
     qxtoolbarsdialog/examples/toolbarsdialog \
+    qxtoolgroup/examples/toolgroup \
     qxtoollabel/examples/toollabel \
     qxtoolpalette/examples/toolpalette \
     qxzoombutton/examples/zoombutton
