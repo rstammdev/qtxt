@@ -8,6 +8,7 @@
 
 #include "mainwindow.h"
 
+#include <QAction>
 #include <QMenuBar>
 #include <QToolBar>
 
@@ -19,11 +20,22 @@ MainWindow::MainWindow(QWidget* parent)
 {
     // File menu & toolbar
 
+    QAction* actionQuit = addAction(tr("&Quit"));
+    actionQuit->setObjectName("actionQuit"_L1);
+    actionQuit->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::ApplicationExit));
+    actionQuit->setIconText(tr("Quit"));
+    actionQuit->setShortcut(QKeySequence::Quit);
+    actionQuit->setMenuRole(QAction::QuitRole);
+
     QMenu* menuFile = menuBar()->addMenu(tr("&File"));
     menuFile->setObjectName("menuFile"_L1);
+    menuFile->addAction(actionQuit);
 
     QToolBar* toolbarFile = addToolBar(tr("File Toolbar"));
     toolbarFile->setObjectName("toolbarFile"_L1);
+    toolbarFile->addAction(actionQuit);
+
+    connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
     //
 
