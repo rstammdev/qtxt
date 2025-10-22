@@ -13,6 +13,7 @@ QxToolGroup::QxToolGroup(QWidget* parent, Qt::WindowFlags flags)
     : QWidget{parent, flags}
     , m_type{Type::NoBox}
     , m_title{}
+    , m_columnCount{}
 {
 
 }
@@ -47,4 +48,20 @@ void QxToolGroup::setTitle(const QString& title)
     m_title = title;
 
     emit titleChanged(m_title);
+}
+
+
+int QxToolGroup::columnCount() const
+{
+    return m_columnCount;
+}
+
+void QxToolGroup::setColumnCount(const int count)
+{
+    if (count < 0 || count == m_columnCount)
+        return;
+
+    m_columnCount = count;
+
+    emit columnCountChanged(m_columnCount);
 }
