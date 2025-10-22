@@ -29,3 +29,4 @@ SOURCES += \
     src/mainwindow.cpp
 
 include(../../qxtoolgroup.pri)
+include(../../../qxtoolpalette/qxtoolpalette.pri)
