@@ -39,5 +39,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     //
 
+    setCentralWidget(new QWidget);
+
     resize(640, 480);
 }
