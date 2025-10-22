@@ -18,6 +18,7 @@ include($$PWD/qxpanel/qxpanel.pri)
 include($$PWD/qxstatusbutton/qxstatusbutton.pri)
 include($$PWD/qxsysinfo/qxsysinfo.pri)
 include($$PWD/qxthemebutton/qxthemebutton.pri)
+include($$PWD/qxtoolgroup/qxtoolgroup.pri)
 include($$PWD/qxzoombutton/qxzoombutton.pri)
 
 # Tier 2
