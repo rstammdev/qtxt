@@ -9,7 +9,9 @@
 #ifndef QXTOOLGROUP_H
 #define QXTOOLGROUP_H
 
+#include <QAction>
 #include <QIcon>
+#include <QList>
 #include <QWidget>
 
 
@@ -47,6 +49,7 @@ public:
     int widgetCount();
 
     int addAction(QAction* action);
+    void addActions(const QList<QAction*>& actions);
 
 public slots:
     void setType(const QxToolGroup::Type type);

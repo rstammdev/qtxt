@@ -150,3 +150,10 @@ int QxToolGroup::addAction(QAction* action)
 
     return addWidget(button);
 }
+
+
+void QxToolGroup::addActions(const QList<QAction*>& actions)
+{
+    for (QAction* action : actions)
+        addAction(action);
+}
