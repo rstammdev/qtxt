@@ -46,6 +46,8 @@ public:
 
     int widgetCount();
 
+    int addAction(QAction* action);
+
 public slots:
     void setType(const QxToolGroup::Type type);
     void setTitle(const QString& title);

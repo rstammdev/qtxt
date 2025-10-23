@@ -8,6 +8,8 @@
 
 #include "qxtoolgroup.h"
 
+#include <QToolButton>
+
 
 QxToolGroup::QxToolGroup(QWidget* parent, Qt::WindowFlags flags)
     : QWidget{parent, flags}
@@ -137,4 +139,14 @@ bool QxToolGroup::removeWidget(const int index)
 int QxToolGroup::widgetCount()
 {
     return m_widgets.size();
+}
+
+
+int QxToolGroup::addAction(QAction* action)
+{
+    QToolButton* button = new QToolButton;
+    button->setDefaultAction(action);
+    button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    return addWidget(button);
 }
