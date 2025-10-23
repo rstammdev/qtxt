@@ -110,3 +110,14 @@ int QxToolPalette::insertGroup(const int index, QxToolGroup* group)
 
     return m_groups.indexOf(group);
 }
+
+
+bool QxToolPalette::removeGroup(const int index)
+{
+    if (index < 0 || index >= m_groups.size())
+        return false;
+
+    m_groups.removeAt(index);
+
+    return true;
+}
