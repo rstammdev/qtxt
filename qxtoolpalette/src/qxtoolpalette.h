@@ -22,11 +22,11 @@ class QxToolPalette : public QDockWidget
 
 public:
     enum DisplayMode {
-        Custom = 0,
-        NoBoxes,
+        NoBoxes = 0,
         FlatBoxes,
         FrameBoxes,
-        GroupBoxes
+        GroupBoxes,
+        Custom,
     };
     Q_ENUM(DisplayMode)
 
