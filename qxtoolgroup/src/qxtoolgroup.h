@@ -44,6 +44,8 @@ public:
 
     bool removeWidget(const int index);
 
+    int widgetCount();
+
 public slots:
     void setType(const QxToolGroup::Type type);
     void setTitle(const QString& title);

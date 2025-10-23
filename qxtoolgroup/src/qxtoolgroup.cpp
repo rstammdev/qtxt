@@ -132,3 +132,9 @@ bool QxToolGroup::removeWidget(const int index)
 
     return true;
 }
+
+
+int QxToolGroup::widgetCount()
+{
+    return m_widgets.size();
+}
