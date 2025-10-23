@@ -14,6 +14,7 @@ QxToolPalette::QxToolPalette(QWidget* parent, Qt::WindowFlags flags)
     , m_displayMode{DisplayMode::Custom}
     , m_columnCount{1}
     , m_rowCount{}
+    , m_spanning{false}
 {
 
 }
@@ -70,4 +71,20 @@ void QxToolPalette::setRowCount(const int count)
     m_rowCount = count;
 
     emit rowCountChanged(m_rowCount);
+}
+
+
+bool QxToolPalette::isSpanning() const
+{
+    return m_spanning;
+}
+
+void QxToolPalette::setSpanning(const bool enable)
+{
+    if (enable == m_spanning)
+        return;
+
+    m_spanning = enable;
+
+    emit spanningChanged(m_spanning);
 }
