@@ -90,6 +90,12 @@ void QxToolPalette::setSpanning(const bool enable)
 }
 
 
+int QxToolPalette::addGroup(QxToolGroup* group)
+{
+    return insertGroup(-1, group);
+}
+
+
 int QxToolPalette::insertGroup(const int index, QxToolGroup* group)
 {
     if (index < -1 || !group)

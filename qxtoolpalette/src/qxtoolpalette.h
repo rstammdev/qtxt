@@ -41,6 +41,7 @@ public:
     [[nodiscard]] int rowCount() const;
     [[nodiscard]] bool isSpanning() const;
 
+    int addGroup(QxToolGroup* group);
     int insertGroup(const int index, QxToolGroup* group);
 
 public slots:
