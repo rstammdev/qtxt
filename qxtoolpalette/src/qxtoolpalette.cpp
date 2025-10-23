@@ -88,3 +88,19 @@ void QxToolPalette::setSpanning(const bool enable)
 
     emit spanningChanged(m_spanning);
 }
+
+
+int QxToolPalette::insertGroup(const int index, QxToolGroup* group)
+{
+    if (index < -1 || !group)
+        return -1;
+
+    group->setParent(this);
+
+    if (index >= 0 && index < m_groups.size())
+        m_groups.insert(index, group);
+    else
+        m_groups.append(group);
+
+    return m_groups.indexOf(group);
+}

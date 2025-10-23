@@ -28,4 +28,6 @@ isEmpty(QXTOOLPALETTE_PRI_INCLUDED) {
 
     DISTFILES += \
         $$PWD/README.md
+
+    include($$PWD/../qxtoolgroup/qxtoolgroup.pri)
 }

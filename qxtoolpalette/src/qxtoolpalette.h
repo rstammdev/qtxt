@@ -10,6 +10,9 @@
 #define QXTOOLPALETTE_H
 
 #include <QDockWidget>
+#include <QList>
+
+#include <qxtoolgroup.h>
 
 
 class QxToolPalette : public QDockWidget
@@ -38,6 +41,8 @@ public:
     [[nodiscard]] int rowCount() const;
     [[nodiscard]] bool isSpanning() const;
 
+    int insertGroup(const int index, QxToolGroup* group);
+
 public slots:
     void setDisplayMode(const QxToolPalette::DisplayMode mode);
     void setColumnCount(const int count);
@@ -55,6 +60,8 @@ private:
     int m_columnCount;
     int m_rowCount;
     bool m_spanning;
+
+    QList<QxToolGroup*> m_groups;
 };
 
 #endif // QXTOOLPALETTE_H
