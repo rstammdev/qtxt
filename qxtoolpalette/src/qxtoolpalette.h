@@ -60,6 +60,9 @@ signals:
     void rowCountChanged(const int count);
     void spanningChanged(const bool enable);
 
+protected:
+    void rebuildLayout();
+
 private:
     DisplayMode m_displayMode;
     int m_columnCount;
