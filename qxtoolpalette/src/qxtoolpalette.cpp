@@ -9,6 +9,7 @@
 #include "qxtoolpalette.h"
 
 #include <QGridLayout>
+#include <QGroupBox>
 #include <QLayoutItem>
 
 
@@ -154,6 +155,11 @@ void QxToolPalette::rebuildLayout()
 
     QLayoutItem* item;
     while ((item = layout->takeAt(0)) != nullptr) {
+        if (item->widget()) {
+            if (item->widget()->layout())
+                while ((item->widget()->layout()->takeAt(0)) != nullptr);
+            item->widget()->deleteLater();
+        }
         delete item;
     }
 
@@ -171,9 +177,37 @@ void QxToolPalette::rebuildLayout()
         const int rowSpan = 1;
         const int columnSpan = (i == count - 1) ? lastColumnSpan : 1;
 
-        layout->addWidget(m_groups[i], row, column, rowSpan, columnSpan);
+        layout->addWidget(groupWrapper(m_groups[i]), row, column, rowSpan, columnSpan);
         m_groups[i]->show();
     }
     for (int i = count; i < maxGroups; ++i)
         m_groups[i]->hide();
+}
+
+
+QWidget* QxToolPalette::groupWrapper(QxToolGroup* group)
+{
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->addWidget(group);
+
+    if (m_displayMode == DisplayMode::NoBoxes || (m_displayMode == DisplayMode::Custom && group->type() == QxToolGroup::NoBox)) {
+
+        layout->setContentsMargins(0, 0, 0, 0);
+
+        QWidget* widgetBox = new QWidget;
+        widgetBox->setLayout(layout);
+
+        return widgetBox;
+    }
+
+    QGroupBox* groupBox = new QGroupBox;
+    groupBox->setLayout(layout);
+
+    if (m_displayMode == DisplayMode::GroupBoxes || (m_displayMode == DisplayMode::Custom && group->type() == QxToolGroup::GroupBox))
+        groupBox->setTitle(group->title());
+
+    if (m_displayMode == DisplayMode::FlatBoxes || (m_displayMode == DisplayMode::Custom && group->type() == QxToolGroup::FlatBox))
+        groupBox->setFlat(true);
+
+    return groupBox;
 }

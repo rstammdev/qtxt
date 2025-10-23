@@ -63,6 +63,8 @@ signals:
 protected:
     void rebuildLayout();
 
+    QWidget* groupWrapper(QxToolGroup* group);
+
 private:
     DisplayMode m_displayMode;
     int m_columnCount;
