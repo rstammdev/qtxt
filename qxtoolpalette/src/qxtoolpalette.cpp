@@ -16,7 +16,7 @@
 QxToolPalette::QxToolPalette(QWidget* parent, Qt::WindowFlags flags)
     : QDockWidget{parent, flags}
     , m_displayMode{DisplayMode::Custom}
-    , m_columnCount{1}
+    , m_columnCount{}
     , m_rowCount{}
     , m_spanning{false}
 {
