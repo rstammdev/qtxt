@@ -39,6 +39,7 @@ public:
     [[nodiscard]] int rowCount() const;
     [[nodiscard]] bool isSpanning() const;
 
+    int addWidget(QWidget* widget);
     int insertWidget(const int index, QWidget* widget);
 
 public slots:

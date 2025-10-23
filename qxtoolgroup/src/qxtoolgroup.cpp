@@ -101,6 +101,12 @@ void QxToolGroup::setSpanning(const bool enable)
 }
 
 
+int QxToolGroup::addWidget(QWidget* widget)
+{
+    return insertWidget(-1, widget);
+}
+
+
 int QxToolGroup::insertWidget(const int index, QWidget* widget)
 {
     if (index < -1 || !widget)
