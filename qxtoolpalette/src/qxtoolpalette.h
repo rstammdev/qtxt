@@ -46,6 +46,8 @@ public:
 
     bool removeGroup(const int index);
 
+    int groupCount();
+
 public slots:
     void setDisplayMode(const QxToolPalette::DisplayMode mode);
     void setColumnCount(const int count);
