@@ -49,7 +49,7 @@ int QxToolPalette::columnCount() const
 
 void QxToolPalette::setColumnCount(const int count)
 {
-    if (count == m_columnCount)
+    if (count < 0 || count == m_columnCount)
         return;
 
     m_columnCount = count;
@@ -65,7 +65,7 @@ int QxToolPalette::rowCount() const
 
 void QxToolPalette::setRowCount(const int count)
 {
-    if (count == m_rowCount)
+    if (count < 0 || count == m_rowCount)
         return;
 
     m_rowCount = count;
