@@ -99,3 +99,19 @@ void QxToolGroup::setSpanning(const bool enable)
 
     emit spanningChanged(m_spanning);
 }
+
+
+int QxToolGroup::insertWidget(const int index, QWidget* widget)
+{
+    if (index < -1 || !widget)
+        return -1;
+
+    widget->setParent(this);
+
+    if (index >= 0 && index < m_widgets.size())
+        m_widgets.insert(index, widget);
+    else
+        m_widgets.append(widget);
+
+    return m_widgets.indexOf(widget);
+}

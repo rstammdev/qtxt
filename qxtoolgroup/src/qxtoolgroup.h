@@ -39,6 +39,8 @@ public:
     [[nodiscard]] int rowCount() const;
     [[nodiscard]] bool isSpanning() const;
 
+    int insertWidget(const int index, QWidget* widget);
+
 public slots:
     void setType(const QxToolGroup::Type type);
     void setTitle(const QString& title);
@@ -59,6 +61,8 @@ private:
     int m_columnCount;
     int m_rowCount;
     bool m_spanning;
+
+    QList<QWidget*> m_widgets;
 };
 
 #endif // QXTOOLGROUP_H
