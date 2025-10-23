@@ -20,6 +20,7 @@ class QxToolGroup : public QWidget
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
     Q_PROPERTY(int columnCount READ columnCount WRITE setColumnCount NOTIFY columnCountChanged)
     Q_PROPERTY(int rowCount READ rowCount WRITE setRowCount NOTIFY rowCountChanged)
+    Q_PROPERTY(bool spanning READ isSpanning WRITE setSpanning NOTIFY spanningChanged)
 
 public:
     enum Type {
@@ -36,24 +37,28 @@ public:
     [[nodiscard]] QString title() const;
     [[nodiscard]] int columnCount() const;
     [[nodiscard]] int rowCount() const;
+    [[nodiscard]] bool isSpanning() const;
 
 public slots:
     void setType(const QxToolGroup::Type type);
     void setTitle(const QString& title);
     void setColumnCount(const int count);
     void setRowCount(const int count);
+    void setSpanning(const bool enable);
 
 signals:
     void typeChanged(const QxToolGroup::Type type);
     void titleChanged(const QString& title);
     void columnCountChanged(const int count);
     void rowCountChanged(const int count);
+    void spanningChanged(const bool enable);
 
 private:
     Type m_type;
     QString m_title;
     int m_columnCount;
     int m_rowCount;
+    bool m_spanning;
 };
 
 #endif // QXTOOLGROUP_H

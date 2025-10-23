@@ -15,6 +15,7 @@ QxToolGroup::QxToolGroup(QWidget* parent, Qt::WindowFlags flags)
     , m_title{}
     , m_columnCount{}
     , m_rowCount{}
+    , m_spanning{false}
 {
 
 }
@@ -81,4 +82,20 @@ void QxToolGroup::setRowCount(const int count)
     m_rowCount = count;
 
     emit rowCountChanged(m_rowCount);
+}
+
+
+bool QxToolGroup::isSpanning() const
+{
+    return m_spanning;
+}
+
+void QxToolGroup::setSpanning(const bool enable)
+{
+    if (enable == m_spanning)
+        return;
+
+    m_spanning = enable;
+
+    emit spanningChanged(m_spanning);
 }
