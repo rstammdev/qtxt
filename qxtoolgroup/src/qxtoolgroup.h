@@ -65,6 +65,9 @@ signals:
     void rowCountChanged(const int count);
     void spanningChanged(const bool enable);
 
+protected:
+    void rebuildLayout();
+
 private:
     Type m_type;
     QString m_title;

@@ -8,6 +8,8 @@
 
 #include "qxtoolgroup.h"
 
+#include <QGridLayout>
+#include <QLayoutItem>
 #include <QToolButton>
 
 
@@ -19,7 +21,7 @@ QxToolGroup::QxToolGroup(QWidget* parent, Qt::WindowFlags flags)
     , m_rowCount{}
     , m_spanning{false}
 {
-
+    setLayout(new QGridLayout);
 }
 
 
@@ -67,6 +69,8 @@ void QxToolGroup::setColumnCount(const int count)
 
     m_columnCount = count;
 
+    rebuildLayout();
+
     emit columnCountChanged(m_columnCount);
 }
 
@@ -83,6 +87,8 @@ void QxToolGroup::setRowCount(const int count)
 
     m_rowCount = count;
 
+    rebuildLayout();
+
     emit rowCountChanged(m_rowCount);
 }
 
@@ -98,6 +104,8 @@ void QxToolGroup::setSpanning(const bool enable)
         return;
 
     m_spanning = enable;
+
+    rebuildLayout();
 
     emit spanningChanged(m_spanning);
 }
@@ -121,6 +129,8 @@ int QxToolGroup::insertWidget(const int index, QWidget* widget)
     else
         m_widgets.append(widget);
 
+    rebuildLayout();
+
     return m_widgets.indexOf(widget);
 }
 
@@ -131,6 +141,8 @@ bool QxToolGroup::removeWidget(const int index)
         return false;
 
     m_widgets.removeAt(index);
+
+    rebuildLayout();
 
     return true;
 }
@@ -156,4 +168,36 @@ void QxToolGroup::addActions(const QList<QAction*>& actions)
 {
     for (QAction* action : actions)
         addAction(action);
+}
+
+
+void QxToolGroup::rebuildLayout()
+{
+    QGridLayout* layout = qobject_cast<QGridLayout*>(this->layout());
+    if (!layout)
+        return;
+
+    QLayoutItem* item;
+    while ((item = layout->takeAt(0)) != nullptr)
+        delete item;
+
+    const int maxWidgets = m_widgets.size();
+    const int maxColumns = (m_columnCount == 0) ? maxWidgets : m_columnCount;
+    const int maxRows = (m_rowCount == 0) ? (maxWidgets + maxColumns - 1) / maxColumns : m_rowCount;
+    const int maxCells = (maxColumns == 0 || maxRows == 0) ? maxWidgets : maxColumns * maxRows;
+    const int lastColumnSpan = (m_spanning) ? maxColumns * maxRows - maxWidgets + 1 : 1;
+
+    const int count = qMin(maxWidgets, maxCells);
+    for (int i = 0; i < count; ++i) {
+
+        const int row = (maxColumns > 0) ? (i / maxColumns) : i;
+        const int column = (maxColumns > 0) ? (i % maxColumns) : 0;
+        const int rowSpan = 1;
+        const int columnSpan = (i == count - 1) ? lastColumnSpan : 1;
+
+        layout->addWidget(m_widgets[i], row, column, rowSpan, columnSpan);
+        m_widgets[i]->show();
+    }
+    for (int i = count; i < maxWidgets; ++i)
+        m_widgets[i]->hide();
 }
