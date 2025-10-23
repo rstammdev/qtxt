@@ -42,6 +42,8 @@ public:
     int addWidget(QWidget* widget);
     int insertWidget(const int index, QWidget* widget);
 
+    bool removeWidget(const int index);
+
 public slots:
     void setType(const QxToolGroup::Type type);
     void setTitle(const QString& title);

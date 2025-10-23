@@ -121,3 +121,14 @@ int QxToolGroup::insertWidget(const int index, QWidget* widget)
 
     return m_widgets.indexOf(widget);
 }
+
+
+bool QxToolGroup::removeWidget(const int index)
+{
+    if (index < 0 || index >= m_widgets.size())
+        return false;
+
+    m_widgets.removeAt(index);
+
+    return true;
+}
