@@ -182,6 +182,8 @@ void QxToolPalette::rebuildLayout()
     }
     for (int i = count; i < maxGroups; ++i)
         m_groups[i]->hide();
+
+    layout->setRowStretch(maxRows, 1);
 }
 
 
