@@ -141,6 +141,12 @@ bool QxToolPalette::removeGroup(const int index)
 }
 
 
+QList<QxToolGroup*> QxToolPalette::groups() const
+{
+    return m_groups;
+}
+
+
 int QxToolPalette::groupCount()
 {
     return m_groups.size();

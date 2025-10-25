@@ -46,6 +46,7 @@ public:
 
     bool removeGroup(const int index);
 
+    QList<QxToolGroup*> groups() const;
     int groupCount();
 
 public slots:
