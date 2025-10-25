@@ -157,11 +157,7 @@ int QxToolGroup::widgetCount()
 
 int QxToolGroup::addAction(QAction* action)
 {
-    QToolButton* button = new QToolButton;
-    button->setDefaultAction(action);
-    button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-
-    return addWidget(button);
+    return insertAction(-1, action);
 }
 
 
@@ -169,6 +165,16 @@ void QxToolGroup::addActions(const QList<QAction*>& actions)
 {
     for (QAction* action : actions)
         addAction(action);
+}
+
+
+int QxToolGroup::insertAction(const int index, QAction* action)
+{
+    QToolButton* button = new QToolButton;
+    button->setDefaultAction(action);
+    button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    return insertWidget(index, button);
 }
 
 
