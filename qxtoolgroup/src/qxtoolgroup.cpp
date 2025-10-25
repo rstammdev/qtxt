@@ -176,6 +176,9 @@ void QxToolGroup::addActions(const QList<QAction*>& actions)
 
 int QxToolGroup::insertAction(const int index, QAction* action)
 {
+    if (index < -1 || !action)
+        return -1;
+
     QToolButton* button = new QToolButton;
     button->setDefaultAction(action);
     button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
