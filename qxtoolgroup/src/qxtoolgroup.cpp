@@ -8,6 +8,7 @@
 
 #include "qxtoolgroup.h"
 
+#include <QFrame>
 #include <QGridLayout>
 #include <QLayoutItem>
 #include <QToolButton>
@@ -168,6 +169,19 @@ void QxToolGroup::addActions(const QList<QAction*>& actions)
 {
     for (QAction* action : actions)
         addAction(action);
+}
+
+
+int QxToolGroup::insertSeparator(const int index, const Qt::Orientation orientation)
+{
+    if (index < -1)
+        return -1;
+
+    QFrame* frameLine = new QFrame;
+    frameLine->setFrameShape((orientation == Qt::Vertical) ? QFrame::VLine : QFrame::HLine);
+    frameLine->setFrameShadow(QFrame::Sunken);
+
+    return insertWidget(index, frameLine);
 }
 
 

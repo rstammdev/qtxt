@@ -51,6 +51,8 @@ public:
     int addAction(QAction* action);
     void addActions(const QList<QAction*>& actions);
 
+    int insertSeparator(const int index, const Qt::Orientation orientation = Qt::Vertical);
+
 public slots:
     void setType(const QxToolGroup::Type type);
     void setTitle(const QString& title);
