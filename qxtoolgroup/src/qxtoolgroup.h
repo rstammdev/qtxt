@@ -46,6 +46,7 @@ public:
 
     bool removeWidget(const int index);
 
+    QList<QWidget*> widgets() const;
     int widgetCount();
 
     int addAction(QAction* action);

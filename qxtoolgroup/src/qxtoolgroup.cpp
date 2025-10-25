@@ -149,6 +149,12 @@ bool QxToolGroup::removeWidget(const int index)
 }
 
 
+QList<QWidget*> QxToolGroup::widgets() const
+{
+    return m_widgets;
+}
+
+
 int QxToolGroup::widgetCount()
 {
     return m_widgets.size();
