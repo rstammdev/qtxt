@@ -172,6 +172,12 @@ void QxToolGroup::addActions(const QList<QAction*>& actions)
 }
 
 
+int QxToolGroup::addSeparator(const Qt::Orientation orientation)
+{
+    return insertSeparator(-1, orientation);
+}
+
+
 int QxToolGroup::insertSeparator(const int index, const Qt::Orientation orientation)
 {
     if (index < -1)

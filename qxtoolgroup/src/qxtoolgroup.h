@@ -51,6 +51,7 @@ public:
     int addAction(QAction* action);
     void addActions(const QList<QAction*>& actions);
 
+    int addSeparator(const Qt::Orientation orientation = Qt::Vertical);
     int insertSeparator(const int index, const Qt::Orientation orientation = Qt::Vertical);
 
 public slots:
