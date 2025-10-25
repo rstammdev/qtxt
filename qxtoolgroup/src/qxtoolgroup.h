@@ -49,8 +49,8 @@ public:
     QList<QWidget*> widgets() const;
     int widgetCount();
 
-    int addAction(QAction* action);
     void addActions(const QList<QAction*>& actions);
+    int addAction(QAction* action);
     int insertAction(const int index, QAction* action);
 
     int addSeparator(const Qt::Orientation orientation = Qt::Vertical);

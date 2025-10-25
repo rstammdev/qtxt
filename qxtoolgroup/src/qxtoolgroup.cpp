@@ -161,16 +161,16 @@ int QxToolGroup::widgetCount()
 }
 
 
-int QxToolGroup::addAction(QAction* action)
-{
-    return insertAction(-1, action);
-}
-
-
 void QxToolGroup::addActions(const QList<QAction*>& actions)
 {
     for (QAction* action : actions)
         addAction(action);
+}
+
+
+int QxToolGroup::addAction(QAction* action)
+{
+    return insertAction(-1, action);
 }
 
 
