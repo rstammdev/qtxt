@@ -204,12 +204,14 @@ QWidget* QxToolPalette::groupWrapper(QxToolGroup* group)
 
         QWidget* widgetBox = new QWidget;
         widgetBox->setLayout(layout);
+        widgetBox->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
         return widgetBox;
     }
 
     QGroupBox* groupBox = new QGroupBox;
     groupBox->setLayout(layout);
+    groupBox->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
     if (m_displayMode == DisplayMode::GroupBoxes || (m_displayMode == DisplayMode::Custom && group->type() == QxToolGroup::GroupBox))
         groupBox->setTitle(group->title());
