@@ -161,10 +161,10 @@ int QxToolGroup::widgetCount()
 }
 
 
-void QxToolGroup::addActions(const QList<QAction*>& actions)
+void QxToolGroup::addActions(const QList<QAction*>& actions, const Qt::ToolButtonStyle style)
 {
     for (QAction* action : actions)
-        addAction(action);
+        addAction(action, style);
 }
 
 

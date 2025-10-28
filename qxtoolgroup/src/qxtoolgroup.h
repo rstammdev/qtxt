@@ -49,7 +49,7 @@ public:
     QList<QWidget*> widgets() const;
     int widgetCount();
 
-    void addActions(const QList<QAction*>& actions);
+    void addActions(const QList<QAction*>& actions, const Qt::ToolButtonStyle style = Qt::ToolButtonIconOnly);
     int addAction(QAction* action, const Qt::ToolButtonStyle style = Qt::ToolButtonIconOnly);
     int insertAction(const int index, QAction* action, const Qt::ToolButtonStyle style = Qt::ToolButtonIconOnly);
 
