@@ -50,7 +50,7 @@ public:
     int widgetCount();
 
     void addActions(const QList<QAction*>& actions);
-    int addAction(QAction* action);
+    int addAction(QAction* action, const Qt::ToolButtonStyle style = Qt::ToolButtonIconOnly);
     int insertAction(const int index, QAction* action, const Qt::ToolButtonStyle style = Qt::ToolButtonIconOnly);
 
     int addSeparator(const Qt::Orientation orientation = Qt::Vertical);

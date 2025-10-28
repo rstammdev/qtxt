@@ -168,9 +168,9 @@ void QxToolGroup::addActions(const QList<QAction*>& actions)
 }
 
 
-int QxToolGroup::addAction(QAction* action)
+int QxToolGroup::addAction(QAction* action, const Qt::ToolButtonStyle style)
 {
-    return insertAction(-1, action);
+    return insertAction(-1, action, style);
 }
 
 
