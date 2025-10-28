@@ -174,13 +174,14 @@ int QxToolGroup::addAction(QAction* action)
 }
 
 
-int QxToolGroup::insertAction(const int index, QAction* action)
+int QxToolGroup::insertAction(const int index, QAction* action, const Qt::ToolButtonStyle style)
 {
     if (index < -1 || !action)
         return -1;
 
     QToolButton* button = new QToolButton;
     button->setDefaultAction(action);
+    button->setToolButtonStyle(style);
     button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
     return insertWidget(index, button);

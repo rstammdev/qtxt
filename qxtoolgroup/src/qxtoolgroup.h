@@ -51,7 +51,7 @@ public:
 
     void addActions(const QList<QAction*>& actions);
     int addAction(QAction* action);
-    int insertAction(const int index, QAction* action);
+    int insertAction(const int index, QAction* action, const Qt::ToolButtonStyle style = Qt::ToolButtonIconOnly);
 
     int addSeparator(const Qt::Orientation orientation = Qt::Vertical);
     int insertSeparator(const int index, const Qt::Orientation orientation = Qt::Vertical);
