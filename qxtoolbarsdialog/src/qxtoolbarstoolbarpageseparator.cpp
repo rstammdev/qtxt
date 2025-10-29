@@ -13,16 +13,18 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-#include <qxheadinglabel.h>
+#include <qxlabel.h>
 
 
 QxToolbarsToolbarPageSeparator::QxToolbarsToolbarPageSeparator(QAction* separator, QWidget* parent)
     : QxToolbarsToolbarPage{parent}
     , m_separator{separator}
 {
-    QxHeadingLabel* pageTitle = new QxHeadingLabel;
+    QxLabel* pageTitle = new QxLabel;
+    pageTitle->setFontBold(true);
+    pageTitle->setFontPointSizeF(pageTitle->fontPointSize() * 1.2);
 
-    connect(this, &QxToolbarsToolbarPage::pageTitleChanged, pageTitle, &QxHeadingLabel::setText);
+    connect(this, &QxToolbarsToolbarPage::pageTitleChanged, pageTitle, &QxLabel::setText);
 
     // Visibility
 

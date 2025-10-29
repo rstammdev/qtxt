@@ -14,16 +14,18 @@
 #include <QRadioButton>
 #include <QVBoxLayout>
 
-#include <qxheadinglabel.h>
+#include <qxlabel.h>
 
 
 QxToolbarsToolbarPageButton::QxToolbarsToolbarPageButton(QToolButton* button, QWidget* parent)
     : QxToolbarsToolbarPage{parent}
     , m_button{button}
 {
-    QxHeadingLabel* pageTitle = new QxHeadingLabel;
+    QxLabel* pageTitle = new QxLabel;
+    pageTitle->setFontBold(true);
+    pageTitle->setFontPointSizeF(pageTitle->fontPointSize() * 1.2);
 
-    connect(this, &QxToolbarsToolbarPage::pageTitleChanged, pageTitle, &QxHeadingLabel::setText);
+    connect(this, &QxToolbarsToolbarPage::pageTitleChanged, pageTitle, &QxLabel::setText);
 
     // Style
 

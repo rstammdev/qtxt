@@ -12,7 +12,6 @@ INCLUDEPATH += $$PWD
 include($$PWD/qxcomponentsdialog/qxcomponentsdialog.pri)
 include($$PWD/qxconfirmationbox/qxconfirmationbox.pri)
 include($$PWD/qxdialogheaderbox/qxdialogheaderbox.pri)
-include($$PWD/qxheadinglabel/qxheadinglabel.pri)
 include($$PWD/qxlabel/qxlabel.pri)
 include($$PWD/qxstatusbutton/qxstatusbutton.pri)
 include($$PWD/qxsysinfo/qxsysinfo.pri)
