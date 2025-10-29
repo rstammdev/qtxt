@@ -17,7 +17,6 @@ SUBDIRS += \
     qxdialogheaderbox/examples/dialogheaderbox \
     qxheadinglabel/examples/headinglabel \
     qxlabel/examples/label \
-    qxpanel/examples/panel \
     qxstatusbutton/examples/statusbutton \
     qxthemebutton/examples/themebutton \
     qxsysinfo/examples/sysinfo \
