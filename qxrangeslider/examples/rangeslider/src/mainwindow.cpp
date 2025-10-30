@@ -9,6 +9,7 @@
 #include "mainwindow.h"
 
 #include <QMenuBar>
+#include <QToolBar>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -16,10 +17,13 @@ using namespace Qt::Literals::StringLiterals;
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow{parent}
 {
-    // File menu
+    // File menu & toolbar
 
     QMenu* menuFile = menuBar()->addMenu(tr("&File"));
     menuFile->setObjectName("menuFile"_L1);
+
+    QToolBar* toolbarFile = addToolBar(tr("File Toolbar"));
+    toolbarFile->setObjectName("toolbarFile"_L1);
 
     //
 
