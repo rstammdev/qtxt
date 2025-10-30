@@ -25,4 +25,7 @@ isEmpty(QXRANGESLIDER_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxrangeslider.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }

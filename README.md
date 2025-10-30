@@ -30,6 +30,9 @@ QtXt is a modular Qt 6 framework providing reusable widgets and built-in example
 - [**QxLabel**](qxlabel/README.md)  
   A widget that displays text or an image.
 
+- [**QxRangeSlider**](qxrangeslider/README.md)  
+  A widget that selects a range of values by sliding two handles along a track.
+
 - [**QxStatusButton**](qxstatusbutton/README.md)  
   A tool button that displays the status of the button.
 
