@@ -8,10 +8,20 @@
 
 #include "mainwindow.h"
 
+#include <QMenuBar>
+
+using namespace Qt::Literals::StringLiterals;
+
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow{parent}
 {
+    // File menu
+
+    QMenu* menuFile = menuBar()->addMenu(tr("&File"));
+    menuFile->setObjectName("menuFile"_L1);
+
+    //
 
     resize(640, 480);
 }
