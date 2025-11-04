@@ -27,6 +27,9 @@ QtXt is a modular Qt 6 framework providing reusable widgets and built-in example
 - [**QxDialogHeaderBox**](qxdialogheaderbox/README.md)  
   A widget that presents an icon, title, subtitle, and description.
 
+- [**QxDownloadManager**](qxdownloadmanager/README.md)  
+  A class that downloads files from the Internet in a non-blocking manner and with multiple threads.
+
 - [**QxLabel**](qxlabel/README.md)  
   A widget that displays text or an image.
 

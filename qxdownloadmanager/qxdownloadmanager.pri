@@ -25,4 +25,7 @@ isEmpty(QXDOWNLOADMANAGER_PRI_INCLUDED) {
 
     SOURCES += \
         $$PWD/src/qxdownloadmanager.cpp
+
+    DISTFILES += \
+        $$PWD/README.md
 }
