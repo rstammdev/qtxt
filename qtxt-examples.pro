@@ -15,6 +15,7 @@ SUBDIRS += \
     qxcomponentsdialog/examples/componentsdialog \
     qxconfirmationbox/examples/confirmationbox \
     qxdialogheaderbox/examples/dialogheaderbox \
+    qxdownloadmanager/examples/downloadmanager \
     qxlabel/examples/label \
     qxrangeslider/examples/rangeslider \
     qxstatusbutton/examples/statusbutton \
