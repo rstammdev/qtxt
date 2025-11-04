@@ -19,8 +19,8 @@ SUBDIRS += \
     qxlabel/examples/label \
     qxrangeslider/examples/rangeslider \
     qxstatusbutton/examples/statusbutton \
-    qxthemebutton/examples/themebutton \
     qxsysinfo/examples/sysinfo \
+    qxthemebutton/examples/themebutton \
     qxtoolbarsdialog/examples/toolbarsdialog \
     qxtoolgroup/examples/toolgroup \
     qxtoollabel/examples/toollabel \
